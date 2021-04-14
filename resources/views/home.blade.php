@@ -1,3 +1,6 @@
+
+{{-- MODIFICARE QUI IL CONTENT PER LA PAGINA DOPO ESSERSI LOGGATI (la section content la troviamo in app.blade.php) --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -17,6 +20,19 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+
+            <div class="">
+                <br>
+                <h3>DASHBOARD UTENTE REGISTRATO</h3><br>
+                Email: {{Auth::User()->email}}<br>
+                Nome attività: {{Auth::User()->business_name}}<br>
+                Indirizzo: {{Auth::User()->address}}<br>
+                Partita Iva: {{Auth::User()->PI}}<br>
+                Tipologia ristorante: {{Auth::User()->restaurant_type}}
+            </div>
+
+            <a href="admin/restaurants/create">Create new restaurant</a>
+
         </div>
     </div>
 </div>

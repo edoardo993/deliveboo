@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('business_name');
-            $table->string('address');
-            $table->string('PI');
-            $table->string('restaurant_type');
+            $table->string('business_name', 128);
+            $table->string('address', 128);
+            $table->string('PI', 11);
+            $table->string('restaurant_type', 64);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
