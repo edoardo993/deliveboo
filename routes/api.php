@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('plates', 'Api/ApiController@getPlates');
+
+Route::get('restaurants', 'Api/ApiController@getRestaurants');
+
+Route::get('orders', 'Api/ApiController@getOrders');
+
