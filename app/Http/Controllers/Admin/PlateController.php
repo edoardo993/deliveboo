@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Plate;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,8 @@ class PlateController extends Controller
      */
     public function create()
     {
-        return view('auth.create-plate');
+        $thisRestaurant= $_GET['restaurant'];
+        return view('auth.create-plate',compact('thisRestaurant'));
     }
 
     /**
@@ -39,15 +41,11 @@ class PlateController extends Controller
     {
 
         $data = $request->all();
-
-        dd($data);
-        $currentRestaurant = Auth::user();
         $newPlate = new Plate();
         $newPlate->fill($data);
-        // $newPlate->restaurant_id = $currentUser->id;
         $newPlate->save();
 
-        return redirect()->route('restaurants.show');
+        return redirect()->route('restaurants.index');
     }
 
     /**
@@ -67,9 +65,11 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plate $plate)
     {
-        //
+        $thisRestaurant= $plate->restaurant_id;
+
+        return view('auth.edit-plate', compact('plate','thisRestaurant'));
     }
 
     /**
@@ -79,9 +79,12 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Plate $plate)
     {
-        //
+        $data = $request->all();
+        $plate->update($data);
+        $returnRestaurant=$plate->restaurant_id;
+        return redirect()->route('restaurants.show', ['restaurant' => $returnRestaurant]);
     }
 
     /**

@@ -29,8 +29,8 @@ class MailSender extends Mailable
      */
     public function build()
     {
-        // $currentUser = Auth::user();
+        $currentUser = Auth::user();
 
-        // return $this->markdown('emails.mail.sender');
+        return $this->markdown('emails.mail.sender');
     }
 }

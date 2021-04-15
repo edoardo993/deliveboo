@@ -18,6 +18,19 @@ if (isset($edit) && !empty($edit)) {
      @csrf
      @method($method)
 
+     @if (empty($edit))
+     <div class="form-group">
+        <label for="thisRestaurant">Ristorante n</label>
+        <input type="text"
+            class="form-control"
+            id="thisRestaurant"
+            placeholder="{{$thisRestaurant}}"
+            name="restaurant_id"
+            value= "{{$thisRestaurant}}"
+            >
+    </div>
+     @endif
+
      <div class="form-group">
          <label for="name">Nome piatto</label>
          <input type="text"
@@ -82,12 +95,12 @@ if (isset($edit) && !empty($edit)) {
 
         <label for="visible">Il piatto è disponibile?</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="true" checked>
+            <input class="form-check-input" type="radio" name="visible" id="exampleRadios1" value="1" checked>
             <label class="form-check-label" for="exampleRadios1">Si</label>
         </div>
 
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="false">
+            <input class="form-check-input" type="radio" name="visible" id="exampleRadios2" value="0">
             <label class="form-check-label" for="exampleRadios2">No</label>
         </div>
 
