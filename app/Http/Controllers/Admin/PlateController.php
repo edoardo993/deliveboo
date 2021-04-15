@@ -93,8 +93,12 @@ class PlateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Plate $plate)
     {
-        //
+        $returnRestaurant = $plate->restaurant_id;
+
+        $plate->delete();
+
+        return redirect()->route('restaurants.show', ['restaurant' => $returnRestaurant]);
     }
 }

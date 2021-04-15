@@ -37,6 +37,12 @@ class CreateRestaurantsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
+        Schema::table('restaurants', function(Blueprint $table){
+            $table->dropForeign(['user_id']);
+        });
+
         Schema::dropIfExists('restaurants');
+        Schema::enableForeignKeyConstraints();
     }
 }
