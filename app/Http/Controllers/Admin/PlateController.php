@@ -39,9 +39,12 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
+
         $newPlate = new Plate();
         $newPlate->fill($data);
+
         $newPlate->save();
         $returnRestaurant = $newPlate->restaurant_id;
 

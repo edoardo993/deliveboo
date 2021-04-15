@@ -79,15 +79,16 @@ if (isset($edit) && !empty($edit)) {
      <div class="form-group">
          <label for="price">Prezzo piatto</label>
          <input type="number"
-             class="form-control {{ $errors->has('price') ? 'is-invalid' : ''}}"
-             id="price"
-             placeholder="Inserisci il prezzo"
-             name="price"
-             value="{{$edit ? $plate->price : '' }}"
-             required
+            class="form-control {{ $errors->has('price') ? 'is-invalid' : ''}}"
+            id="price"
+            placeholder="Inserisci il prezzo"
+            name="price"
+            value="{{$edit ? $plate->price : '' }}"
+            required
+            step="0.01"
          >
          <div class="invalid-feedback">
-            {{-- {{$errors->first('price')}} --}}
+            {{$errors->first('price')}}
          </div>
      </div>
 
