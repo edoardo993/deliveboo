@@ -14,6 +14,7 @@
         <div class="card-body">
         <h5 class="card-title">{{$plate->name}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{$plate->price}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">{{$plate->typology}}</h6>
         <p class="card-text">{{$plate->description}}</p>
         <a href="{{route('plates.edit', ['plate' => $plate->id])}}">Modifica piatto</a>
         <a href="{{ route('restaurants.index') }}" class="card-link">Torna alla home</a>

@@ -47,18 +47,23 @@ if (isset($edit) && !empty($edit)) {
      </div>
 
      <div class="form-group">
-         <label for="typology">Tipologia piatto</label>
-         <input type="text"
+         <label for="typology">Tipologia piatto</label><br>
+         {{-- <input type="text"
              class="form-control {{ $errors->has('typology') ? 'is-invalid' : ''}}"
              id="typology"
              placeholder="Inserisci la tipologia"
              name="typology"
              value="{{$edit ? $plate->typology : '' }}"
              required
-         >
-         <div class="invalid-feedback">
-             {{$errors->first('typology')}}
-         </div>
+         > --}}
+         <select class="form-select" aria-label="Default select example" name="typology">
+            <option selected value="antipasti">Antipasti</option>
+            <option value="primi">Primi piatti</option>
+            <option value="secondi">Secondi piatti</option>
+            <option value="pizza">Pizza</option>
+            <option value="bevanda">Bevanda</option>
+            <option value="dolce">Dolce</option>
+          </select>
      </div>
 
      <div class="form-group">
