@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Plate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlateController extends Controller
 {
@@ -24,7 +26,7 @@ class PlateController extends Controller
      */
     public function create()
     {
-        return view('auth.edit-plate');
+        return view('auth.create-plate');
     }
 
     /**
@@ -35,7 +37,17 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = $request->all();
+
+        dd($data);
+        $currentRestaurant = Auth::user();
+        $newPlate = new Plate();
+        $newPlate->fill($data);
+        // $newPlate->restaurant_id = $currentUser->id;
+        $newPlate->save();
+
+        return redirect()->route('restaurants.show');
     }
 
     /**

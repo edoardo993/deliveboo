@@ -19,32 +19,32 @@ if (isset($edit) && !empty($edit)) {
      @method($method)
 
      <div class="form-group">
-         <label for="business_name">Nome piatto</label>
+         <label for="name">Nome piatto</label>
          <input type="text"
-             class="form-control {{ $errors->has('business_name') ? 'is-invalid' : ''}}"
-             id="business_name"
+             class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}"
+             id="name"
              placeholder="Inserisci il nome del tuo piatto"
-             name="business_name"
-             value="{{$edit ? $restaurant->business_name : '' }}"
+             name="name"
+             value="{{$edit ? $plate->name : '' }}"
              required
          >
          <div class="invalid-feedback">
-             {{$errors->first('business_name')}}
+             {{$errors->first('name')}}
          </div>
      </div>
 
      <div class="form-group">
-         <label for="restaurant_type">Tipologia piatto</label>
+         <label for="typology">Tipologia piatto</label>
          <input type="text"
-             class="form-control {{ $errors->has('restaurant_type') ? 'is-invalid' : ''}}"
-             id="restaurant_type"
+             class="form-control {{ $errors->has('typology') ? 'is-invalid' : ''}}"
+             id="typology"
              placeholder="Inserisci la tipologia"
-             name="restaurant_type"
-             value="{{$edit ? $restaurant->restaurant_type : '' }}"
+             name="typology"
+             value="{{$edit ? $plate->typology : '' }}"
              required
          >
          <div class="invalid-feedback">
-             {{$errors->first('restaurant_type')}}
+             {{$errors->first('typology')}}
          </div>
      </div>
 
@@ -55,7 +55,7 @@ if (isset($edit) && !empty($edit)) {
              id="description"
              placeholder="Inserisci la descrizione"
              name="description"
-             value="{{$edit ? $restaurant->description : '' }}"
+             value="{{$edit ? $plate->description : '' }}"
              required
          >
          <div class="invalid-feedback">
@@ -64,50 +64,33 @@ if (isset($edit) && !empty($edit)) {
      </div>
 
      <div class="form-group">
-         <label for="opening_hours">Orari piatto</label>
-         <input type="text"
-             class="form-control {{ $errors->has('opening_hours') ? 'is-invalid' : ''}}"
-             id="opening_hours"
-             placeholder="Inserisci gli orari"
-             name="opening_hours"
-             value="{{$edit ? $restaurant->opening_hours : '' }}"
+         <label for="price">Prezzo piatto</label>
+         <input type="number"
+             class="form-control {{ $errors->has('price') ? 'is-invalid' : ''}}"
+             id="price"
+             placeholder="Inserisci il prezzo"
+             name="price"
+             value="{{$edit ? $plate->price : '' }}"
              required
          >
          <div class="invalid-feedback">
-             {{$errors->first('opening_hours')}}
+             {{$errors->first('price')}}
          </div>
      </div>
 
      <div class="form-group">
-         <label for="address">Indirizzo piatto</label>
-         <input type="text"
-             class="form-control {{ $errors->has('address') ? 'is-invalid' : ''}}"
-             id="address"
-             placeholder="Inserisci l'indirizzo"
-             name="address"
-             value="{{$edit ? $restaurant->address : '' }}"
-             required
-         >
-         <div class="invalid-feedback">
-             {{$errors->first('address')}}
-         </div>
-     </div>
 
+        <label for="visible">Il piatto è disponibile?</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="true" checked>
+            <label class="form-check-label" for="exampleRadios1">Si</label>
+        </div>
 
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="false">
+            <label class="form-check-label" for="exampleRadios2">No</label>
+        </div>
 
-     <div class="form-group">
-         <label for="pic_url">Immagine piatto</label>
-         <input type="text"
-             class="form-control {{ $errors->has('pic_url') ? 'is-invalid' : ''}}"
-             id="pic_url"
-             placeholder="Inserisci l'immagine"
-             name="pic_url"
-             value="{{$edit ? $restaurant->pic_url : '' }}"
-             required
-         >
-         <div class="invalid-feedback">
-             {{$errors->first('pic_url')}}
-         </div>
      </div>
 
      <button type="submit" class="btn btn-primary">{{$submit}}</button>

@@ -28,4 +28,6 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function () {
     Route::resource('restaurants', 'RestaurantController');
+    Route::resource('plates', 'PlateController');
+
 });

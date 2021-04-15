@@ -9,6 +9,6 @@
 <body>
     {{$restaurant->business_name}}<br>
 
-    <a href="{{ route('plates.create')}}">Inserisci un nuovo piatto</a>
+    <a href="{{ route('plates.create', ['restaurant' => $restaurant])}}">Inserisci un nuovo piatto</a>
 </body>
 </html>

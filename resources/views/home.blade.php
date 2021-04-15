@@ -38,7 +38,7 @@
                 @endforeach
             </div>
 
-            <a href="restaurants/create">Crea nuovo ristorante</a>
+            <a href="admin/restaurants/create">Crea nuovo ristorante</a>
 
 
         </div>
