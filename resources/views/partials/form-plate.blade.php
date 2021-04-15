@@ -19,7 +19,7 @@ if (isset($edit) && !empty($edit)) {
      @method($method)
 
      @if (empty($edit))
-     <div class="form-group">
+     <div class="form-group" style="display: none">
         <label for="thisRestaurant">Ristorante n</label>
         <input type="text"
             class="form-control"
@@ -27,7 +27,7 @@ if (isset($edit) && !empty($edit)) {
             placeholder="{{$thisRestaurant}}"
             name="restaurant_id"
             value= "{{$thisRestaurant}}"
-            >
+        >
     </div>
      @endif
 
@@ -87,7 +87,7 @@ if (isset($edit) && !empty($edit)) {
              required
          >
          <div class="invalid-feedback">
-             {{$errors->first('price')}}
+            {{-- {{$errors->first('price')}} --}}
          </div>
      </div>
 

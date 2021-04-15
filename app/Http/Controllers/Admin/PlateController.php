@@ -39,13 +39,13 @@ class PlateController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = $request->all();
         $newPlate = new Plate();
         $newPlate->fill($data);
         $newPlate->save();
+        $returnRestaurant = $newPlate->restaurant_id;
 
-        return redirect()->route('restaurants.index');
+        return redirect()->route('restaurants.show', ['restaurant' => $returnRestaurant]);
     }
 
     /**

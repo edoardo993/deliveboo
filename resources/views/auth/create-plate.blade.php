@@ -9,9 +9,10 @@
 </head>
 </head>
 <body>
+
     <div class="form-container">
-        <h1>{{$thisRestaurant}}</h1>
         @include('partials.form-plate', ['edit' => false])
     </div>
+
 </body>
 </html>
