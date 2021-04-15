@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailSender;
+use App\Restaurant;
+
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $currentUser = Auth::user();
+
+        $userRestaurants = Restaurant::where('user_id', $currentUser->id)->get();
+
+        // Mail::to($currentUser->email)->send(new MailSender());
+
+        return view('home', compact('userRestaurants'));
     }
 }

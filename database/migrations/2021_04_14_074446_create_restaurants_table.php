@@ -16,9 +16,12 @@ class CreateRestaurantsTable extends Migration
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('pic_url', 2048);
-            $table->string('opening_hours');
+            $table->string('business_name', 128);
+            $table->string('restaurant_type', 64);
             $table->string('description', 2048);
+            $table->string('opening_hours');
+            $table->string('address', 128);
+            $table->string('pic_url', 2048);
             $table->timestamps();
 
             $table->foreign('user_id')

@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-</head>
 </head>
 <body>
-    <div class="form-container">
-        @include('partials.form', ['edit' => false])
-    </div>
+    {{$restaurant->business_name}}<br>
+
+    <a href="{{ route('plates.create')}}">Inserisci un nuovo piatto</a>
 </body>
 </html>

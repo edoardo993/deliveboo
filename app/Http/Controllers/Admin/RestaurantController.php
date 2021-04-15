@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
 use App\Restaurant;
+
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
@@ -17,9 +20,10 @@ class RestaurantController extends Controller
     public function index()
     {
         $currentUser = Auth::user();
+
         $userRestaurants = Restaurant::where('user_id', $currentUser->id)->get();
 
-        return view('auth.user-restaurant-list', compact('userRestaurants'));
+        return view('home', compact('userRestaurants'));
     }
 
     /**
@@ -54,12 +58,12 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Restaurant $restaurant)
     {
-        //
+        return view('this-restaurant', compact('restaurant'));
     }
 
     /**
@@ -68,9 +72,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        return view('auth.edit-restaurant', compact('restaurant'));
     }
 
     /**
@@ -80,9 +84,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->all();
+        $restaurant->update($data);
+
+        return redirect()->route('restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -91,8 +98,10 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $restaurant->delete();
+
+        return redirect()->route('restaurants.index');
     }
 }

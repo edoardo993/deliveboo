@@ -3,10 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\MailSender;
 use App\Providers\RouteServiceProvider;
+
 use App\User;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
+
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -50,12 +55,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'name' => ['required', 'string', 'max:64'],
+            'lastname' => ['required', 'string', 'max:64'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'business_name' => ['required', 'string', 'max:128'],
-            'address' => ['required', 'string', 'max:128'],
-            'PI' => ['required', 'string', 'max:11'],
-            'restaurant_type' => ['required', 'string', 'max:64']
+            'PI' => ['required', 'string', 'max:11']
         ]);
     }
 
@@ -68,12 +72,11 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+            'name' => $data['name'],
+            'lastname' => $data['lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'business_name' => $data['business_name'],
-            'address' => $data['address'],
-            'PI' => $data['PI'],
-            'restaurant_type' => $data['restaurant_type']
+            'PI' => $data['PI']
         ]);
     }
 }

@@ -4,36 +4,45 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
 
             <div class="">
                 <br>
                 <h3>DASHBOARD UTENTE REGISTRATO</h3><br>
+                Nome: {{Auth::User()->name}}<br>
+                Cognome: {{Auth::User()->lastname}}<br>
                 Email: {{Auth::User()->email}}<br>
-                Nome attività: {{Auth::User()->business_name}}<br>
-                Indirizzo: {{Auth::User()->address}}<br>
-                Partita Iva: {{Auth::User()->PI}}<br>
-                Tipologia ristorante: {{Auth::User()->restaurant_type}}
+                Partita Iva: {{Auth::User()->PI}}
             </div>
 
-            <a href="admin/restaurants/create">Create new restaurant</a>
+            <div class="">
+                @foreach ($userRestaurants as $userRestaurant)
+                    <img src="{{$userRestaurant->pic_url}}" width= "150">
+                    <div>{{$userRestaurant->opening_hours}}</div>
+                    <div><a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">{{$userRestaurant->business_name}}</a></div>
+                    <div>{{$userRestaurant->description}}</div>
+                    <a href="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">Modifica ristorante</a>
+
+                    <form action="{{route('restaurants.destroy',['restaurant' => $userRestaurant->id])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$userRestaurant->id}}">
+                            <i class="fas fa-bomb"></i>
+                        </button>
+                        @include('partials.delete-modal',['restaurant'=> $userRestaurant->id])
+                    </form>
+
+                @endforeach
+            </div>
+
+            <a href="restaurants/create">Crea nuovo ristorante</a>
+
 
         </div>
     </div>
 </div>
+
 @endsection

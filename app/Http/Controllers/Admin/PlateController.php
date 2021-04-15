@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
-
-use App\Restaurant;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
 
-class RestaurantController extends Controller
+class PlateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,17 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $data = Restaurant::all();
-        return response()->json($data);
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('auth.edit-plate');
     }
 
     /**
@@ -39,6 +45,17 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
         //
     }
