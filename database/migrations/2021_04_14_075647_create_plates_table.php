@@ -36,13 +36,6 @@ class CreatePlatesTable extends Migration
      */
     public function down()
     {
-
-        Schema::disableForeignKeyConstraints();
-        Schema::table('plates', function(Blueprint $table){
-            $table->dropForeign(['restaurant_id']);
-        });
-
         Schema::dropIfExists('plates');
-        Schema::enableForeignKeyConstraints();
     }
 }
