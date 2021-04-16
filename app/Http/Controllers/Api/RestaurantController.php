@@ -10,15 +10,29 @@ use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
 {
+    public function index()
+    {
+        $data = Restaurant::all();
+        return response()->json($data);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function search(Request $request)
     {
-        $data = Restaurant::all();
-        return response()->json($data)->get();
+        $str = $request->str;
+        $restaurant = Restaurant::orderBy('id', 'desc')->with(['categories'])->select('id', 'business_name');
+        if ($str) {
+           $restaurant->where('business_name', $str)
+           ->orWhereHas('categories',function($q) use($str){
+               $q->where('name', $str);
+           });
+        }
+
+        $finalArray= $restaurant->get();
+        return response()->json($finalArray);
     }
 
 
