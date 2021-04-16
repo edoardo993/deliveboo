@@ -23,6 +23,8 @@ Route::get('plates', 'Api\PlateController@index');
 
 Route::get('restaurants', 'Api\RestaurantController@index');
 
+Route::get('restaurants/search', 'Api\RestaurantController@search');
+
 Route::get('orders', 'Api\OrderController@index');
 
 Route::get('categories', 'Api\CategoryController@index');
