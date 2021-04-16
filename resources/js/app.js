@@ -26,6 +26,35 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
 const app = new Vue({
     el: '#app',
-});
+    data: {
+     results:[],
+     restaurantList:[],
+     userSearch:'',
+    },
+    methods:{
+        search() {
+            this.results = [];
+            this.searchrestaurant();
+          },
+          searchrestaurant() {
+            const self = this;
+            axios
+              .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
+              .then(function(result) {
+                console.log(result.data)
+                const restaurantList = result.data;
+
+                self.restaurantList = restaurantList;
+                self.results = [...self.restaurantList,...self.results]
+                self.userSearch = '';
+
+
+              });
+          }
+    }
+  })
+  Vue.config.devtools = true
