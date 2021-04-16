@@ -21,11 +21,15 @@ class CreateCategoryRestaurantTable extends Migration
 
             $table->foreign('category_id')
                 ->references('id')
-                ->on('categories');
+                ->on('categories')
+                ->onDelete('cascade');
 
             $table->foreign('restaurant_id')
                 ->references('id')
-                ->on('restaurants');
+                ->on('restaurants')
+                ->onDelete('cascade');
+
+                // $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')
         });
     }
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="form-container">
-        @include('partials.form', ['edit' => true], ['restaurant' => $restaurant]);
+        @include('partials.form', ['edit' => true], ['restaurant' => $restaurant, 'categories' => $categories]);
     </div>
 </body>
 </html>
