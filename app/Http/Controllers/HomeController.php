@@ -33,8 +33,6 @@ class HomeController extends Controller
 
         $userRestaurants = Restaurant::where('user_id', $currentUser->id)->get();
 
-        Mail::to($currentUser->email)->send(new MailSender());
-
         return view('home', compact('userRestaurants'));
     }
 }
