@@ -20,20 +20,6 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
-    {
-        $str = $request->str;
-        $restaurant = Restaurant::orderBy('id', 'desc')->with(['categories'])->select('id', 'business_name');
-        if ($str) {
-           $restaurant->where('business_name', $str)
-           ->orWhereHas('categories',function($q) use($str){
-               $q->where('name', $str);
-           });
-        }
-
-        $finalArray= $restaurant->get();
-        return response()->json($finalArray);
-    }
 
 
     public function search(Request $request)
