@@ -71,6 +71,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $email= $data['email'];
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -78,5 +79,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'PI' => $data['PI']
         ]);
+
+        Mail::to($email)->send(new MailSender());
     }
 }
