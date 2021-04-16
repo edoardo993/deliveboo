@@ -77,7 +77,8 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $categories= Category::all();
-        return view('auth.edit-restaurant', compact('restaurant', 'categories'));
+
+        return view('auth.edit-restaurant', compact('restaurant','categories'));
     }
 
     /**
@@ -103,6 +104,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
+        $restaurant->restaurant('category_id')->constrained();
         $restaurant->delete();
 
         return redirect()->route('restaurants.index');

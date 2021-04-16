@@ -1,4 +1,5 @@
 @php
+
    if (isset($edit) && !empty($edit)) {
     $title='Modifica questo ristorante';
     $method='PUT';
