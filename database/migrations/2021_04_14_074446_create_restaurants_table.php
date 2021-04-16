@@ -17,7 +17,6 @@ class CreateRestaurantsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('business_name', 128);
-            $table->string('restaurant_type', 64);
             $table->string('description', 2048);
             $table->string('opening_hours');
             $table->string('address', 128);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 
 use App\Restaurant;
@@ -33,7 +34,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('auth.create-restaurant');
+        $categories= Category::all();
+        return view('auth.create-restaurant',compact('categories'));
     }
 
     /**
@@ -51,7 +53,7 @@ class RestaurantController extends Controller
         $newRestaurant->fill($data);
         $newRestaurant->user_id = $currentUser->id;
         $newRestaurant->save();
-
+        $newRestaurant->categories()->attach($data['categories']);
         return redirect()->route('restaurants.index');
     }
 

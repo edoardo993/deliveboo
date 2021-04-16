@@ -19,11 +19,29 @@
             </div>
 
             <div class="">
+
                 @foreach ($userRestaurants as $userRestaurant)
+
                     <img src="{{$userRestaurant->pic_url}}" width= "150">
-                    <div>{{$userRestaurant->opening_hours}}</div>
-                    <div><a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">{{$userRestaurant->business_name}}</a></div>
-                    <div>{{$userRestaurant->description}}</div>
+
+                    <div>Orari ristorante: {{$userRestaurant->opening_hours}}</div>
+
+                    <div>Nome:
+                        <a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
+                            {{$userRestaurant->business_name}}
+                        </a>
+                    </div>
+
+                    <div>Descrizione: {{$userRestaurant->description}}</div>
+
+                    <div>Categorie:
+                        <div>
+                            @foreach ($userRestaurant ->categories as $category)
+                            <div>{{$category->name}}</div>
+                            @endforeach
+                        </div>
+                    </div>
+
                     <a href="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">Modifica ristorante</a>
 
                     <form action="{{route('restaurants.destroy',['restaurant' => $userRestaurant->id])}}" method="post">
@@ -36,10 +54,10 @@
                     </form>
 
                 @endforeach
+
             </div>
 
             <a href="{{route('restaurants.create')}}">Crea nuovo ristorante</a>
-
 
 
         </div>
