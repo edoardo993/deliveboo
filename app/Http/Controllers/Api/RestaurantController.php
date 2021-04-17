@@ -25,7 +25,7 @@ class RestaurantController extends Controller
     public function search(Request $request)
     {
         $str = $request->str;
-        $restaurant = Restaurant::orderBy('id','desc')->with(['categories'])->select('id','business_name');
+        $restaurant = Restaurant::orderBy('id','desc')->with(['categories'])->select('id', 'business_name', 'pic_url', 'address', 'description', 'opening_hours');
         if ($str) {
            $restaurant->where('business_name',$str)
            ->orWhereHas('categories',function($q) use($str){
@@ -33,8 +33,8 @@ class RestaurantController extends Controller
            });
         }
 
-         $finalArray= $restaurant->get();
-         return response()->json($finalArray);
+        $finalArray= $restaurant->get();
+        return response()->json($finalArray);
     }
 
     /**

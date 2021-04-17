@@ -42,15 +42,27 @@
 
                 </nav>
 
-                <div class="jumbotron-delivery">
+                <div class="jumbotron-delivery restaurant-card">
 
                     <div class="input-group">
-                        <input v-model='userSearch' v-on:keyup.enter="search()" class="form-control" type="search" placeholder="Cerca un ristorante">
+                        <input v-model='userSearch'
+                            v-on:keyup.enter="search()"
+                            class="form-control"
+                            type="search"
+                            placeholder="Cerca un ristorante"
+                        >
                     </div>
 
+                    <div class="restaurant-card">
 
+                        <prova v-for='(restaurant, index) in results'
+                            :key='index'
+                            :results='restaurant'
+                            :categories="restaurant.categories"
+                        >
+                        </prova>
 
-
+                    </div>
 
                 </div>
 
@@ -60,5 +72,6 @@
         </div>
 
         <script src="{{asset('js/app.js')}}"></script>
+
     </body>
 </html>

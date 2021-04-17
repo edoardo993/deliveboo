@@ -19,6 +19,7 @@ require('./bootstrap');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('prova', require('./components/Prova.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,9 +32,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     data: {
-     results:[],
-     restaurantList:[],
-     userSearch:'',
+        results:[],
+        // restaurantList:[],
+        userSearch: '',
     },
     methods:{
         search() {
@@ -46,13 +47,11 @@ const app = new Vue({
               .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
               .then(function(result) {
                 console.log(result.data)
-                const restaurantList = result.data;
+                self.results = result.data;
 
-                self.restaurantList = restaurantList;
-                self.results = [...self.restaurantList,...self.results]
+                // self.restaurantList = restaurantList;
+                // self.results = [...self.restaurantList,...self.results]
                 self.userSearch = '';
-
-
               });
           }
     }
