@@ -42,7 +42,7 @@
 
                 </nav>
 
-                <div class="jumbotron">
+                <div class="jumbotron-delivery">
 
                     <div class="input-group">
                         <input v-model='userSearch' v-on:keyup.enter="search()" class="form-control" type="search" placeholder="Cerca un ristorante">
