@@ -15,9 +15,9 @@ header {
     }
 
     .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
+         align-items: center;
+         display: flex;
+         justify-content: center;
     }
 
     .position-ref {
@@ -30,13 +30,13 @@ header {
         top: 18px;
     }
 
-    .content {
-        text-align: center;
-    }
+    // .content {
+    //     text-align: center;
+    // }
 
-    .title {
-        font-size: 84px;
-    }
+    // .title {
+    //     font-size: 84px;
+    // }
 
     .links > a {
         color: #636b6f;
@@ -48,24 +48,25 @@ header {
         text-transform: uppercase;
     }
 
-    .m-b-md {
-        margin-bottom: 30px;
-    }
+    // .m-b-md {
+    //     margin-bottom: 30px;
+    // }
      nav{
         height: 75px;
     }
 
-    .jumbotron{
-        width: 100%;
+    .jumbotron-delivery{
+        // width: 100%;
         height: calc(100vh - 75px);
-        background: rgb(255,51,102);
+        // background: rgb(255,51,102);
         background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
-        display: flex;
-        justify-content: center;
-        align-content: center;
+        padding: 50px 200px;
+        // display: flex;
+        // justify-content: center;
+        // align-content: center;
         .form-control{
             height: 30px;
-            width: 60%;
+            // width: 60%;
             border-radius: 5px;
             border: none;
         }
