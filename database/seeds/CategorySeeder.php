@@ -12,7 +12,19 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $array=['Cucina Italiana','Cucina Cinese','Cucina Giapponese','Cucina Americana','Cucina Indiana','Cucina Greca','Cucina Asiatica','Cucina Messicana','Cucina Sudamericana','Pizzeria','Paninoteca'];
+        $array=[
+            'Italiana',
+            'Cinese',
+            'Giapponese',
+            'Americana',
+            'Indiana',
+            'Greca',
+            'Asiatica',
+            'Messicana',
+            'Sudamericana',
+            'Pizzeria',
+            'Paninoteca'
+        ];
         for($i=0; $i < count($array); $i++) {
             $category = new Category();
             $category->name = $array[$i];
