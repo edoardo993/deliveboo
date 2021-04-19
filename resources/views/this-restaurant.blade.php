@@ -8,91 +8,6 @@
     <title>Document</title>
 </head>
 
-{{-- <style>
-    .plate-container{
-        background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
-        width: 100vw;
-    }
-
-    .plate-center{
-        width: 1200px;
-        margin: 0 auto;
-        height: 100%;
-    }
-
-    .nav-one{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 80px;
-    }
-
-    .nav-two{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 80px;
-        background-color: #fff;
-        display: none;
-    }
-
-    .business-name{
-        text-align: center;
-    }
-
-    .card-plate-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-
-    .card-plate-container-left,.card-plate-container-right{
-        width: 380px;
-        height: 220px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 5px 10px 18px rgba(255,51,102,1);
-    }
-
-    .space-card-plate-container-right{
-        margin: 15px 0 15px 0;
-    }
-
-    .space-card-plate-container-left{
-        margin-bottom: 15px;
-    }
-
-    .footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .link-btn{
-        color: #fff;
-        text-decoration: none;
-        pointer-events: none;
-    }
-
-    .link-btn-card-plate-container-right{
-        color: black;
-        text-decoration: none;
-    }
-
-    .noHover{
-    pointer-events: none;
-}
-
-</style> --}}
 <body>
 
     <div class="plate-container">
@@ -103,34 +18,7 @@
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
 
-            <nav class="nav-two" v-if="scrollpx > 10">
-                <h1>DELIVERBOO</h1>
-                <div> <strong>{{$restaurant->business_name}}</strong> </div>
-            </nav>
-
             <h2 class="business-name">{{$restaurant->business_name}}</h2>
-
-            {{-- @foreach ($restaurant->plates as $plate)
-             <div class="card" style="width: 18rem;">
-                 <div class="card-body">
-                 <h5 class="card-title">{{$plate->name}}</h5>
-                 <h6 class="card-subtitle mb-2 text-muted">{{$plate->price}}</h6>
-                 <h6 class="card-subtitle mb-2 text-muted">{{$plate->typology}}</h6>
-                 <p class="card-text">{{$plate->description}}</p>
-                 <a href="{{route('plates.edit', ['plate' => $plate->id])}}">Modifica piatto</a>
-                 <a href="{{ route('restaurants.index') }}" class="card-link">Torna alla home</a>
-                 </div>
-             </div>
-
-             <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
-                 @csrf
-                 @method('DELETE')
-                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
-                     Elimina piatto
-                 </button>
-                 @include('partials.delete-modal-plate', ['plate'=> $plate->id])
-                 </form>
-            @endforeach --}}
 
             @foreach ($restaurant->plates as $plate)
             <div class="card-plate-container">
@@ -145,19 +33,20 @@
 
                 <div class="card-plate-container-right">
 
-                        {{-- <div><a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="link-btn-card-plate-container-right">Modifica piatto</a></div> --}}
-                        <button class="btn btn-danger linnk-bt">
-                            <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="link-btn">Modifica piatto</a>
-                        </button>
-                        <button class="btn btn-danger linnk-bt" type="button">
-                            <a href="{{ route('restaurants.index') }}" class="link-btn">Torna alla home</a>
-                        </button>
-                        {{-- <div class="space-card-plate-container-right"><a href="{{ route('restaurants.index') }}" class="link-btn-card-plate-container-right">Torna alla home</a></div> --}}
+                        <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="text-decoration-none">
+                            <button class="utility-button">Modifica testo</button>
+                        </a>
+
+
+                        <a class="text-decoration-none" href="{{ route('restaurants.index') }}">
+                            <button class="utility-button" type="button">Torna alla home</button>
+                        </a>
+
                         <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn btn-danger linnk-bt" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
-                                Elimina piatto
+                            <button type="button" class="utility-button" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
+                                <span class="red">Elimina piatto</span>
                             </button>
                             @include('partials.delete-modal-plate', ['plate'=> $plate->id])
                         </form>
@@ -168,17 +57,15 @@
 
              <div class="footer">
                 <div>
-                    <button type="button" class="btn btn-danger">
-                        <a class="link-btn" href="{{ route('plates.create', ['restaurant' => $restaurant])}}">Inserisci un nuovo piatto</a>
-                    </button>
 
-                    {{-- <form action="{{route('plates.create', ['restaurant' => $restaurant])}}">
-                        <button type="submit" class="user-button">Crea nuovo piatto</button>
-                    </form> --}}
+                    <a class="text-decoration-none" href="{{ route('plates.create', ['restaurant' => $restaurant])}}">
+                        <button type="button" class="utility-button">Inserisci un nuovo piatto</button>
+                    </a>
 
-                    <button type="button" class="btn btn-danger">
-                        <a class="link-btn" href="{{route('restaurants.index')}}">Torna ai tuoi ristoranti</a>
-                    </button>
+                    <a class="text-decoration-none" href="{{route('restaurants.index')}}">
+                        <button type="button" class="utility-button">Torna ai tuoi ristoranti</button>
+                    </a>
+
                 </div>
              </div>
         </div>

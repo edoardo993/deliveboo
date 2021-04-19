@@ -3,7 +3,7 @@
 .plate-container{
     background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
     width: 100vw;
-
+    height: 100vh;
     .plate-center{
         width: 1200px;
         margin: 0 auto;
@@ -16,16 +16,6 @@
             height: 80px;
         }
 
-        .nav-two{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-            background-color: #fff;
-            display: none;
-        }
-
         .business-name{
             text-align: center;
         }
@@ -36,6 +26,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            background-color:  rgba(255,219,171,1);
+            box-shadow: 5px 10px 18px rgba(255,51,102,1);
 
             .card-plate-container-left{
                 width: 380px;
@@ -44,9 +36,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background-color: #fff;
                 border-radius: 5px;
-                box-shadow: 5px 10px 18px rgba(255,51,102,1);
 
                 .space-card-plate-container-left{
                     margin: 15px 0 15px 0;
@@ -60,15 +50,7 @@
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
-                background-color: #fff;
                 border-radius: 5px;
-                box-shadow: 5px 10px 18px rgba(255,51,102,1);
-
-                .link-bt{
-                    color: #fff;
-                    text-decoration: none;
-                    pointer-events: none;
-                }
             }
 
         }
@@ -78,21 +60,30 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-
-            .link-bt{
-                color: #fff;
-                text-decoration: none;
-                pointer-events: none;
-            }
         }
     }
 
 }
 
+.utility-button{
+    width: 182px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: white;
+    cursor: pointer
+}
 
+.red{
+    color: rgba(255,51,102,1);
+}
 
-
-
+@media screen and (min-width: 360px) and (max-width: 768px){
+    .nav-one{
+        width: 768px;
+    }
+}
 
 
 
