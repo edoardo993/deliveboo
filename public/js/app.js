@@ -1856,9 +1856,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Visuals_CasesBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Visuals/CasesBar */ "./resources/js/components/Visuals/CasesBar.vue");
-//
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -1876,38 +1881,83 @@ __webpack_require__.r(__webpack_exports__);
 //
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
-
+Vue.component('cases-bar', __webpack_require__(/*! ../components/Visuals/CasesBar.vue */ "./resources/js/components/Visuals/CasesBar.vue").default);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      labels: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
-      opening_hours: [1, 20, 50, 800, 1000, 100000, 534, 45, 12, 677, 800, 456]
+      labels: [],
+      confirmed: []
     };
   },
-  components: {
-    CasesBar: _components_Visuals_CasesBar__WEBPACK_IMPORTED_MODULE_0__.default
-  } //     async created() {
-  //   const { data } = await axios.get("http://127.0.0.1:8000/api/restaurants");
-  //   var c=0
-  //   console.log(data)
-  //   for(var i=0;i<1000;i++){
-  //     if(data[i]){
-  //             if (data[i].business_name in this.labels){
-  //               continue
-  //             }
-  //             else{
-  //               this.labels.push(data[i].business_name)
-  //             //   this.opening_hours.push(data[i].opening_hours)
-  //               c=c+1
-  //               if(c==12){
-  //                 break
-  //               }
-  //             }
-  //           }
-  //   }
-  // console.log(this.labels)
-  // }
+  created: function created() {
+    var _this = this;
 
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var _yield$axios$get, data, c, i;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get("http://127.0.0.1:8000/api/restaurants");
+
+            case 2:
+              _yield$axios$get = _context.sent;
+              data = _yield$axios$get.data;
+              c = 0;
+              console.log(data);
+              i = 0;
+
+            case 7:
+              if (!(i < 20)) {
+                _context.next = 21;
+                break;
+              }
+
+              if (!data[i]) {
+                _context.next = 18;
+                break;
+              }
+
+              if (!(data[i].business_name in _this.labels)) {
+                _context.next = 13;
+                break;
+              }
+
+              return _context.abrupt("continue", 18);
+
+            case 13:
+              _this.labels.push(data[i].business_name);
+
+              _this.confirmed.push(i + 500);
+
+              c = c + 1;
+
+              if (!(c == 12)) {
+                _context.next = 18;
+                break;
+              }
+
+              return _context.abrupt("break", 21);
+
+            case 18:
+              i++;
+              _context.next = 7;
+              break;
+
+            case 21:
+              console.log(_this.labels);
+              console.log(_this.confirmed);
+
+            case 23:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
 });
 
 /***/ }),
@@ -2069,7 +2119,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register.apply(chart_js__WEBPACK_IMP
                 data: {
                   labels: ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
                   datasets: [{
-                    label: 'DATAS',
+                    label: 'Stats',
                     backgroundColor: 'rgba(144,238,144 , 0.9 )',
                     data: [1, 20, 50, 800, 1000, 100000, 534, 45, 12, 677, 800, 456]
                   }]
@@ -2095,7 +2145,68 @@ chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register.apply(chart_js__WEBPACK_IMP
       }, _callee);
     }))();
   }
-});
+}); // per installarlo da linea comando: npm install chart.js
+// poi <canvas id="myChart"></canvas> prima dello script per renderizzarlo ( in HTML )
+// usare una di queste diciture per prendere l’id del div contenitore del diagramma:
+// - var ctx = document.getElementById('myChart');
+// - var ctx = document.getElementById('myChart').getContext('2d');
+// - var ctx = $('#myChart');
+// - var ctx = 'myChart';
+// usare import Chart from 'chart.js/auto'; in app.js per utilizzarlo senza CDN
+// per impostare una width/height a piacere nostro nel canvas, comporre lo stile nel div padre del canvas,
+// mettendo la classe chart-container con all'interno lo style (ex: <div class="chart-container" style="height:40vh; width:80vw">)
+// import Chart from 'chart.js/auto';
+// var ctx = document.getElementById('myChart');
+// var myChart = new Chart(ctx, {
+//     // nel type si possono usare queste chiavi: line, bar, radar, doughnut, polar, bubble e scatter
+//     type: 'bar',
+//     data: {
+//         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+//                 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+//         datasets: [{
+//             label: 'Totale Ordini',
+//             data: [120, 190, 300, 50, 200, 300, 400, 130, 70, 90, 100, 140],
+//             backgroundColor: [
+//                 'rgba(255, 99, 132, 0.2)',
+//                 'rgba(54, 162, 235, 0.2)',
+//                 'rgba(255, 206, 86, 0.2)',
+//                 'rgba(75, 192, 192, 0.2)',
+//                 'rgba(153, 102, 255, 0.2)',
+//                 'rgba(255, 159, 64, 0.2)',
+//                 'rgba(134, 159, 47, 0.2)',
+//                 'rgba(236, 159, 25, 0.2)',
+//                 'rgba(174, 159, 39, 0.2)',
+//                 'rgba(25, 159, 42, 0.2)',
+//                 'rgba(212, 159, 17, 0.2)',
+//                 'rgba(28, 159, 23, 0.2)'
+//             ],
+//             borderColor: [
+//                 'rgba(255, 99, 132, 1)',
+//                 'rgba(54, 162, 235, 1)',
+//                 'rgba(255, 206, 86, 1)',
+//                 'rgba(75, 192, 192, 1)',
+//                 'rgba(153, 102, 255, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)',
+//                 'rgba(255, 159, 64, 1)'
+//             ],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true,
+//                 suggestedMin: 50,
+//                 suggestedMax: 500
+//             }
+//         }
+//     }
+// });
 
 /***/ }),
 
@@ -51437,31 +51548,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _c("hr"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("h2", [_vm._v("Restaurants")]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
+  return _c(
+    "div",
+    {
+      staticClass: "chart-container",
+      staticStyle: { width: "100%", height: "100%" }
+    },
+    [
       _c(
         "div",
-        {
-          staticClass: "chart-container",
-          staticStyle: { width: "100%", height: "100%" }
-        },
         [
-          _c("CasesBar", {
-            attrs: { label: _vm.labels, "chart-data": _vm.opening_hours }
+          _c("hr"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Statistics")]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("cases-bar", {
+            attrs: { label: _vm.labels, "chart-data": _vm.confirmed }
           })
         ],
         1
       )
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51593,8 +51705,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("canvas", {
-    ref: "myChart",
-    attrs: { width: "900px", height: "250px" }
+    attrs: { id: "myChart", width: "900px", height: "250px" }
   })
 }
 var staticRenderFns = []
