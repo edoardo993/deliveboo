@@ -21,6 +21,7 @@ require('./bootstrap');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('prova', require('./components/Prova.vue').default);
 Vue.component('category-card', require('./components/CategoryCard.vue').default);
+Vue.component('cases',require('./components/Cases.vue').default);
 
 
 /**
@@ -73,6 +74,35 @@ const app = new Vue({
             });
             console.log(result.data)
         }
+    }
+  })
+
+
+const root = new Vue({
+    el: '#root',
+    data: {
+        results:[],
+        // restaurantList:[],
+        userSearch: '',
+    },
+    methods:{
+        search() {
+            this.results = [];
+            this.searchrestaurant();
+          },
+          searchrestaurant() {
+            const self = this;
+            axios
+              .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
+              .then(function(result) {
+                console.log(result.data)
+                self.results = result.data;
+
+                // self.restaurantList = restaurantList;
+                // self.results = [...self.restaurantList,...self.results]
+                self.userSearch = '';
+              });
+          }
     }
   })
   Vue.config.devtools = true
