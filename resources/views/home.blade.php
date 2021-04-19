@@ -15,7 +15,7 @@
             </form>
         </div>
         @foreach ($userRestaurants as $userRestaurant)
-        <div class="user-main-content">
+        <div class="user-main-content" id="root">
             <div class="user-restaurant-card">
                 <div class="img-container">
                     <img src="{{$userRestaurant->pic_url}}" alt="immagine ristorante">
@@ -43,69 +43,16 @@
                 </div>
             </div>
             <div class="user-statistic-card">
-
+                <h3>Statistiche {{$userRestaurant->business_name}}</h3>
+                <div class="statistic-container">
+                    <div class="chart-container" style="width: 100%;height:100%;">
+                        <Cases/>
+                    </div>
+                </div>
             </div>
         </div>
         @endforeach
     </div>
 </div>
-
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-8">
-
-            <div class="">
-                <br>
-                <h3>DASHBOARD UTENTE REGISTRATO</h3><br>
-                Nome: {{Auth::User()->name}}<br>
-                Cognome: {{Auth::User()->lastname}}<br>
-                Email: {{Auth::User()->email}}<br>
-                Partita Iva: {{Auth::User()->PI}}
-            </div>
-
-            <div class="">
-
-                @foreach ($userRestaurants as $userRestaurant)
-
-                    <img src="{{$userRestaurant->pic_url}}" width= "150">
-
-                    <div>Orari ristorante: {{$userRestaurant->opening_hours}}</div>
-
-                    <div>Nome:
-                        <a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
-                            {{$userRestaurant->business_name}}
-                        </a>
-                    </div>
-
-                    <div>Descrizione: {{$userRestaurant->description}}</div>
-
-                    <div>Categorie:
-                        <div>
-                            @foreach ($userRestaurant ->categories as $category)
-                            <div>{{$category->name}}</div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <a href="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">Modifica ristorante</a>
-
-                    <form action="{{route('restaurants.destroy',['restaurant' => $userRestaurant->id])}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$userRestaurant->id}}">
-                            <i class="fas fa-bomb"></i>
-                        </button>
-                        @include('partials.delete-modal',['restaurant'=> $userRestaurant->id])
-                    </form>
-
-                @endforeach
-
-            </div>
-
-            <a href="{{route('restaurants.create')}}">Crea nuovo ristorante</a>
-
-
-        </div>
-    </div> --}}
 
 @endsection
