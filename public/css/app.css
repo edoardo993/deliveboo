@@ -10055,3 +10055,129 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   width: 100%;
   max-height: 250px;
 }
+
+.container-1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+}
+header nav {
+  height: 80px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+}
+header nav .nav-content-container {
+  height: 80px;
+}
+header nav #logo-nav {
+  height: 140px;
+}
+header nav .user-info-group {
+  height: 80px;
+}
+header nav .user-info-group .login-links {
+  line-height: 80px;
+}
+header nav .user-info-group .login-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+}
+header nav .user-info-group .login-links a:last-child {
+  padding-left: 25px;
+}
+
+.jumbotron-delivery {
+  background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
+  height: 560px;
+  margin-top: 80px;
+}
+.jumbotron-delivery .jumbotron-content-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 560px;
+}
+.jumbotron-delivery .jumbotron-content-left #logo-deliveboo {
+  width: 180px;
+}
+.jumbotron-delivery .jumbotron-content-left .input-group {
+  width: 500px;
+}
+.jumbotron-delivery .jumbotron-content-left .input-group .form-control {
+  padding: 0 30px;
+  font-size: 20px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #fff;
+  border-top: none;
+  border-left: none;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background: none;
+}
+.jumbotron-delivery .jumbotron-content-left .input-group .form-control::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.jumbotron-delivery .jumbotron-content-left .input-group .form-control:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.jumbotron-delivery .jumbotron-content-left .input-group .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.jumbotron-delivery .jumbotron-content-right #sushi-img {
+  width: 300px;
+  margin-top: 80px;
+}
+
+main .category-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .category-cards-container .single-card-category {
+  margin: 10px;
+  text-align: center;
+  width: 380px;
+  height: 250px;
+  line-height: 110px;
+  background: #ffdbab;
+}
+main .category-cards-container .single-card-category:hover {
+  cursor: pointer;
+}
+main .restaurant-container {
+  display: flex;
+}
+main .restaurant-container .single-card-restaurant {
+  height: 600px;
+  width: 400px;
+  background: #fff;
+}
+main .restaurant-container .single-card-restaurant-top {
+  height: 50%;
+}
+main .restaurant-container .single-card-restaurant-top .single-restaurant-img {
+  height: 100%;
+  width: 100%;
+}
+main .restaurant-container .single-card-restaurant-bottom {
+  height: 50%;
+  padding: 25px;
+}
