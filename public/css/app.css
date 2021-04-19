@@ -11009,14 +11009,10 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .plate-container .plate-center {
-  display: flex;
-  flex-direction: column;
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   height: 100%;
 }
@@ -11079,7 +11075,7 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   height: 40px;
   padding: 10px;
   border-radius: 10px;
-  border-style: none;
+  border-style: 1px solid orange;
   background-color: white;
   cursor: pointer;
 }
@@ -11088,9 +11084,16 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   color: #ff3366;
 }
 
-@media screen and (min-width: 360px) and (max-width: 768px) {
-  .nav-one {
-    width: 768px;
+@media screen and (max-width: 367px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-container a {
+    margin: 10px 0;
   }
 }
 

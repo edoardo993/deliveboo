@@ -56,7 +56,7 @@
            @endforeach
 
              <div class="footer">
-                <div>
+                <div class="footer-container">
 
                     <a class="text-decoration-none" href="{{ route('plates.create', ['restaurant' => $restaurant])}}">
                         <button type="button" class="utility-button">Inserisci un nuovo piatto</button>

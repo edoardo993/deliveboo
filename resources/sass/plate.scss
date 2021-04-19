@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     .plate-center{
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
         height: 100%;
         .nav-one{
@@ -70,7 +70,7 @@
     height: 40px;
     padding: 10px;
     border-radius: 10px;
-    border-style: none;
+    border-style: 1px solid orange;
     background-color: white;
     cursor: pointer
 }
@@ -79,10 +79,19 @@
     color: rgba(255,51,102,1);
 }
 
-@media screen and (min-width: 360px) and (max-width: 768px){
-    .nav-one{
-        width: 768px;
+@media screen  and (max-width: 367px){
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            margin: 10px 0;
+        }
     }
+
+
 }
 
 
