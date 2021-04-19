@@ -5,8 +5,53 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
+<div class="user-wrapper">
+    <div class="user-container">
+        <div class="user-title">
+            <span>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
+            <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
+            <form action="{{route('restaurants.create')}}">
+                <button type="submit" class="user-button">Crea nuovo ristorante</button>
+            </form>
+        </div>
+        @foreach ($userRestaurants as $userRestaurant)
+        <div class="user-main-content">
+            <div class="user-restaurant-card">
+                <div class="img-container">
+                    <img src="{{$userRestaurant->pic_url}}" alt="immagine ristorante">
+                </div>
+                <a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}"> {{$userRestaurant->business_name}}</a>
+                <span class="">{{$userRestaurant->opening_hours}}</span>
+                <div class="user-restaurant-description">{{$userRestaurant->description}}</div>
+                <div  class="rest-cat">
+                @foreach ($userRestaurant ->categories as $category)
+                    <span>{{$category->name}}</span>
+                 @endforeach
+                </div>
+                <div class="user-restaurant-button">
+                    <form action="{{route('restaurants.destroy',['restaurant' => $userRestaurant->id])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="button" data-toggle="modal" data-target="#exampleModal{{$userRestaurant->id}}" class="user-button">
+                            Cancella Ristorante
+                        </button>
+                        @include('partials.delete-modal',['restaurant'=> $userRestaurant->id])
+                    </form>
+                    <form action="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">
+                        <button type="submit" class="user-button">Modifica ristorante</button>
+                    </form>
+                </div>
+            </div>
+            <div class="user-statistic-card">
+
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+
+
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
 
             <div class="">
@@ -61,7 +106,6 @@
 
 
         </div>
-    </div>
-</div>
+    </div> --}}
 
 @endsection

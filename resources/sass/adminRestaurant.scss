@@ -1,0 +1,115 @@
+.user-wrapper
+{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
+    display: flex;
+    justify-content: center;
+    .user-container{
+        width: 80%;
+        height: 100%;
+        display: flex;
+       flex-direction: column;
+       align-items: center;
+        .user-title{
+            width: 80%;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            span{
+                font-weight: 700;
+                font-size: 35px;
+            }
+
+            a,p{
+                font-size: 18px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .user-button{
+                padding: 6px;
+                border: none;
+                border-radius: 25px;
+                background-color: ivory;
+                margin: 0 5px;
+                background-color: rgb(129, 205, 255);
+                font-weight: bold;
+            }
+            }
+        .user-main-content{
+            width: 100%;
+            height: 500px;
+            margin: 10px 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .user-restaurant-card{
+                width: 50%;
+                height: 90%;
+                border-radius: 25px;
+                box-shadow: 0 10px 20px rgba(#000, .19),
+                0 6px 6px rgba(#000, .23) ;
+                background-color: #ffdaaa;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .img-container{
+                    margin-top: 15px;
+                    min-width: 200px;
+                    max-width: 350px;
+                    background-color: #fff;
+                    max-height: 250px;
+                    min-height: 200px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                a{
+                    font-size: 30px;
+                    color: #000;
+                    font-weight: bold;
+                }
+                span{
+                    font-size: 18px;
+                }
+                .user-restaurant-description{
+                    width: 100%;
+                    max-height: 50px;
+                    overflow-y: auto;
+                    text-align: center;
+                }
+                .user-restaurant-button{
+                  margin: 10px 0px;
+                  display: flex;
+                  .user-button{
+                      padding: 6px;
+                      border: none;
+                      border-radius: 25px;
+                      background-color: ivory;
+                      margin: 0 5px;
+                  }
+                  .user-button:first-child{
+                   background-color: rgb(129, 255, 139);
+                   font-weight: bold;
+                    }
+                  .user-button:nth-child(3){
+                     background-color:red;
+                     color: #fff;
+                     font-weight: bold;
+                     }
+                }
+            }
+            .user-statistic-card{
+                width: 45%;
+                height: 80%;
+                border-radius: 25px;
+                box-shadow: 0 10px 20px rgba(#000, .19),
+                0 6px 6px rgba(#000, .23) ;
+                background-color: #ff8766;
+            }
+        }
+    }
+}
