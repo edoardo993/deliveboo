@@ -38,6 +38,8 @@ const app = new Vue({
         results:[],
         categories: [],
         userSearch: '',
+        category:'',
+        array:[]
     },
     mounted() {
         const self = this;
@@ -63,16 +65,18 @@ const app = new Vue({
                 self.userSearch = '';
             });
         },
-        searchCategory(category){
+        thisCategory(category){
+            this.userSearch = category;
+            console.log(category);
             const self = this;
-            var category = category;
+            this.category = category;
             axios
-            .get('http://127.0.0.1:8000/api/restaurants/search?str=' + category)
+            .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
             .then(function(result) {
                 console.log(result.data)
                 self.results = result.data;
             });
-            console.log(result.data)
+
         }
     }
   })

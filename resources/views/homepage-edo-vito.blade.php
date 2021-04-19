@@ -90,8 +90,8 @@
 
                         {{-- inserire v-for per ciclare risultati --}}
                         <category-card
-                            v-on:click="searchCategory(category.name)"
                             v-for="category in categories"
+                            :key='category.name'
                             :categories='category'
                         />
 

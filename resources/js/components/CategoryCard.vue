@@ -2,7 +2,7 @@
 
     <div>
 
-        <div class="single-card-category">
+        <div class="single-card-category"  v-on:click="searchCategory(categories.name)">
 
             <!--
                 da implementare tramite chiamata API a tabella img
@@ -21,8 +21,26 @@
 <script>
     export default {
         name: 'category-card',
-        props: {
-            categories: Object
+        data(){
+            return{
+             results:[]
+            }
+        },
+        methods:{
+            searchCategory(category){
+            const self = this;
+            this.category = category;
+            axios
+            .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.category)
+            .then(function(result) {
+               console.log(result.data)
+               self.results = result.data;
+            });
+
         }
+        },
+        props: {
+            categories: Object,
+        },
     }
 </script>
