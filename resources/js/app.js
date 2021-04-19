@@ -20,6 +20,8 @@ require('./bootstrap');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('prova', require('./components/Prova.vue').default);
+Vue.component('category-card', require('./components/CategoryCard.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,27 +35,44 @@ const app = new Vue({
     el: '#app',
     data: {
         results:[],
-        // restaurantList:[],
+        categories: [],
         userSearch: '',
+    },
+    mounted() {
+        const self = this;
+            axios
+              .get('http://127.0.0.1:8000/api/categories')
+              .then(function(result) {
+                console.log(result.data)
+                self.categories = result.data;
+            });
     },
     methods:{
         search() {
             this.results = [];
             this.searchrestaurant();
-          },
-          searchrestaurant() {
-            const self = this;
-            axios
-              .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
-              .then(function(result) {
+        },
+        searchrestaurant() {
+        const self = this;
+        axios
+            .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
+            .then(function(result) {
                 console.log(result.data)
                 self.results = result.data;
-
-                // self.restaurantList = restaurantList;
-                // self.results = [...self.restaurantList,...self.results]
                 self.userSearch = '';
-              });
-          }
+            });
+        },
+        searchCategory(category){
+            const self = this;
+            var category = category;
+            axios
+            .get('http://127.0.0.1:8000/api/restaurants/search?str=' + category)
+            .then(function(result) {
+                console.log(result.data)
+                self.results = result.data;
+            });
+            console.log(result.data)
+        }
     }
   })
   Vue.config.devtools = true
