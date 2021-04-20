@@ -10323,7 +10323,6 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   height: 80px;
 }
-
 .plate-container .plate-center .business-name {
   text-align: center;
 }
@@ -10357,7 +10356,6 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   border-radius: 5px;
 }
-
 .plate-container .plate-center .footer {
   display: flex;
   flex-direction: row;
@@ -10386,10 +10384,7 @@ main .restaurant-container .single-card-restaurant-bottom {
     justify-content: center;
     align-items: center;
   }
-
   .footer-container a {
     margin: 10px 0;
   }
 }
-
-
