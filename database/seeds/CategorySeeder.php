@@ -13,15 +13,15 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $array=[
-            'Italiana',
-            'Cinese',
-            'Giapponese',
-            'Americana',
-            'Indiana',
-            'Greca',
-            'Asiatica',
-            'Messicana',
-            'Sudamericana',
+            'Cucina Italiana',
+            'Cucina Cinese',
+            'Cucina Giapponese',
+            'Cucina Americana',
+            'Cucina Indiana',
+            'Cucina Greca',
+            'Cucina Asiatica',
+            'Cucina Messicana',
+            'Cucina Sudamericana',
             'Pizzeria',
             'Paninoteca'
         ];

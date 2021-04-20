@@ -88,29 +88,27 @@
 
                     <div class="category-cards-container">
 
-                        {{-- inserire v-for per ciclare risultati --}}
-                        <div>
+                        <div class="single-card-category"
+                            v-for="category in categories"
+                        v-on:click="searchCategory(category.name)">
 
-                            <div class="single-card-category"
-                             v-for="category in categories"
-                            v-on:click="searchCategory(category.name)">
+                            <!--
+                                da implementare tramite chiamata API a tabella img
+                                fatta in DB (come sfondo o come img normale)
+                            -->
+                            <img>
 
-                                <!--
-                                    da implementare tramite chiamata API a tabella img
-                                    fatta in DB (come sfondo o come img normale)
-                                -->
-                                <img>
+                            <h3 class="category-name">@{{category.name}}</h3>
 
-                                <h3 class="category-name">@{{category.name}}</h3>
-
-                            </div>
+                        </div>
 
                     </div>
 
                     <div class="restaurant-container">
 
                                 <div class="single-card-restaurant"
-                                     v-for='(restaurant, index) in results'
+                                    v-for='(restaurant, index) in results'
+                                    v-on:click="singleRestaurant(restaurant)"
                                    >
 
                                     <div class="single-card-restaurant-top">
@@ -131,18 +129,16 @@
                                             <p class="restaurant-description"><strong>Descrizione:</strong> @{{ restaurant.description }}</p>
                                             <p class="restaurant-address"><strong>Indirizzo:</strong> @{{ restaurant.address }}</p>
                                             <p class="restaurant-hours"><strong>Orari:</strong> @{{ restaurant.opening_hours }}</p>
-                                            ciao
-
-                                            <!--
-
-                                                qua dovremo ciclare le categorie dell'oggetto
-
-                                            -->
 
                                             <p class="restaurant-category"
-                                                v-for="category in restaurant.categories">@{{category.name}}</p>
+                                                v-for="category in restaurant.categories"
+                                            >
+                                                @{{category.name}}
+                                            </p>
                                         </div>
+
                                     </div>
+
                                 </div>
 
                             </div>

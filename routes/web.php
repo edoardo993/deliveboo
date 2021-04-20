@@ -36,3 +36,6 @@ Route::prefix('admin')
 
 
 });
+
+Route::get('/single-restaurant/{restaurant}', 'SingleRestaurantController@singleRestaurant')
+    ->name('single-restaurant');

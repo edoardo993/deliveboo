@@ -38,12 +38,11 @@ const app = new Vue({
         userSearch: '',
     },
     mounted() {
-        const self = this;
             axios
               .get('http://127.0.0.1:8000/api/categories')
-              .then(function(result) {
+              .then((result) => {
                 console.log(result.data)
-                self.categories = result.data;
+                this.categories = result.data;
             });
     },
     methods:{
@@ -73,36 +72,9 @@ const app = new Vue({
                 self.userSearch = '';
             });
 
+        },
+        singleRestaurant(restaurant){
+            return window.location.href='http://127.0.0.1:8000/single-restaurant/' + restaurant.id
         }
     }
   })
-
-
-// const root = new Vue({
-//     el: '#root',
-//     data: {
-//         results:[],
-//         // restaurantList:[],
-//         userSearch: '',
-//     },
-//     methods:{
-//         search() {
-//             this.results = [];
-//             this.searchrestaurant();
-//           },
-//           searchrestaurant() {
-//             const self = this;
-//             axios
-//               .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
-//               .then(function(result) {
-//                 console.log(result.data)
-//                 self.results = result.data;
-
-//                 // self.restaurantList = restaurantList;
-//                 // self.results = [...self.restaurantList,...self.results]
-//                 self.userSearch = '';
-//               });
-//           }
-//     }
-//   })
-//   Vue.config.devtools = true

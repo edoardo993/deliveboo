@@ -2133,10 +2133,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     userSearch: ''
   },
   mounted: function mounted() {
-    var self = this;
+    var _this = this;
+
     axios.get('http://127.0.0.1:8000/api/categories').then(function (result) {
       console.log(result.data);
-      self.categories = result.data;
+      _this.categories = result.data;
     });
   },
   methods: {
@@ -2161,35 +2162,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         self.results = result.data;
         self.userSearch = '';
       });
+    },
+    singleRestaurant: function singleRestaurant(restaurant) {
+      return window.location.href = 'http://127.0.0.1:8000/single-restaurant/' + restaurant.id;
     }
   }
-}); // const root = new Vue({
-//     el: '#root',
-//     data: {
-//         results:[],
-//         // restaurantList:[],
-//         userSearch: '',
-//     },
-//     methods:{
-//         search() {
-//             this.results = [];
-//             this.searchrestaurant();
-//           },
-//           searchrestaurant() {
-//             const self = this;
-//             axios
-//               .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
-//               .then(function(result) {
-//                 console.log(result.data)
-//                 self.results = result.data;
-//                 // self.restaurantList = restaurantList;
-//                 // self.results = [...self.restaurantList,...self.results]
-//                 self.userSearch = '';
-//               });
-//           }
-//     }
-//   })
-//   Vue.config.devtools = true
+});
 
 /***/ }),
 
