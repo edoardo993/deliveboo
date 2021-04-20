@@ -104,6 +104,7 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
+        $restaurant->categories('category_id')->constrained();
         $restaurant->delete();
 
         return redirect()->route('restaurants.index');
