@@ -23,7 +23,7 @@
 
                     <div class="container-1200 flex-between nav-content-container">
 
-                        <img id="logo-nav" src="img/pink-logo.svg" alt="">
+                        <img style="height:60px;margin-top:10px;" src="img/logo.svg" alt="">
 
                         <div class="user-info-group">
                             @if (Route::has('login'))

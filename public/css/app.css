@@ -10182,6 +10182,34 @@ main .restaurant-container .single-card-restaurant-bottom {
   padding: 25px;
 }
 
+.border-none {
+  border-style: none;
+}
+
+.user-button-delete {
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  line-height: 40px;
+  font-weight: semibold;
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.user-button-delete:hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: red;
+  background: #f3f0f1;
+}
+.user-button-delete:active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
+}
+
 #logo-nav {
   width: 250px;
 }
@@ -10189,7 +10217,6 @@ main .restaurant-container .single-card-restaurant-bottom {
 .user-wrapper {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
   display: flex;
   justify-content: center;
 }
@@ -10208,7 +10235,6 @@ main .restaurant-container .single-card-restaurant-bottom {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
 }
 .user-wrapper .user-container .user-title span {
   font-weight: 700;
@@ -10219,13 +10245,27 @@ main .restaurant-container .single-card-restaurant-bottom {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .user-wrapper .user-container .user-title .user-button {
-  padding: 6px;
-  border: none;
-  border-radius: 25px;
-  background-color: ivory;
-  margin: 0 5px;
-  background-color: #81cdff;
-  font-weight: bold;
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  line-height: 40px;
+  font-weight: semibold;
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.user-wrapper .user-container .user-title .user-button:hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: green;
+  background: #f3f0f1;
+}
+.user-wrapper .user-container .user-title .user-button:active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
 }
 .user-wrapper .user-container .user-main-content {
   width: 100%;
@@ -10268,28 +10308,38 @@ main .restaurant-container .single-card-restaurant-bottom {
 .user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-description {
   width: 100%;
   max-height: 50px;
-  overflow-y: auto;
+  overflow-y: hidden;
   text-align: center;
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button {
   margin: 10px 0px;
+  width: 400px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button .user-button {
-  padding: 6px;
-  border: none;
-  border-radius: 25px;
-  background-color: ivory;
-  margin: 0 5px;
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  line-height: 40px;
+  font-weight: semibold;
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
 }
-.user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button .user-button:first-child {
-  background-color: #81ff8b;
-  font-weight: bold;
+.user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button .user-button:hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: green;
+  background: #f3f0f1;
 }
-.user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button .user-button:nth-child(3) {
-  background-color: red;
-  color: #fff;
-  font-weight: bold;
+.user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button .user-button:active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
 }
 .user-wrapper .user-container .user-main-content .user-statistic-card {
   width: 45%;
@@ -10304,6 +10354,10 @@ main .restaurant-container .single-card-restaurant-bottom {
 .user-wrapper .user-container .user-main-content .user-statistic-card .statistic-container {
   width: 90%;
   height: 80%;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .utility-button-danger {
@@ -10412,22 +10466,42 @@ main .restaurant-container .single-card-restaurant-bottom {
 .plate-container .plate-center .card-plate-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 30px;
   background-color: #ffdbab;
+  border-radius: 25px;
+  box-shadow: 2.5px 2.5px 2.5px grey;
 }
 .plate-container .plate-center .card-plate-container .card-plate-container-left {
-  width: 380px;
+  width: 500px;
   height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border-radius: 5px;
+  padding: 5px 0;
+}
+.plate-container .plate-center .card-plate-container .card-plate-container-left .text-container {
+  word-break: break-all;
+  overflow-y: auto;
+  height: 300px;
+}
+.plate-container .plate-center .card-plate-container .card-plate-container-left .text-container::-webkit-scrollbar {
+  width: 10px;
+}
+.plate-container .plate-center .card-plate-container .card-plate-container-left .text-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
   border-radius: 5px;
 }
-.plate-container .plate-center .card-plate-container .card-plate-container-left .space-card-plate-container-left {
-  margin: 15px 0 15px 0;
+.plate-container .plate-center .card-plate-container .card-plate-container-left .text-container::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 5px;
+}
+.plate-container .plate-center .card-plate-container .card-plate-container-left .text-container::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+.plate-container .plate-center .card-plate-container .card-plate-container-left .space-card-plate-container-right {
+  margin: 15px 30px;
 }
 .plate-container .plate-center .card-plate-container .card-plate-container-right {
   width: 380px;
@@ -10463,6 +10537,7 @@ main .restaurant-container .single-card-restaurant-bottom {
   font-weight: semibold;
   box-shadow: 2.5px 2.5px 2.5px grey;
   color: black;
+  border-style: none;
 }
 .red:hover {
   box-shadow: inset 2.5px 2.5px 2.5px grey;
@@ -10474,12 +10549,8 @@ main .restaurant-container .single-card-restaurant-bottom {
   background: #f3f0f1;
 }
 
-.none {
+.border-none {
   border-style: none;
-}
-
-.imag {
-  width: 100px;
 }
 
 @media screen and (max-width: 367px) {

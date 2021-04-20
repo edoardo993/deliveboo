@@ -10,23 +10,23 @@
 
 <body>
 
-    <div class="plate-container">
+    <div  class="plate-container">
         <div class="plate-center">
 
             <nav class="nav-one">
-                {{-- <h1>DELIVERBOO</h1> --}}
-                <img width="200" height="200" src="pink-logo.svg" alt="">
+                <img style="height:60px;width:auto;" src="img/logo.svg" alt="">
+                {{-- <img width="200" height="200" src="pink-logo.svg" alt=""> --}}
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
 
             @foreach ($restaurant->plates as $plate)
             <div class="card-plate-container">
                 <div class="card-plate-container-left">
-                    <div>
-                        <h3 class="space-card-plate-container-right"><strong>{{$plate->name}}</strong></h3>
-                        <h4 class="space-card-plate-container-right"><strong>{{$plate->price}} €</strong></h4>
-                        <h4 class="space-card-plate-container-right"><strong>{{$plate->typology}}</strong></h4>
-                        <h5 class="sspace-card-plate-container-right"><strong>Descrizione: <br> {{$plate->description}}</strong></h5>
+                    <div class="text-container">
+                        <h3 class="space-card-plate-container-right">{{$plate->name}}</h3>
+                        <p class="space-card-plate-container-right">{{$plate->price}} €</p>
+                        <p class="space-card-plate-container-right">{{$plate->typology}}</p>
+                        <p class="space-card-plate-container-right"> <strong>Descrizione:</strong> <br> {{$plate->description}}</p>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
                         <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="utility-button-danger none" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
+                            <button type="button" class="utility-button-danger border-none" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
                                 <div class="red">Elimina piatto</div>
                             </button>
 
