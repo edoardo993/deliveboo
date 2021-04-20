@@ -119,9 +119,12 @@ const app = new Vue({
         deletePlate(index){
             this.index=index;
             console.log(this.index);
-            this.totalPlatesPrices.splice(this.index);
-            this.cartItem.splice(this.index);
+            this.totalPlatesPrices.splice(this.index, 1);
+            this.cartItem.splice(this.index, 1);
             this.totalOrderPrice()
-        }
+        },
+        // proceedToBraintree(){
+
+        // }
     }
 })

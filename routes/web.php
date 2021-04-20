@@ -39,3 +39,9 @@ Route::prefix('admin')
 
 Route::get('/single-restaurant/{restaurant}', 'SingleRestaurantController@singleRestaurant')
     ->name('single-restaurant');
+
+Route::get('/payments', function () {
+    return view('payments');
+});
+
+Route::get("/payment/make", "PaymentsController@make")->name("payment.make");

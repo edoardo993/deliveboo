@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <script src="https://js.braintreegateway.com/web/dropin/1.27.0/js/dropin.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -70,7 +71,9 @@
 
                 </div>
 
-                <div>Totale: @{{total}}</div>
+                <div v-if="total>0">Totale: @{{total}}</div>
+
+                <a href="/payments"><button v-if="cartItem.length >= 1" >Procedi al pagamento</button></a>
 
             </div>
 
@@ -78,6 +81,7 @@
 
     </div>
     {{-- end root vue --}}
+
     <script src="{{asset('js/app.js')}}"></script>
 
 </body>

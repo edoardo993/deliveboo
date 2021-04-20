@@ -15,7 +15,7 @@
 
             <nav class="nav-one">
                 {{-- <h1>DELIVERBOO</h1> --}}
-                <img width="200" height="200" src="pink-logo.svg" alt="">
+                <img width="200" height="200" src="img/pink-logo.svg" alt="">
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
 
