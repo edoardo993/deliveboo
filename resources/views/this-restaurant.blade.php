@@ -14,11 +14,10 @@
         <div class="plate-center">
 
             <nav class="nav-one">
-                <h1>DELIVERBOO</h1>
+                {{-- <h1>DELIVERBOO</h1> --}}
+                <img width="200" height="200" src="pink-logo.svg" alt="">
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
-
-            <h2 class="business-name">{{$restaurant->business_name}}</h2>
 
             @foreach ($restaurant->plates as $plate)
             <div class="card-plate-container">
@@ -34,20 +33,20 @@
                 <div class="card-plate-container-right">
 
                         <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="text-decoration-none">
-                            <button class="utility-button">Modifica testo</button>
+                            <div class="utility-button-edit"><span>Modifica piatto</span></div>
                         </a>
 
-
                         <a class="text-decoration-none" href="{{ route('restaurants.index') }}">
-                            <button class="utility-button" type="button">Torna alla home</button>
+                            <div class="utility-button-home"><span>Torna alla home</span></div>
                         </a>
 
                         <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="utility-button" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
-                                <span class="red">Elimina piatto</span>
+                            <button type="button" class="utility-button-danger none" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
+                                <div class="red">Elimina piatto</div>
                             </button>
+
                             @include('partials.delete-modal-plate', ['plate'=> $plate->id])
                         </form>
 
@@ -59,11 +58,11 @@
                 <div class="footer-container">
 
                     <a class="text-decoration-none" href="{{ route('plates.create', ['restaurant' => $restaurant])}}">
-                        <button type="button" class="utility-button">Inserisci un nuovo piatto</button>
+                        <div class="utility-button-edit"><span>Inserisci un nuovo piatto</span></div>
                     </a>
 
                     <a class="text-decoration-none" href="{{route('restaurants.index')}}">
-                        <button type="button" class="utility-button">Torna ai tuoi ristoranti</button>
+                        <div class="utility-button-home"><span>Torna ai tuoi ristoranti</span></div>
                     </a>
 
                 </div>

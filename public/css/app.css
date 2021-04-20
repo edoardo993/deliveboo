@@ -10306,10 +10306,93 @@ main .restaurant-container .single-card-restaurant-bottom {
   height: 80%;
 }
 
+.utility-button-danger {
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.utility-button-danger span {
+  line-height: 40px;
+  font-weight: semibold;
+}
+.utility-button-danger:nth-child(1) {
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.utility-button-danger:nth-child(1):hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: red;
+  background: #f3f0f1;
+}
+.utility-button-danger:nth-child(1):active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
+}
+
+.utility-button-edit {
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.utility-button-edit span {
+  line-height: 40px;
+  font-weight: semibold;
+}
+.utility-button-edit:nth-child(1) {
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.utility-button-edit:nth-child(1):hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: green;
+  background: #f3f0f1;
+}
+.utility-button-edit:nth-child(1):active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
+}
+
+.utility-button-home {
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.utility-button-home span {
+  line-height: 40px;
+  font-weight: semibold;
+}
+.utility-button-home:nth-child(1) {
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.utility-button-home:nth-child(1):hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: blue;
+  background: #f3f0f1;
+}
+.utility-button-home:nth-child(1):active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
+}
+
 .plate-container {
-  background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 .plate-container .plate-center {
   max-width: 1200px;
@@ -10323,7 +10406,6 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   height: 80px;
 }
-
 .plate-container .plate-center .business-name {
   text-align: center;
 }
@@ -10334,7 +10416,6 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   margin-bottom: 30px;
   background-color: #ffdbab;
-  box-shadow: 5px 10px 18px #ff3366;
 }
 .plate-container .plate-center .card-plate-container .card-plate-container-left {
   width: 380px;
@@ -10357,26 +10438,48 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   border-radius: 5px;
 }
-
 .plate-container .plate-center .footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
-.utility-button {
-  width: 182px;
-  height: 40px;
-  padding: 10px;
-  border-radius: 10px;
-  border-style: 1px solid orange;
-  background-color: white;
-  cursor: pointer;
+.plate-container .plate-center .footer-container {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .red {
-  color: #ff3366;
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  line-height: 40px;
+  font-weight: semibold;
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+}
+.red:hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: red;
+  background: #f3f0f1;
+}
+.red:active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
+}
+
+.none {
+  border-style: none;
+}
+
+.imag {
+  width: 100px;
 }
 
 @media screen and (max-width: 367px) {
@@ -10386,10 +10489,7 @@ main .restaurant-container .single-card-restaurant-bottom {
     justify-content: center;
     align-items: center;
   }
-
   .footer-container a {
     margin: 10px 0;
   }
 }
-
-
