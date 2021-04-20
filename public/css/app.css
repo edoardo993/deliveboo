@@ -10499,6 +10499,10 @@ main .restaurant-container .single-card-restaurant-bottom {
   box-sizing: border-box;
 }
 
+.hide {
+  display: none;
+}
+
 #root {
   display: flex;
   justify-content: center;

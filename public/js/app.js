@@ -2209,10 +2209,49 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       this.totalPlatesPrices.splice(this.index, 1);
       this.cartItem.splice(this.index, 1);
       this.totalOrderPrice();
-    } // proceedToBraintree(){
-    // }
-
+    },
+    proceedToBraintree: function proceedToBraintree(idName) {
+      var paymentsForm = document.getElementById(idName);
+      paymentsForm.classList.remove('hide');
+    }
   }
+}); // var button = document.querySelector('#submit-button');
+//         braintree.dropin.create({
+//             authorization: "sandbox_x6mvdvj5_r7czy6mhvckbb4v2",
+//             container: '#dropin-container'
+//             }, function (createErr, instance) {
+//                 button.addEventListener('click', function () {
+//                 instance.requestPaymentMethod(function (err, payload) {
+//                 $.get("{{ route('payment.make') }}", {payload}, function (response) {
+//                 if (response.success) {
+//                     alert('Payment successfull!');
+//                 } else {
+//                     $("#error-modal").modal();
+//                 }
+//             }, 'json');
+//         });
+//     });
+// });
+
+var form = document.getElementById('payment-form');
+braintree.dropin.create({
+  authorization: 'sandbox_x6mvdvj5_r7czy6mhvckbb4v2',
+  container: '#dropin-container'
+}, function (error, dropinInstance) {
+  if (error) console.error(error);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    dropinInstance.requestPaymentMethod(function (error, payload) {
+      if (error) console.error(error); // Step four: when the user is ready to complete their
+      //   transaction, use the dropinInstance to get a payment
+      //   method nonce for the user's selected payment method, then add
+      //   it a the hidden field before submitting the complete form to
+      //   a server-side integration
+
+      document.getElementById('nonce').value = payload.nonce;
+      form.submit();
+    });
+  });
 });
 
 /***/ }),
