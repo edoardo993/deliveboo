@@ -10309,9 +10309,10 @@ main .restaurant-container .single-card-restaurant-bottom {
 .plate-container {
   background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
   width: 100vw;
+  height: 100vh;
 }
 .plate-container .plate-center {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   height: 100%;
 }
@@ -10322,15 +10323,7 @@ main .restaurant-container .single-card-restaurant-bottom {
   align-items: center;
   height: 80px;
 }
-.plate-container .plate-center .nav-two {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  background-color: #fff;
-  display: none;
-}
+
 .plate-container .plate-center .business-name {
   text-align: center;
 }
@@ -10340,6 +10333,8 @@ main .restaurant-container .single-card-restaurant-bottom {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  background-color: #ffdbab;
+  box-shadow: 5px 10px 18px #ff3366;
 }
 .plate-container .plate-center .card-plate-container .card-plate-container-left {
   width: 380px;
@@ -10348,9 +10343,7 @@ main .restaurant-container .single-card-restaurant-bottom {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
   border-radius: 5px;
-  box-shadow: 5px 10px 18px #ff3366;
 }
 .plate-container .plate-center .card-plate-container .card-plate-container-left .space-card-plate-container-left {
   margin: 15px 0 15px 0;
@@ -10362,23 +10355,41 @@ main .restaurant-container .single-card-restaurant-bottom {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #fff;
   border-radius: 5px;
-  box-shadow: 5px 10px 18px #ff3366;
 }
-.plate-container .plate-center .card-plate-container .card-plate-container-right .link-bt {
-  color: #fff;
-  text-decoration: none;
-  pointer-events: none;
-}
+
 .plate-container .plate-center .footer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.plate-container .plate-center .footer .link-bt {
-  color: #fff;
-  text-decoration: none;
-  pointer-events: none;
+
+.utility-button {
+  width: 182px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: 1px solid orange;
+  background-color: white;
+  cursor: pointer;
 }
+
+.red {
+  color: #ff3366;
+}
+
+@media screen and (max-width: 367px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-container a {
+    margin: 10px 0;
+  }
+}
+
+
