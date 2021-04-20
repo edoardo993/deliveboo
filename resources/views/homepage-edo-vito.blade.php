@@ -89,21 +89,63 @@
                     <div class="category-cards-container">
 
                         {{-- inserire v-for per ciclare risultati --}}
-                        <category-card
-                            v-for="category in categories"
-                            :key='category.name'
-                            :categories='category'
-                        />
+                        <div>
+
+                            <div class="single-card-category"
+                             v-for="category in categories"
+                            v-on:click="searchCategory(category.name)">
+
+                                <!--
+                                    da implementare tramite chiamata API a tabella img
+                                    fatta in DB (come sfondo o come img normale)
+                                -->
+                                <img>
+
+                                <h3 class="category-name">@{{category.name}}</h3>
+
+                            </div>
 
                     </div>
 
                     <div class="restaurant-container">
 
-                        <prova v-for='(restaurant, index) in results'
-                            :key='index'
-                            :results='restaurant'
-                            :categories="restaurant.categories"
-                        />
+                                <div class="single-card-restaurant"
+                                     v-for='(restaurant, index) in results'
+                                   >
+
+                                    <div class="single-card-restaurant-top">
+                                        <img v-if="restaurant.pic_url.length > 20"
+                                            class="single-restaurant-img"
+                                            :src="restaurant.pic_url"
+                                        >
+
+                                        <img v-else
+                                            class="single-restaurant-img"
+                                            src="https://www.associazioneostetriche.it/wp-content/uploads/2018/05/immagine-non-disponibile.png"
+                                        >
+                                    </div>
+
+                                    <div class="single-card-restaurant-bottom">
+                                        <div class="single-restaurant-misc">
+                                            <h5 class="restaurant-name"><strong>Nome:</strong> @{{ restaurant.business_name }}</h5>
+                                            <p class="restaurant-description"><strong>Descrizione:</strong> @{{ restaurant.description }}</p>
+                                            <p class="restaurant-address"><strong>Indirizzo:</strong> @{{ restaurant.address }}</p>
+                                            <p class="restaurant-hours"><strong>Orari:</strong> @{{ restaurant.opening_hours }}</p>
+                                            ciao
+
+                                            <!--
+
+                                                qua dovremo ciclare le categorie dell'oggetto
+
+                                            -->
+
+                                            <p class="restaurant-category"
+                                                v-for="category in restaurant.categories">@{{category.name}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
                     </div>
 
