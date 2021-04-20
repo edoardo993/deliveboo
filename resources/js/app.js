@@ -78,3 +78,49 @@ const app = new Vue({
         }
     }
   })
+
+  const root = new Vue({
+    el: '#root',
+    data: {
+        // array contenente il nome ed il prezzo del piatto
+        cartItem: [],
+
+        // variabile totale iniziale impostata a zero
+        total: 0,
+
+        // array contenente i prezzi dei piatti selezionati
+        totalPlatesPrices: [],
+
+        index: 0
+    },
+    mounted() {
+            // axios
+            //   .get('http://127.0.0.1:8000/api/categories')
+            //   .then((result) => {
+            //     console.log(result.data)
+            //     this.categories = result.data;
+            // });
+    },
+    methods: {
+        newItem(item){
+            console.log(item)
+            this.cartItem.push(item.name, item.price);
+            console.log(this.cartItem);
+            this.totalPlatesPrices.push(item.price);
+            this.totalOrderPrice();
+        },
+        totalOrderPrice(){
+            this.total=0;
+            for(var x=0; x<this.totalPlatesPrices.length; x++){
+                this.total+=parseFloat(this.totalPlatesPrices[x]);
+            }
+            console.log(this.total)
+        },
+        deletePlate(index){
+            this.index=index;
+            this.totalPlatesPrices.splice(this.index);
+            this.cartItem.splice(this.index);
+            this.totalOrderPrice()
+        }
+    }
+})

@@ -10388,3 +10388,75 @@ main .restaurant-container .single-card-restaurant-bottom {
     margin: 10px 0;
   }
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.single-restaurant-left-content {
+  min-height: 100vh;
+  width: 45%;
+  background: lightblue;
+  display: flex;
+  flex-direction: column;
+}
+.single-restaurant-left-content .single-restaurant-spec {
+  margin: 20px 0;
+  height: 350px;
+  width: 100%;
+  background: purple;
+}
+.single-restaurant-left-content .single-restaurant-spec .restaurant-img-container {
+  width: 150px;
+  height: 200px;
+}
+.single-restaurant-left-content .single-restaurant-spec .restaurant-img-container img {
+  width: 100%;
+}
+.single-restaurant-left-content .single-restaurant-plates {
+  display: flex;
+  justify-content: center;
+  background: red;
+}
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap {
+  display: flex;
+  margin: 20px 0;
+  display: #6b796b;
+  flex-wrap: wrap;
+  width: 95%;
+  background: green;
+}
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container {
+  border: 1px solid red;
+  width: 45%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 15px;
+  padding: 0 15px;
+}
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container:hover {
+  cursor: pointer;
+}
+
+.cart-container {
+  position: relative;
+  min-height: 100vh;
+  width: 30%;
+}
+.cart-container .cart {
+  position: fixed;
+  top: 20px;
+  right: 220px;
+  background: #ccc;
+  min-height: 350px;
+  width: 500px;
+}
