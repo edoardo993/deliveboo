@@ -2189,7 +2189,7 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   methods: {
     newItem: function newItem(item) {
       console.log(item);
-      this.cartItem.push(item.name, item.price);
+      this.cartItem.push(item.name);
       console.log(this.cartItem);
       this.totalPlatesPrices.push(item.price);
       this.totalOrderPrice();
@@ -2205,6 +2205,7 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     },
     deletePlate: function deletePlate(index) {
       this.index = index;
+      console.log(this.index);
       this.totalPlatesPrices.splice(this.index);
       this.cartItem.splice(this.index);
       this.totalOrderPrice();

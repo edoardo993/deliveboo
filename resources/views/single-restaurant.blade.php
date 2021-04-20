@@ -63,6 +63,12 @@
                     <button v-on:click="deletePlate(index)">elimina piatto</button>
 
                 </div>
+                <div v-for="(price, index) in totalPlatesPrices">
+
+                    <p>@{{price}}</p>
+
+
+                </div>
 
                 <div>Totale: @{{total}}</div>
 
