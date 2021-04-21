@@ -22,7 +22,11 @@
 
             <div class="form-group">
                 <label for="name_on_card">Nome destinatario</label>
-                <input type="text" class="form-control" id="name_on_card" name="name_on_card">
+                <input type="text"
+                    class="form-control"
+                    id="name_on_card"
+                    name="name_on_card"
+                >
             </div>
 
             <div class="row">
@@ -43,7 +47,11 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="province">Provincia</label>
-                        <input type="text" class="form-control" id="province" name="province">
+                        <input type="text"
+                            class="form-control"
+                            id="province"
+                            name="province"
+                        >
                     </div>
                 </div>
 
@@ -53,7 +61,11 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="postalcode">CAP</label>
-                        <input type="text" class="form-control" id="postalcode" name="postalcode">
+                        <input type="text"
+                            class="form-control"
+                            id="postalcode"
+                            name="postalcode"
+                        >
                     </div>
                 </div>
             </div>

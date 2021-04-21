@@ -7,12 +7,48 @@
     <title>BRAINTREE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.27.0/js/dropin.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     @include('partials.modal-payments-success')
 
-            @include('partials.modal-payments-error')
+    @include('partials.modal-payments-error')
+
+    <div class="upper-gradient"></div>
+
+    <header>
+
+        <nav class="">
+
+            <div class="container-1200 flex-between nav-content-container">
+
+                <img style="height:60px;margin-top:10px;" src="img/logo.svg">
+
+                <div class="user-info-group">
+                    @if (Route::has('login'))
+                        <div class="login-links">
+                            @auth
+                                <a href="{{ url('/admin/restaurants') }}">Home</a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Register</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
     {{-- start root vue --}}
     <div id="root">
 
@@ -20,17 +56,26 @@
 
             <div class="single-restaurant-spec">
 
-                <div class="restaurant-img-container">
-                    <img src="{{$restaurant->pic_url}}" alt="">
+                <div class="restaurant-img-business-name">
+
+                    <div class="restaurant-img-container">
+                        <img src="{{$restaurant->pic_url}}" alt="">
+                    </div>
+
+                    <div class="restaurant-business-name-categories">
+                        <span class="restaurant-business-name">{{$restaurant->business_name}}</span>
+
+                        <div class="restaurant-total-categories">
+                            @foreach ($restaurant->categories as $category)
+                                <span class="restaurant-category">{{$category->name}}</span>
+                            @endforeach
+                        </div>
+                    </div>
+
                 </div>
 
-                <span>{{$restaurant->business_name}}</span>
+                <p class="restaurant-description">{{$restaurant->description}}</p>
 
-                @foreach ($restaurant->categories as $category)
-                    <span>{{$category->name}}</span>
-                @endforeach
-
-                <p>{{$restaurant->description}}</p>
             </div>
 
             <div class="single-restaurant-plates">
@@ -42,9 +87,9 @@
                         <div class="plates-container"
                             v-on:click="newItem({{$plate}})"
                         >
-                            <span>{{$plate->name}}</span>
-                            <span>{{$plate->price}}</span>
+                            <span class="plate-name">{{$plate->name}}</span>
                             <span>{{$plate->description}}</span>
+                            <span>{{$plate->price}}€</span>
                         </div>
 
                     @endforeach
@@ -58,29 +103,34 @@
         <div class="cart-container">
 
             <div class="cart">
-                <span>Il tuo ordine</span>
+                <span class="your-order">Il tuo ordine</span>
                 {{-- <img src="" alt=""> --}}
-                <p>Scegli i tuoi piatti preferiti e aggiungili al carrello con un click.</p>
 
-                <div v-for="(item, index) in cartItem">
+                <div class="cart-items-container">
 
-                    <p>@{{item}}</p>
-                    <button v-on:click="deletePlate(index)">elimina piatto</button>
+                    <div v-for="(item, index) in cartItem">
+
+                        <div class="cart-item-name">@{{item}}
+                            <span v-on:click="deletePlate(index)">
+                                <i class="fas fa-minus-circle"></i>
+                            </span>
+                        </div>
+
+
+
+                    </div>
+
+                    <p v-for="(price, index) in totalPlatesPrices">@{{price}}€</p>
 
                 </div>
-                <div v-for="(price, index) in totalPlatesPrices">
 
-                    <p>@{{price}}</p>
+                <div class="total-button" v-if="total>0">Totale ordine: @{{total}}€</div>
 
-
-                </div>
-
-                <div v-if="total>0">Totale: @{{total}}</div>
-
-                <button v-if="cartItem.length >= 1"
-                        v-on:click="proceedToBraintree('paymentsContainer')"
+                <div clas="proceed-to-payment-button"
+                    v-if="cartItem.length >= 1"
+                    v-on:click="proceedToBraintree('paymentsContainer')"
                 >Procedi al pagamento
-                </button>
+                </div>
 
                 <div class="container hide" id="paymentsContainer">
 
@@ -118,6 +168,7 @@
                     </form> --}}
 
                     @include('payments')
+
                     {{-- end form per aggiungere indirizzo spedizione --}}
 
                     {{-- compilazione campi carta di credito --}}
