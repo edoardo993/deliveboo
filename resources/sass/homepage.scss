@@ -26,7 +26,8 @@ header {
         position: fixed;
         top: 0;
         width: 100%;
-        // background: rgb(214, 207, 207);
+        z-index: 400000000000000;
+        background: #fff;
 
         .nav-content-container{
             height: 80px
@@ -77,9 +78,10 @@ header {
             font-size: 50px;
             color: #fff;
             text-transform: capitalize;
+            font-family: 'Acme', sans-serif;
         }
         #logo-deliveboo{
-            width: 180px
+            width: 360px;
         }
         .input-group{
             width: 90%;

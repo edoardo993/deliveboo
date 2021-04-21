@@ -1,6 +1,9 @@
 @import "button";
+
 body{
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    text-transform: capitalize;
 }
 .utility-button-danger{
     @include utility-button-danger;
@@ -16,20 +19,26 @@ body{
 .plate-container{
     width: 100vw;
     min-height: 100vh;
+    .nav-one{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+    }
+
     .plate-center{
         max-width: 1200px;
         margin: 0 auto;
         height: 100%;
-        .nav-one{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
 
         .business-name{
             text-align: center;
+            margin-top: 30px;
+            font-size: 40px;
         }
 
         .card-plate-container{
@@ -37,10 +46,10 @@ body{
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            margin-bottom:  30px ;
+            margin-top:  30px ;
             background-color:  rgba(255,219,171,1);
             border-radius: 25px;
-            box-shadow:2.5px 2.5px 2.5px grey;
+            box-shadow:0px 0px 5px grey;
 
             .card-plate-container-left{
                 width: 500px;
@@ -49,6 +58,9 @@ body{
                 flex-direction: column;
                 border-radius: 5px;
                 padding: 5px 0;
+                .size-font{
+                    font-size: 20px;
+                }
                 .text-container{
                     word-break: break-all;
                     overflow-y: auto;
@@ -97,6 +109,7 @@ body{
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            margin-top: 30px;
 
             &-container{
                 width: 400px;
