@@ -4,6 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>HOMEPAGE</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body>
@@ -48,7 +52,7 @@
                     <div class="jumbotron-content-left">
 
                         {{-- da scrivere --}}
-                        {{-- <p id="slogan">SLOGAN</p> --}}
+                        <p id="slogan">Il cibo che preferisci, <br> comodamente a casa tua!</p>
 
                         <img id="logo-deliveboo" src="img/sushi.svg">
 
@@ -78,25 +82,34 @@
 
 
 
-                <div class="container-1200">
+                <div class="carousel-container">
 
                     <div class="category-cards-container">
 
-                        <div class="single-card-category"
-                            v-for="category in categories"
-                        v-on:click="searchCategory(category.name)">
+                        <carousel :per-page="4"
+                          :mouse-drag="true"
+                           :resistance-coef='60'
+                           :navigation-enabled='true'
+                           :pagination-enabled='false'
+                           >
 
+                            <slide
+                            v-for="(category,index) in categories"
+                            :key='index'>
+                            <div class="single-card-category" v-on:click="searchCategory(category.name)" >
                             <!--
                                 da implementare tramite chiamata API a tabella img
                                 fatta in DB (come sfondo o come img normale)
                             -->
-                            <img>
-
+                            <img :src="setImg(category.name)" alt="">
                             <h3 class="category-name">@{{category.name}}</h3>
+                            {{-- <img :src="setImg(category.name)" alt=""> --}}
+                        </div>
+                                </slide>
+                            </carousel>
 
                         </div>
-
-                    </div>
+                            <h2 class="title-search" v-if="results.length > 0">Risultati per: @{{titleSearch}}</h2>
 
                     <div class="restaurant-container">
 
@@ -119,16 +132,14 @@
 
                                     <div class="single-card-restaurant-bottom">
                                         <div class="single-restaurant-misc">
-                                            <h5 class="restaurant-name"><strong>Nome:</strong> @{{ restaurant.business_name }}</h5>
-                                            <p class="restaurant-description"><strong>Descrizione:</strong> @{{ restaurant.description }}</p>
-                                            <p class="restaurant-address"><strong>Indirizzo:</strong> @{{ restaurant.address }}</p>
-                                            <p class="restaurant-hours"><strong>Orari:</strong> @{{ restaurant.opening_hours }}</p>
-
-                                            <p class="restaurant-category"
-                                                v-for="category in restaurant.categories"
-                                            >
-                                                @{{category.name}}
-                                            </p>
+                                            <h5 class="restaurant-name"> @{{ restaurant.business_name }}</h5>
+                                            <div>
+                                                <span class="restaurant-category"
+                                                    v-for="category in restaurant.categories">
+                                                    @{{category.name}}<span class="comma">,</span>
+                                                </span>
+                                            </div>
+                                            <p class="restaurant-description">@{{ restaurant.description }}</p>
                                         </div>
 
                                     </div>
@@ -145,62 +156,7 @@
 
             <footer class="">
 
-                {{-- categories slider --}}
-                {{-- <div class="container-xl">
-                    <div class="row">
-                        <div class="col-md-9  mx-auto">
-                            <h2><span>Categorie <b>Ristoranti</b></span></h2>
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                                <!-- Carousel indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                </ol>
-                                <!-- Wrapper for carousel items -->
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="row" v-for='(restaurant, index) in results'>
-                                            <div class="col-sm-4">@{{restaurant.business_name}}<div class="img-box" v-for="category in restaurant.categories">@{{category.name}}</div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/2.jpg" class="img-fluid"></div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/3.jpg" class="img-fluid"></div></div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/4.jpg" class="img-fluid"></div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/5.jpg" class="img-fluid"></div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/6.jpg" class="img-fluid"></div></div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="row">
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/7.jpg" class="img-fluid"></div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/8.jpg" class="img-fluid"></div></div>
-                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/9.jpg" class="img-fluid"></div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Carousel controls -->
-                                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                                    <i class="fa fa-chevron-left"></i>
-                                </a>
-                                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                                    <i class="fa fa-chevron-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                {{-- end categories slider --}}
 
-                {{-- animated card --}}
-
-                {{-- <div class="card-effect-container">
-                    <div class="box" v-for="category in categories">@{{category.name}}</div>
-                </div> --}}
-
-                {{-- end animated card --}}
 
             </footer>
 
