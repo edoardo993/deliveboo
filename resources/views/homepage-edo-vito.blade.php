@@ -3,14 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>HOMEPAGE</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
-
     </head>
     <body>
 
@@ -23,13 +21,13 @@
 
                     <div class="container-1200 flex-between nav-content-container">
 
-                        <img style="height:60px;margin-top:10px;" src="img/logo.svg" alt="">
+                        <img style="height:60px;margin-top:10px;" src="img/logo.svg">
 
                         <div class="user-info-group">
                             @if (Route::has('login'))
                                 <div class="login-links">
                                     @auth
-                                        <a href="{{ url('/home') }}">Home</a>
+                                        <a href="{{ url('/admin/restaurants') }}">Home</a>
                                     @else
                                         <a href="{{ route('login') }}">Login</a>
 
@@ -54,9 +52,9 @@
                     <div class="jumbotron-content-left">
 
                         {{-- da scrivere --}}
-                        {{-- <p id="slogan">SLOGAN</p> --}}
+                        <p id="slogan">Il cibo che preferisci, <br> comodamente a casa tua!</p>
 
-                        <h3 class="slogan">Il tuo cibo preferito comodamente a casa</h3>
+                        <img id="logo-deliveboo" src="img/sushi.svg">
 
                         <img id="logo-deliveboo" width="" src="img/whitelogotype.svg" alt="">
 
@@ -73,7 +71,7 @@
 
                     <div class="jumbotron-content-right">
 
-                        <img id="sushi-img" src="img/sushi.svg" alt="">
+                        <img id="sushi-img" src="img/sushi-pizza.svg">
 
                     </div>
 
@@ -86,25 +84,34 @@
 
 
 
-                <div class="container-1200">
+                <div class="carousel-container">
 
                     <div class="category-cards-container">
 
-                        <div class="single-card-category"
-                            v-for="category in categories"
-                        v-on:click="searchCategory(category.name)">
+                        <carousel :per-page="4"
+                          :mouse-drag="true"
+                           :resistance-coef='60'
+                           :navigation-enabled='true'
+                           :pagination-enabled='false'
+                           >
 
+                            <slide
+                            v-for="(category,index) in categories"
+                            :key='index'>
+                            <div class="single-card-category" v-on:click="searchCategory(category.name)" >
                             <!--
                                 da implementare tramite chiamata API a tabella img
                                 fatta in DB (come sfondo o come img normale)
                             -->
-                            <img>
-
+                            <img :src="setImg(category.name)" alt="">
                             <h3 class="category-name">@{{category.name}}</h3>
+                            {{-- <img :src="setImg(category.name)" alt=""> --}}
+                        </div>
+                                </slide>
+                            </carousel>
 
                         </div>
-
-                    </div>
+                            <h2 class="title-search" v-if="results.length > 0">Risultati per: @{{titleSearch}}</h2>
 
                     <div class="restaurant-container">
 
@@ -127,16 +134,14 @@
 
                                     <div class="single-card-restaurant-bottom">
                                         <div class="single-restaurant-misc">
-                                            <h5 class="restaurant-name"><strong>Nome:</strong> @{{ restaurant.business_name }}</h5>
-                                            <p class="restaurant-description"><strong>Descrizione:</strong> @{{ restaurant.description }}</p>
-                                            <p class="restaurant-address"><strong>Indirizzo:</strong> @{{ restaurant.address }}</p>
-                                            <p class="restaurant-hours"><strong>Orari:</strong> @{{ restaurant.opening_hours }}</p>
-
-                                            <p class="restaurant-category"
-                                                v-for="category in restaurant.categories"
-                                            >
-                                                @{{category.name}}
-                                            </p>
+                                            <h5 class="restaurant-name"> @{{ restaurant.business_name }}</h5>
+                                            <div>
+                                                <span class="restaurant-category"
+                                                    v-for="category in restaurant.categories">
+                                                    @{{category.name}}<span class="comma">,</span>
+                                                </span>
+                                            </div>
+                                            <p class="restaurant-description">@{{ restaurant.description }}</p>
                                         </div>
 
                                     </div>
@@ -152,6 +157,8 @@
             </main>
 
             <footer class="">
+
+
 
             </footer>
 
