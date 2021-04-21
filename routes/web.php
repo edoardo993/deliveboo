@@ -41,11 +41,11 @@ Route::prefix('admin')
 Route::get('/single-restaurant/{restaurant}', 'SingleRestaurantController@singleRestaurant')
     ->name('single-restaurant');
 
-Route::get('/payments', function () {
-    return view('payments');
-});
+// Route::get('/payments', function () {
+//     return view('payments');
+// });
 
-Route::get("/payment/make", "PaymentsController@make")->name("payment.make");
+// Route::get("/payment/make", "PaymentsController@make")->name("payment.make");
 
 // ---------------------------------------------------------------------------------------
 // roba di braintree PROVA
@@ -105,19 +105,4 @@ Route::post('/checkout', function (Request $request) {
         // header("Location: index.php");
         return back()->withErrors('An error occurred with the message: '.$result->message);
     }
-});
-
-Route::get('/hosted', function () {
-    $gateway = new Braintree\Gateway([
-        'environment' => config('services.braintree.environment'),
-        'merchantId' => config('services.braintree.merchantId'),
-        'publicKey' => config('services.braintree.publicKey'),
-        'privateKey' => config('services.braintree.privateKey')
-    ]);
-
-    $token = $gateway->ClientToken()->generate();
-
-    return view('hosted', [
-        'token' => $token
-    ]);
 });

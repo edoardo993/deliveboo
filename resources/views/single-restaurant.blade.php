@@ -77,7 +77,10 @@
 
                 <div v-if="total>0">Totale: @{{total}}</div>
 
-                <button v-if="cartItem.length >= 1" v-on:click="proceedToBraintree('paymentsContainer')">Procedi al pagamento</button>
+                <button v-if="cartItem.length >= 1"
+                        v-on:click="proceedToBraintree('paymentsContainer')"
+                >Procedi al pagamento
+                </button>
 
                 <div class="container hide" id="paymentsContainer">
 
@@ -139,37 +142,82 @@
     </div>
     {{-- end root vue --}}
 
-    {{-- <script>
-        var button = document.querySelector('#submit-button');
-        braintree.dropin.create({
-            authorization: "sandbox_x6mvdvj5_r7czy6mhvckbb4v2",
-            container: '#dropin-container'
-            }, function (createErr, instance) {
-                button.addEventListener('click', function () {
-                instance.requestPaymentMethod(function (err, payload) {
-                $.get('{{ route('payment.make') }}', {payload}, function (response) {
-                if (response.success) {
-                    alert('Payment successfull!');
-                } else {
-                    $("#error-modal").modal();
-                }
-            }, 'json');
-        });
-    });
-});
-</script> --}}
-
     <script src="{{asset('js/app.js')}}"></script>
 
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
 
-    <!-- Load PayPal's checkout.js Library. -->
-    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+    <script>
 
-    <!-- Load the PayPal Checkout component. -->
-    <script src="https://js.braintreegateway.com/web/3.38.1/js/paypal-checkout.min.js"></script>
+        var form = document.querySelector('#payment-form');
+        var submit = document.querySelector('input[type="submit"]');
 
+        braintree.client.create({
+            authorization: 'sandbox_x6mvdvj5_r7czy6mhvckbb4v2'
+        }, function (clientErr, clientInstance) {
+            if (clientErr) {
+                console.error(clientErr);
+                return;
+            }
+
+            // This example shows Hosted Fields, but you can also use this
+            // client instance to create additional components here, such as
+            // PayPal or Data Collector.
+
+            braintree.hostedFields.create({
+            client: clientInstance,
+            styles: {
+                'input': {
+                'font-size': '14px'
+                },
+                'input.invalid': {
+                'color': 'red'
+                },
+                'input.valid': {
+                'color': 'green'
+                }
+            },
+            fields: {
+                number: {
+                    selector: '#card-number',
+                    placeholder: '4111 1111 1111 1111'
+                },
+                cvv: {
+                    selector: '#cvv',
+                    placeholder: '123'
+                },
+                expirationDate: {
+                    selector: '#expiration-date',
+                    placeholder: '10/2019'
+                }
+            }
+            }, function (hostedFieldsErr, hostedFieldsInstance) {
+            if (hostedFieldsErr) {
+                console.error(hostedFieldsErr);
+                return;
+            }
+
+            // submit.removeAttribute('disabled');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
+                if (tokenizeErr) {
+                    console.error(tokenizeErr);
+                    return;
+                }
+
+                // If this was a real integration, this is where you would
+                // send the nonce to your server.
+                // console.log('Got a nonce: ' + payload.nonce);
+                document.querySelector('#nonce').value = payload.nonce;
+                form.submit();
+                });
+            }, false);
+            });
+            });
+    </script>
 
 </body>
 </html>

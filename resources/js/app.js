@@ -4,7 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import Vue from 'vue'
+import Vue from 'vue';
+
 window.Vue = Vue;
 require('./bootstrap');
 /**
@@ -148,126 +149,6 @@ const app = new Vue({
 //     });
 // });
 
-var form = document.querySelector('#payment-form');
-      var submit = document.querySelector('input[type="submit"]');
 
-      braintree.client.create({
-        authorization: 'sandbox_x6mvdvj5_r7czy6mhvckbb4v2'
-      }, function (clientErr, clientInstance) {
-        if (clientErr) {
-          console.error(clientErr);
-          return;
-        }
-
-        // This example shows Hosted Fields, but you can also use this
-        // client instance to create additional components here, such as
-        // PayPal or Data Collector.
-
-        braintree.hostedFields.create({
-          client: clientInstance,
-          styles: {
-            'input': {
-              'font-size': '14px'
-            },
-            'input.invalid': {
-              'color': 'red'
-            },
-            'input.valid': {
-              'color': 'green'
-            }
-          },
-          fields: {
-            number: {
-              selector: '#card-number',
-              placeholder: '4111 1111 1111 1111'
-            },
-            cvv: {
-              selector: '#cvv',
-              placeholder: '123'
-            },
-            expirationDate: {
-              selector: '#expiration-date',
-              placeholder: '10/2019'
-            }
-          }
-        }, function (hostedFieldsErr, hostedFieldsInstance) {
-          if (hostedFieldsErr) {
-            console.error(hostedFieldsErr);
-            return;
-          }
-
-          // submit.removeAttribute('disabled');
-
-          form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
-              if (tokenizeErr) {
-                console.error(tokenizeErr);
-                return;
-              }
-
-              // If this was a real integration, this is where you would
-              // send the nonce to your server.
-              // console.log('Got a nonce: ' + payload.nonce);
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
-            });
-          }, false);
-        });
-
-        // Create a PayPal Checkout component.
-        braintree.paypalCheckout.create({
-            client: clientInstance
-        }, function (paypalCheckoutErr, paypalCheckoutInstance) {
-
-        // Stop if there was a problem creating PayPal Checkout.
-        // This could happen if there was a network error or if it's incorrectly
-        // configured.
-        if (paypalCheckoutErr) {
-          console.error('Error creating PayPal Checkout:', paypalCheckoutErr);
-          return;
-        }
-
-        // Set up PayPal with the checkout.js library
-        paypal.Button.render({
-          env: 'sandbox', // or 'production'
-          commit: true,
-
-          payment: function () {
-            return paypalCheckoutInstance.createPayment({
-              // Your PayPal options here. For available options, see
-              // http://braintree.github.io/braintree-web/current/PayPalCheckout.html#createPayment
-              flow: 'checkout', // Required
-              amount: 13.00, // Required
-              currency: 'USD', // Required
-            });
-          },
-
-          onAuthorize: function (data, actions) {
-            return paypalCheckoutInstance.tokenizePayment(data, function (err, payload) {
-
-              // Submit `payload.nonce` to your server.
-              document.querySelector('#nonce').value = payload.nonce;
-              form.submit();
-            });
-          },
-
-          onCancel: function (data) {
-            console.log('checkout.js payment cancelled', JSON.stringify(data, 0, 2));
-          },
-
-          onError: function (err) {
-            console.error('checkout.js error', err);
-          }
-        }, '#paypal-button').then(function () {
-          // The PayPal button will be rendered in an html element with the id
-          // `paypal-button`. This function will be called when the PayPal button
-          // is set up and ready to be used.
-
-        });
-
-        });
-      });
 
 
