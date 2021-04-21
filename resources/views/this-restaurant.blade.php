@@ -11,13 +11,19 @@
 <body>
 
     <div  class="plate-container">
-        <div class="plate-center">
 
-            <nav class="nav-one">
+        <div class="nav-container shadow-sm">
+            <nav class="nav-one ">
                 <img style="height:60px;width:auto;" src="img/logo.svg" alt="">
                 {{-- <img width="200" height="200" src="pink-logo.svg" alt=""> --}}
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
+        </div>
+
+
+        <div class="plate-center">
+
+
 
             @foreach ($restaurant->plates as $plate)
             <div class="card-plate-container">

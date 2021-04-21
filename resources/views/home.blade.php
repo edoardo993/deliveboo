@@ -7,7 +7,7 @@
 
 <div class="user-wrapper">
     <div class="user-container">
-        <div class="user-title">
+        <div class="user-title ">
             <span>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
             <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
 
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="user-statistic-card">
-                <h3>Statistiche {{$userRestaurant->business_name}}</h3>
+                <h3 class="centered">Statistiche {{$userRestaurant->business_name}}</h3>
                 <div class="statistic-container">
                     <div class="chart-container" style="width: 100%;height:100%;">
                         <Cases/>

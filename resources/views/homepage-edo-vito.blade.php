@@ -19,7 +19,7 @@
 
             <header>
 
-                <nav class="">
+                <nav class="shadow-sm">
 
                     <div class="container-1200 flex-between nav-content-container">
 
@@ -56,7 +56,9 @@
                         {{-- da scrivere --}}
                         {{-- <p id="slogan">SLOGAN</p> --}}
 
-                        <img id="logo-deliveboo" src="img/sushi.svg" alt="">
+                        <h3 class="slogan">Il tuo cibo preferito comodamente a casa</h3>
+
+                        <img id="logo-deliveboo" width="" src="img/whitelogotype.svg" alt="">
 
                         <div class="input-group">
                             <input v-model='userSearch'
