@@ -1,5 +1,9 @@
 @import 'button';
 
+*{
+    font-family: 'Inter', sans-serif;
+}
+
 .border-none{
     border-style: none;
 }
@@ -45,14 +49,14 @@
             }
         .user-main-content{
             width: 100%;
-            margin: 10px 0px;
+            margin: 80px 0px;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
             .user-restaurant-card{
                 width: 761.2px;
-                height: 450px;
+                height: 550px;
                 border-radius: 25px;
                 margin-bottom: 25px;
                 box-shadow: 0 10px 20px rgba(#000, .19),
@@ -67,9 +71,9 @@
                 .img-container{
                     margin-top: 15px;
                     min-width: 200px;
-                    max-width: 350px;
+                    max-width: 100%;
                     background-color: #fff;
-                    max-height: 250px;
+                    max-height: 500px;
                     min-height: 200px;
                     img{
                         width: 100%;
@@ -113,7 +117,7 @@
                 border-radius: 25px;
                 box-shadow: 0 10px 20px rgba(#000, .19),
                 0 6px 6px rgba(#000, .23) ;
-                background-color: #ff8766;
+                background-color: #fff;
                 display: flex;
                 flex-direction: column;
                 align-items: center;

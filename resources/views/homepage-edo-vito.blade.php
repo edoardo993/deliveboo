@@ -7,7 +7,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Acme:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body>
@@ -27,7 +27,7 @@
                             @if (Route::has('login'))
                                 <div class="login-links">
                                     @auth
-                                        <a href="{{ url('/admin/restaurants') }}">Home</a>
+                                        <a href="{{ url('/admin/restaurants') }}">La tua pagina</a>
                                     @else
                                         <a href="{{ route('login') }}">Login</a>
 
@@ -51,12 +51,9 @@
 
                     <div class="jumbotron-content-left">
 
-                        {{-- da scrivere --}}
-                        <p id="slogan">Il cibo che preferisci, <br> comodamente a casa tua!</p>
-
-                        <img id="logo-deliveboo" src="img/sushi.svg">
-
                         <img id="logo-deliveboo" width="" src="img/whitelogotype.svg" alt="">
+
+                        <p id="slogan">Il cibo che preferisci, <br> comodamente a casa tua!</p>
 
                         <div class="input-group">
                             <input v-model='userSearch'

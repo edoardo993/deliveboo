@@ -1,6 +1,9 @@
 @import "button";
+
 body{
     overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+    text-transform: capitalize;
 }
 .utility-button-danger{
     @include utility-button-danger;
@@ -34,6 +37,8 @@ body{
 
         .business-name{
             text-align: center;
+            margin-top: 30px;
+            font-size: 40px;
         }
 
         .card-plate-container{
@@ -53,6 +58,9 @@ body{
                 flex-direction: column;
                 border-radius: 5px;
                 padding: 5px 0;
+                .size-font{
+                    font-size: 20px;
+                }
                 .text-container{
                     word-break: break-all;
                     overflow-y: auto;
@@ -101,6 +109,7 @@ body{
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            margin-top: 30px;
 
             &-container{
                 width: 400px;

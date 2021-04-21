@@ -88,7 +88,7 @@
                             v-on:click="newItem({{$plate}})"
                         >
                             <span class="plate-name">{{$plate->name}}</span>
-                            <span>{{$plate->description}}</span>
+                            <span class="plate-description">{{$plate->description}}</span>
                             <span>{{$plate->price}}€</span>
                         </div>
 

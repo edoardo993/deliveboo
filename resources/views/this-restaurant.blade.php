@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <title>Document</title>
 </head>
@@ -24,15 +26,15 @@
         <div class="plate-center">
 
 
-
+            <h2 class="business-name">I tuoi piatti</h2>
             @foreach ($restaurant->plates as $plate)
             <div class="card-plate-container">
                 <div class="card-plate-container-left">
                     <div class="text-container">
-                        <h3 class="space-card-plate-container-right">{{$plate->name}}</h3>
-                        <p class="space-card-plate-container-right">{{$plate->price}} €</p>
-                        <p class="space-card-plate-container-right">{{$plate->typology}}</p>
-                        <p class="space-card-plate-container-right"> <strong>Descrizione:</strong> <br> {{$plate->description}}</p>
+                        <p class="space-card-plate-container-right size-font">{{$plate->name}}</p>
+                        <p class="space-card-plate-container-right size-font">{{$plate->typology}}</p>
+                        <p class="space-card-plate-container-right size-font"> {{$plate->description}}</p>
+                        <p class="space-card-plate-container-right size-font">{{$plate->price}}€</p>
                     </div>
                 </div>
 
