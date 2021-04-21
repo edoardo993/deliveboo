@@ -55,7 +55,7 @@
                     <div class="jumbotron-content-left">
 
                         {{-- da scrivere --}}
-                        {{-- <p id="slogan">SLOGAN</p> --}}
+                        <p id="slogan">Il cibo che preferisci, <br> comodamente a casa tua!</p>
 
                         <img id="logo-deliveboo" src="img/sushi.svg">
 

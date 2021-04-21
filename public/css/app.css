@@ -10112,19 +10112,23 @@ header nav .user-info-group .login-links a:last-child {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   height: 560px;
+}
+.jumbotron-delivery .jumbotron-content-left #slogan {
+  font-size: 50px;
+  color: #fff;
+  text-transform: capitalize;
 }
 .jumbotron-delivery .jumbotron-content-left #logo-deliveboo {
   width: 180px;
 }
 .jumbotron-delivery .jumbotron-content-left .input-group {
-  width: 500px;
+  width: 90%;
 }
 .jumbotron-delivery .jumbotron-content-left .input-group .form-control {
   padding: 0 30px;
   font-size: 20px;
-  height: 50px;
+  height: 70px;
   border-radius: 25px;
   border: 1px solid #fff;
   border-top: none;
