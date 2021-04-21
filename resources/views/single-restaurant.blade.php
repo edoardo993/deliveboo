@@ -82,7 +82,7 @@
                 <div class="container hide" id="paymentsContainer">
 
                     {{-- form per aggiungere indirizzo spedizione --}}
-                    <form>
+                    {{-- <form>
 
                         <div class="form-group">
 
@@ -112,20 +112,22 @@
 
                         <button type="submit" class="btn btn-primary">Submit</button>
 
-                    </form>
+                    </form> --}}
+
+                    @include('payments')
                     {{-- end form per aggiungere indirizzo spedizione --}}
 
                     {{-- compilazione campi carta di credito --}}
-                    <form id="payment-form" action="{{route('payment.make')}}" method="post">
+                    {{-- <form id="payment-form" action="{{route('payment.make')}}" method="post">
                         @method('GET')
-                        @csrf
+                        @csrf --}}
                         <!-- Putting the empty container you plan to pass to
                           `braintree.dropin.create` inside a form will make layout and flow
                           easier to manage -->
-                        <div id="dropin-container"></div>
+                        {{-- <div id="dropin-container"></div>
                         <input type="submit" />
                         <input type="hidden" id="nonce" name="payment_method_nonce"/>
-                      </form>
+                      </form> --}}
                     {{-- end compilazione campi carta di credito --}}
 
                 </div>
@@ -158,6 +160,16 @@
 </script> --}}
 
     <script src="{{asset('js/app.js')}}"></script>
+
+    <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
+    <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
+
+    <!-- Load PayPal's checkout.js Library. -->
+    <script src="https://www.paypalobjects.com/api/checkout.js" data-version-4 log-level="warn"></script>
+
+    <!-- Load the PayPal Checkout component. -->
+    <script src="https://js.braintreegateway.com/web/3.38.1/js/paypal-checkout.min.js"></script>
+
 
 </body>
 </html>

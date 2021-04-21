@@ -1,83 +1,138 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>BRAINTREE</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        @include('partials.modal-payments-success')
 
-            @include('partials.modal-payments-error')
         <div class="container">
+            <div class="col-md-6 offset-md-3">
+                <h1>Payment Form</h1>
+                <div class="spacer"></div>
 
-            {{-- form per aggiungere indirizzo spedizione --}}
-            <form>
+                @if (session()->has('success_message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success_message') }}
+                    </div>
+                @endif
 
-                <div class="form-group">
+                @if(count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Indirizzo Email</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
 
                     <div class="form-group">
+                        <label for="name_on_card">Nome destinatario</label>
+                        <input type="text" class="form-control" id="name_on_card" name="name_on_card">
+                    </div>
 
-                        <label for="exampleInputPassword1">Nome</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="address">Indirizzo di consegna</label>
+                                <input type="text" class="form-control" id="address" name="address">
+                            </div>
+                        </div>
 
-                        <input type="text"
-                            class="form-control"
-                            id="exampleInputPassword1"
-                            placeholder="Inserisci il nome del destinatario"
-                            required
-                        >
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="city">Città</label>
+                                <input type="text" class="form-control" id="city" name="city">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="province">Provincia</label>
+                                <input type="text" class="form-control" id="province" name="province">
+                            </div>
+                        </div>
 
                     </div>
 
-                    <label for="exampleInputEmail1">Indirizzo</label>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="postalcode">CAP</label>
+                                <input type="text" class="form-control" id="postalcode" name="postalcode">
+                            </div>
+                        </div>
+                    </div>
 
-                    <input type="text"
-                        class="form-control"
-                        id="exampleInputEmail1"
-                        placeholder="Inserisci indirizzo di spedizione"
-                        required
-                    >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="text" class="form-control" id="amount" name="amount" disabled placeholder="" :value="total">
+                            </div>
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="cc_number">Credit Card Number</label>
+                                <input type="text" class="form-control" id="cc_number" name="cc_number">
+                            </div>
+                        </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="expiry">Expiry</label>
+                                <input type="text" class="form-control" id="expiry" name="expiry">
+                            </div>
+                        </div>
 
-            </form>
-            {{-- end form per aggiungere indirizzo spedizione --}}
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="cvc">CVC</label>
+                                <input type="text" class="form-control" id="cvc" name="cvc">
+                            </div>
+                        </div>
 
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div id="dropin-container"></div>
-                    <button id="submit-button">Request payment method</button>
-                </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="cc_number">Credit Card Number</label>
+
+                            <div class="form-group" id="card-number">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="expiry">Expiry</label>
+
+                            <div class="form-group" id="expiration-date">
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cvv">CVV</label>
+
+                            <div class="form-group" id="cvv">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <div id="paypal-button"></div>
+
+                    <div class="spacer"></div>
+
+                    <input id="nonce" name="payment_method_nonce" type="hidden" />
+                    <button type="submit" class="btn btn-success">Submit Payment</button>
+                </form>
             </div>
-
-
-
-
         </div>
-    <script>
-        var button = document.querySelector('#submit-button');
-        braintree.dropin.create({
-            authorization: "sandbox_x6mvdvj5_r7czy6mhvckbb4v2",
-            container: '#dropin-container'
-            }, function (createErr, instance) {
-                button.addEventListener('click', function () {
-                instance.requestPaymentMethod(function (err, payload) {
-                $.get('{{ route('payment.make') }}', {payload}, function (response) {
-                if (response.success) {
-                    alert('Payment successfull!');
-                } else {
-                    alert('Payment ciao!');
-                }
-            }, 'json');
-        });
-    });
-});
-</script>
-</body>
-</html>
+
