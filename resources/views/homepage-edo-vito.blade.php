@@ -23,13 +23,13 @@
 
                     <div class="container-1200 flex-between nav-content-container">
 
-                        <img style="height:60px;margin-top:10px;" src="img/logo.svg" alt="">
+                        <img style="height:60px;margin-top:10px;" src="img/logo.svg">
 
                         <div class="user-info-group">
                             @if (Route::has('login'))
                                 <div class="login-links">
                                     @auth
-                                        <a href="{{ url('/home') }}">Home</a>
+                                        <a href="{{ url('/admin/restaurants') }}">Home</a>
                                     @else
                                         <a href="{{ route('login') }}">Login</a>
 
@@ -56,7 +56,7 @@
                         {{-- da scrivere --}}
                         {{-- <p id="slogan">SLOGAN</p> --}}
 
-                        <img id="logo-deliveboo" src="img/sushi.svg" alt="">
+                        <img id="logo-deliveboo" src="img/sushi.svg">
 
                         <div class="input-group">
                             <input v-model='userSearch'
@@ -71,7 +71,7 @@
 
                     <div class="jumbotron-content-right">
 
-                        <img id="sushi-img" src="img/sushi.svg" alt="">
+                        <img id="sushi-img" src="img/sushi-pizza.svg">
 
                     </div>
 
@@ -150,6 +150,63 @@
             </main>
 
             <footer class="">
+
+                {{-- categories slider --}}
+                {{-- <div class="container-xl">
+                    <div class="row">
+                        <div class="col-md-9  mx-auto">
+                            <h2><span>Categorie <b>Ristoranti</b></span></h2>
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                                <!-- Carousel indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                                </ol>
+                                <!-- Wrapper for carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="row" v-for='(restaurant, index) in results'>
+                                            <div class="col-sm-4">@{{restaurant.business_name}}<div class="img-box" v-for="category in restaurant.categories">@{{category.name}}</div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/2.jpg" class="img-fluid"></div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/3.jpg" class="img-fluid"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/4.jpg" class="img-fluid"></div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/5.jpg" class="img-fluid"></div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/6.jpg" class="img-fluid"></div></div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/7.jpg" class="img-fluid"></div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/8.jpg" class="img-fluid"></div></div>
+                                            <div class="col-sm-4"><div class="img-box"><img src="/examples/images/thumbs/9.jpg" class="img-fluid"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Carousel controls -->
+                                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                                    <i class="fa fa-chevron-left"></i>
+                                </a>
+                                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                                    <i class="fa fa-chevron-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+                {{-- end categories slider --}}
+
+                {{-- animated card --}}
+
+                {{-- <div class="card-effect-container">
+                    <div class="box" v-for="category in categories">@{{category.name}}</div>
+                </div> --}}
+
+                {{-- end animated card --}}
 
             </footer>
 

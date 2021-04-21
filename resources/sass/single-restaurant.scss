@@ -69,15 +69,26 @@
 }
 .cart-container{
     position: relative;
-    min-height: 100vh;
+    height: 300vh;
     width: 30%;
 
     .cart{
-        position: fixed;
+        // position: fixed;
         top: 20px;
         right: 220px;
         background: #ccc;
-        min-height: 350px;
+        height: 200vh;
         width: 500px;
     }
+}
+
+
+
+
+#card-number, #cvv, #expiration-date {
+    background: white;
+    height: 38px;
+    border: 1px solid #CED4DA;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
 }
