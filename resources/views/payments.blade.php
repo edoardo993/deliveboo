@@ -6,16 +6,16 @@
 
         {{-- <div class="spacer"></div> --}}
 
-        @if (session()->has('success_message'))
-            {{-- <div class="alert alert-success">
+        {{-- @if (session()->has('success_message'))
+            <div class="payment-succesfull">
                 {{ session()->get('success_message') }}
             </div> --}}
-            <h2>andata senza ritorno</h2>
-        @endif
+            {{-- <h2>andata senza ritorno</h2> --}}
+        {{-- @endif --}}
 
-        @if(count($errors) > 0)
-            <h2>ritorno senza andata</h2>
-        @endif
+        {{-- @if(count($errors) > 0) --}}
+            {{-- <h2>ritorno senza andata</h2> --}}
+        {{-- @endif --}}
 
         <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
             @csrf
@@ -136,8 +136,8 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
-            <button type="submit" class="btn btn-success">
-                Submit Payment
+            <button type="submit" class="btn btn-success confirm-order">
+                Conferma ordine
             </button>
 
         </form>

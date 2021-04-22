@@ -174,7 +174,8 @@ body{
         .total-products{
             text-transform: capitalize;
             margin-bottom: 20px;
-            font-size: 18px
+            font-size: 20px;
+            color: #333
         }
         .fa-minus-circle{
             color: red;
@@ -184,8 +185,26 @@ body{
             }
         }
         .cart-items-container{
+            margin-top: 20px;
             overflow-y: scroll;
             max-height: 200px;
+
+            .items-row{
+                display: flex;
+
+                .edit-item-icon{
+                    margin-right: 20px
+                }
+
+                .fa-pen{
+                    font-size: 20px;
+                    color: rgba(255,110,102,1);
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
 
             &::-webkit-scrollbar {
                 width: 10px;
