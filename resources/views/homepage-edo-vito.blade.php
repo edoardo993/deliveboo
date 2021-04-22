@@ -52,9 +52,9 @@
 
             <main class="main-content-delivery">
 
-                <h2 class="slider-title">Cosa ti va da mangiare? Scegli quello che vuoi!</h2>
 
                 <div class="carousel-container">
+                    <h2 class="slider-title">Cosa ti va da mangiare? Scegli quello che vuoi!</h2>
 
                     <div class="category-cards-container">
 
@@ -85,7 +85,7 @@
 
                         <h2 class="title-search" v-if="results.length > 0">Risultati per: @{{titleSearch}}</h2>
 
-                    <div class="restaurant-container">
+                        <div class="restaurant-container">
 
                             <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in results'
@@ -127,43 +127,43 @@
 
                         </div>
 
-                    </div>
 
-                    <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristorante per prendere spunto</h2>
+                        <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristorante per prendere spunto</h2>
+                        <div class="restaurant-container" v-if="!results.length">
 
-                    <div class="restaurant-container" v-if="!results.length">
+                            <div class="single-card-restaurant grow"
+                                v-for='(restaurant, index) in allRestaurants'
+                                v-on:click="singleRestaurant(restaurant)"
+                            >
 
-                        <div class="single-card-restaurant grow"
-                            v-for='(restaurant, index) in allRestaurants'
-                            v-on:click="singleRestaurant(restaurant)"
-                        >
+                                <div class="single-card-restaurant-top">
+                                    <img v-if="restaurant.pic_url.length > 20"
+                                        class="single-restaurant-img"
+                                        :src="restaurant.pic_url"
+                                    >
 
-                            <div class="single-card-restaurant-top">
-                                <img v-if="restaurant.pic_url.length > 20"
-                                    class="single-restaurant-img"
-                                    :src="restaurant.pic_url"
-                                >
+                                    <img v-else
+                                        class="single-restaurant-img"
+                                        src="https://www.associazioneostetriche.it/wp-content/uploads/2018/05/immagine-non-disponibile.png"
+                                    >
+                                </div>
 
-                                <img v-else
-                                    class="single-restaurant-img"
-                                    src="https://www.associazioneostetriche.it/wp-content/uploads/2018/05/immagine-non-disponibile.png"
-                                >
-                            </div>
+                                <div class="single-card-restaurant-bottom">
 
-                            <div class="single-card-restaurant-bottom">
+                                    <div class="single-restaurant-misc">
 
-                                <div class="single-restaurant-misc">
+                                        <h5 class="restaurant-name">@{{ restaurant.business_name }}</h5>
 
-                                    <h5 class="restaurant-name">@{{ restaurant.business_name }}</h5>
+                                        <div>
+                                            <span class="restaurant-category"
+                                                v-for="category in restaurant.categories">
+                                                @{{category.name}}<span class="comma">,</span>
+                                            </span>
+                                        </div>
 
-                                    <div>
-                                        <span class="restaurant-category"
-                                            v-for="category in restaurant.categories">
-                                            @{{category.name}}<span class="comma">,</span>
-                                        </span>
+                                        <p class="restaurant-description">@{{ restaurant.description }}</p>
+
                                     </div>
-
-                                    <p class="restaurant-description">@{{ restaurant.description }}</p>
 
                                 </div>
 
@@ -172,6 +172,7 @@
                         </div>
 
                     </div>
+
                     {{-- ristoranti iniziali --}}
                 </div>
 

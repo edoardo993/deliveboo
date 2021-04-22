@@ -119,18 +119,17 @@ header {
 }
 main{
     font-family:'Inter', sans-serif;
-    .slider-title{
-        color: rgba(255,110,102,1);
-        margin-left: 15%;
-        margin-top: 50px
-    }
+    display: flex;
+    justify-content: center;
     .carousel-container{
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 90%;
+
         .category-cards-container{
             display: flex;
-            width: 80%;
+            width: 100%;
             margin-top: 40px;
             .single-card-category{
                 margin: 10px;
@@ -156,9 +155,14 @@ main{
                 }
             }
         }
+
         .title-search{
             font-size: 30px;
-            margin: 20px 0px;
+        }
+        .slider-title{
+            color: rgba(255,110,102,1);
+            align-self: flex-start;
+            margin-top: 50px
         }
     }
     .restaurant-container{

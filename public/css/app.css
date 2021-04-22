@@ -10170,20 +10170,18 @@ header nav .user-info-group .login-links a:last-child {
 
 main {
   font-family: "Inter", sans-serif;
-}
-main .slider-title {
-  color: #ff6e66;
-  margin-left: 15%;
-  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 main .carousel-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
 main .carousel-container .category-cards-container {
   display: flex;
-  width: 80%;
+  width: 100%;
   margin-top: 40px;
 }
 main .carousel-container .category-cards-container .single-card-category {
@@ -10210,7 +10208,11 @@ main .carousel-container .category-cards-container .single-card-category:hover {
 }
 main .carousel-container .title-search {
   font-size: 30px;
-  margin: 20px 0px;
+}
+main .carousel-container .slider-title {
+  color: #ff6e66;
+  align-self: flex-start;
+  margin-top: 50px;
 }
 main .restaurant-container {
   display: flex;

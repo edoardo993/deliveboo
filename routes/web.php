@@ -92,7 +92,7 @@ Route::post('/checkout', function (Request $request) {
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
-
+        
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";
