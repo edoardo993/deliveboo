@@ -27,15 +27,20 @@
 
 
             <h2 class="business-name">I tuoi piatti</h2>
+
             @foreach ($restaurant->plates as $plate)
+
             <div class="card-plate-container">
+
                 <div class="card-plate-container-left">
+
                     <div class="text-container">
                         <p class="space-card-plate-container-right size-font">{{$plate->name}}</p>
                         <p class="space-card-plate-container-right size-font">{{$plate->typology}}</p>
                         <p class="space-card-plate-container-right size-font"> {{$plate->description}}</p>
                         <p class="space-card-plate-container-right size-font">{{$plate->price}}€</p>
                     </div>
+
                 </div>
 
                 <div class="card-plate-container-right">

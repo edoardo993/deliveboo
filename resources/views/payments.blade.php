@@ -1,7 +1,10 @@
 <div class="container">
-    <div class="col-md-6 offset-md-3">
-        <h1>Payment Form</h1>
-        <div class="spacer"></div>
+
+    {{-- <div class="col-md-6 offset-md-3"> --}}
+
+        <h3>Inserisci i tuoi dati</h3>
+
+        {{-- <div class="spacer"></div> --}}
 
         @if (session()->has('success_message'))
             {{-- <div class="alert alert-success">
@@ -13,8 +16,10 @@
         @if(count($errors) > 0)
             <h2>ritorno senza andata</h2>
         @endif
+
         <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
             @csrf
+
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
                 <input type="email" class="form-control" id="email">
@@ -29,18 +34,35 @@
                 >
             </div>
 
-            <div class="row">
+            <div class="form-group">
+                <label for="address">Indirizzo di consegna</label>
+                <input type="text"
+                    class="form-control"
+                    id="address"
+                    name="address"
+                >
+            </div>
+
+            {{-- <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="address">Indirizzo di consegna</label>
-                        <input type="text" class="form-control" id="address" name="address">
+                        <input type="text"
+                            class="form-control"
+                            id="address"
+                            name="address"
+                        >
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="city">Città</label>
-                        <input type="text" class="form-control" id="city" name="city">
+                        <input type="text"
+                            class="form-control"
+                            id="city"
+                            name="city"
+                        >
                     </div>
                 </div>
 
@@ -55,9 +77,9 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="postalcode">CAP</label>
@@ -68,10 +90,10 @@
                         >
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-group">
                         <label for="amount">Amount</label>
                         <input type="text"
@@ -112,8 +134,12 @@
 
             </div>
 
-            <input id="nonce" name="payment_method_nonce" type="hidden" />
-            <button type="submit" class="btn btn-success">Submit Payment</button>
+            <input id="nonce" name="payment_method_nonce" type="hidden"/>
+
+            <button type="submit" class="btn btn-success">
+                Submit Payment
+            </button>
+
         </form>
     </div>
 </div>
