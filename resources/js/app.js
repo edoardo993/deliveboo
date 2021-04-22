@@ -23,29 +23,30 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('cases',require('./components/Cases.vue').default);
 Vue.component('carousel',require('./components/Carousel.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
- import VueCarousel from 'vue-carousel';
- Vue.use(VueCarousel);
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 
 const app = new Vue({
     el: '#app',
     data: {
         results:[],
         categories: [],
+        allRestaurants: [],
         userSearch: '',
         titleSearch:'',
     },
     mounted() {
-            axios
-              .get('http://127.0.0.1:8000/api/categories')
-              .then((result) => {
+        axios
+            .get('http://127.0.0.1:8000/api/categories')
+            .then((result) => {
+            console.log(result.data)
+            this.categories = result.data;
+        });
+        axios
+            .get('http://127.0.0.1:8000/api/restaurants')
+            .then((result) => {
                 console.log(result.data)
-                this.categories = result.data;
+                this.allRestaurants = result.data.slice(0, 10);
             });
     },
     methods:{
@@ -55,7 +56,7 @@ const app = new Vue({
         },
         searchrestaurant() {
         const self = this;
-        axios
+            axios
             .get('http://127.0.0.1:8000/api/restaurants/search?str=' + self.userSearch)
             .then(function(result) {
                 console.log(result.data)
@@ -142,12 +143,13 @@ const app = new Vue({
         index: 0
     },
     mounted() {
-            // axios
-            //   .get('http://127.0.0.1:8000/api/categories')
-            //   .then((result) => {
-            //     console.log(result.data)
-            //     this.categories = result.data;
-            // });
+        // axios
+        //   .get('http://127.0.0.1:8000/api/categories')
+        //   .then((result) => {
+        //     console.log(result.data)
+        //     this.categories = result.data;
+        // });
+
     },
     methods: {
         newItem(item){
@@ -171,31 +173,32 @@ const app = new Vue({
             this.cartItem.splice(this.index, 1);
             this.totalOrderPrice()
         },
-        proceedToBraintree(idName){
-            let paymentsForm=document.getElementById(idName);
-            paymentsForm.classList.remove('hide')
+        proceedToBraintree(idName1, idName2, idName3){
+            let paymentsForm=document.getElementById(idName1);
+            paymentsForm.classList.remove('hide');
+
+            let paymentButton=document.getElementById(idName2);
+            paymentButton.classList.add('hide');
+
+            let itemsContainer=document.getElementById(idName3);
+            itemsContainer.classList.add('hide')
         }
     }
 })
 
-// var button = document.querySelector('#submit-button');
-//         braintree.dropin.create({
-//             authorization: "sandbox_x6mvdvj5_r7czy6mhvckbb4v2",
-//             container: '#dropin-container'
-//             }, function (createErr, instance) {
-//                 button.addEventListener('click', function () {
-//                 instance.requestPaymentMethod(function (err, payload) {
-//                 $.get("{{ route('payment.make') }}", {payload}, function (response) {
-//                 if (response.success) {
-//                     alert('Payment successfull!');
-//                 } else {
-//                     $("#error-modal").modal();
-//                 }
-//             }, 'json');
-//         });
-//     });
-// });
-
-
-
-
+// for nav white background
+$(window).on("scroll", function() {
+    if($(window).scrollTop() > 35) {
+        $(".scroll").addClass("white-background");
+        $(".your-page").addClass("black-font");
+        $(".your-page").removeClass("white-font");
+        $("#pink-logo").removeClass("hide");
+        $("#white-logo").addClass("hide");
+    }else {
+        $('.scroll').removeClass("white-background");
+        $("#pink-logo").addClass("hide");
+        $("#white-logo").removeClass("hide");
+        $(".your-page").removeClass("black-font");
+        $(".your-page").addClass("white-font");
+    }
+});

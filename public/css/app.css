@@ -10056,6 +10056,10 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   max-height: 250px;
 }
 
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
 .container-1200 {
   width: 1200px;
   margin: 0 auto;
@@ -10064,6 +10068,18 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
 .flex-between {
   display: flex;
   justify-content: space-between;
+}
+
+.white-background {
+  background: #fff;
+}
+
+.black-font {
+  color: #000;
+}
+
+.white-font {
+  color: #fff;
 }
 
 * {
@@ -10080,8 +10096,7 @@ header nav {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 400000000000000;
-  background: #fff;
+  z-index: 1000;
 }
 header nav .nav-content-container {
   height: 80px;
@@ -10097,7 +10112,6 @@ header nav .user-info-group .login-links {
 }
 header nav .user-info-group .login-links a {
   text-decoration: none;
-  color: #000;
   font-size: 20px;
 }
 header nav .user-info-group .login-links a:last-child {
@@ -10106,31 +10120,32 @@ header nav .user-info-group .login-links a:last-child {
 
 .jumbotron-delivery {
   background: linear-gradient(23deg, #ff3366 0%, #ff6e66 25%, #ff8c66 60%, #ffdbab 100%);
-  height: 560px;
-  margin-top: 80px;
+  height: 500px;
+  padding-top: 20px;
 }
 .jumbotron-delivery .jumbotron-content-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 560px;
 }
 .jumbotron-delivery .jumbotron-content-left #slogan {
-  font-size: 50px;
+  font-size: 30px;
   color: #fff;
-  text-transform: capitalize;
   font-family: "Acme", sans-serif;
+  margin-top: 50px;
+  line-height: 40px;
 }
 .jumbotron-delivery .jumbotron-content-left #logo-deliveboo {
   width: 360px;
+  margin: 30px 0 40px 0;
 }
 .jumbotron-delivery .jumbotron-content-left .input-group {
-  width: 90%;
+  width: 100%;
 }
 .jumbotron-delivery .jumbotron-content-left .input-group .form-control {
   padding: 0 30px;
   font-size: 20px;
-  height: 70px;
+  height: 50px;
   border-radius: 25px;
   border: 1px solid #fff;
   border-top: none;
@@ -10155,6 +10170,11 @@ header nav .user-info-group .login-links a:last-child {
 
 main {
   font-family: "Inter", sans-serif;
+}
+main .slider-title {
+  color: #ff6e66;
+  margin-left: 15%;
+  margin-top: 50px;
 }
 main .carousel-container {
   display: flex;
@@ -10209,6 +10229,10 @@ main .restaurant-container .single-card-restaurant {
   border-radius: 7px;
   margin: 20px 20px;
 }
+main .restaurant-container .single-card-restaurant:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
 main .restaurant-container .single-card-restaurant-top {
   height: 60%;
   width: 100%;
@@ -10248,6 +10272,82 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   max-height: 70px;
   overflow-y: hidden;
   padding: 25px;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+.form__field::-moz-placeholder {
+  color: transparent;
+}
+.form__field:-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:-moz-placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:-ms-input-placeholder ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #ebe6e6;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to right, #ff3366, #ff8c66);
+     border-image: linear-gradient(to right, #ff3366, #ff8c66);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
 }
 
 * {
@@ -10759,7 +10859,7 @@ body {
 }
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container {
   width: 45%;
-  height: 120px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -10795,7 +10895,7 @@ body {
   border-radius: 5px;
 }
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .plate-description::-webkit-scrollbar-thumb:hover {
-  background: #rgba 255, 140, 102, 1;
+  background: #ff8c66;
 }
 
 .cart-container {
@@ -10815,43 +10915,35 @@ body {
 }
 .cart-container .cart .your-order {
   font-size: 30px;
+  font-weight: bold;
 }
-.cart-container .cart .cart-item-name {
+.cart-container .cart .cart-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+.cart-container .cart .cart-img-container .fa-shopping-cart {
+  font-size: 150px;
+  color: #9A9A9A;
+}
+.cart-container .cart .cart-img-container p {
+  margin-top: 50px;
+  color: #9A9A9A;
+}
+.cart-container .cart .cart-item-name,
+.cart-container .cart .total-products {
   text-transform: capitalize;
   margin-bottom: 20px;
+  font-size: 18px;
 }
 .cart-container .cart .fa-minus-circle {
   color: red;
 }
 .cart-container .cart .fa-minus-circle:hover {
   cursor: pointer;
-}
-.cart-container .cart .proceed-to-payment-button {
-  width: 182px;
-  height: 40px;
-  background: #fff;
-  position: relative;
-  border-radius: 32px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.1s ease-in-out;
-}
-.cart-container .cart .proceed-to-payment-button span {
-  line-height: 40px;
-  font-weight: semibold;
-}
-.cart-container .cart .proceed-to-payment-button:nth-child(1) {
-  box-shadow: 2.5px 2.5px 2.5px grey;
-  color: black;
-}
-.cart-container .cart .proceed-to-payment-button:nth-child(1):hover {
-  box-shadow: inset 2.5px 2.5px 2.5px grey;
-  color: blue;
-  background: #f3f0f1;
-}
-.cart-container .cart .proceed-to-payment-button:nth-child(1):active {
-  box-shadow: inset 2.5px 2.5px 2.5px grey;
-  background: #f3f0f1;
 }
 .cart-container .cart .cart-items-container {
   overflow-y: scroll;
@@ -10882,6 +10974,14 @@ body {
   border-radius: 7px;
   color: #fff;
   font-weight: bold;
+}
+.cart-container .cart .total-button:hover {
+  cursor: pointer;
+  background: #f75a52;
+}
+.cart-container .cart .total-button:active {
+  transform: translateY(4px);
+  background: #ec3e34;
 }
 
 #card-number, #cvv, #expiration-date {
