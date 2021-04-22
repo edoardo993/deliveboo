@@ -2,20 +2,36 @@
 
         <h3>Inserisci i tuoi dati</h3>
 
-        <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
-            @csrf
+        {{-- <div class="spacer"></div> --}}
 
+        @if (session()->has('success_message'))
+            <div class="alert alert-success">
+                {{ session()->get('success_message') }}
+            </div>
+            <h2>andata senza ritorno</h2>
+        @endif
+
+        @if(count($errors) > 0)
+            <h2>ritorno senza andata</h2>
+        @endif
+
+        {{-- <form action="{{ url('/checkout') }}" method="POST" id="payment-form" name='formUno'> --}}
+            <form action="{{ route('orders.store') }}" method="PUT" id="payment-form" name='formUno'>
+            @csrf
+            @method('POST')
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email"  v-model='formData.email'>
+
             </div>
 
             <div class="form-group">
-                <label for="name_on_card">Nome destinatario</label>
+                <label for="customer_name">Nome destinatario</label>
                 <input type="text"
                     class="form-control"
-                    id="name_on_card"
-                    name="name_on_card"
+                    id="customer_name"
+                    name="customer_name"
+                    v-model='formData.name'
                 >
             </div>
 
@@ -25,57 +41,26 @@
                     class="form-control"
                     id="address"
                     name="address"
+                    v-model='formData.address'
                 >
             </div>
 
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="address">Indirizzo di consegna</label>
-                        <input type="text"
-                            class="form-control"
-                            id="address"
-                            name="address"
-                        >
-                    </div>
-                </div>
+            <div class="form-group">
+                <input type="text"
+                    class="form-control hide"
+                    id="restaurant_id"
+                    name="restaurant_id"
+                    value='{{$restaurant->id}}'
+                    readonly
+                >
+            </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="city">Città</label>
-                        <input type="text"
-                            class="form-control"
-                            id="city"
-                            name="city"
-                        >
-                    </div>
-                </div>
+            <div class="form-group">
+                <select class="select hide" multiple name="plates[]">
+                        <option readonly selected v-for='id in cartItemIds' :value="id">@{{id}}</option>
+                </select>
+            </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="province">Provincia</label>
-                        <input type="text"
-                            class="form-control"
-                            id="province"
-                            name="province"
-                        >
-                    </div>
-                </div>
-
-            </div> --}}
-
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="postalcode">CAP</label>
-                        <input type="text"
-                            class="form-control"
-                            id="postalcode"
-                            name="postalcode"
-                        >
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="row">
                 <div class="col-md-8">
@@ -121,8 +106,10 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
-            <button type="submit" class="btn btn-success confirm-order">
-                Conferma ordine
+
+            <button type="submit" class="btn btn-success" v-on:click='getFormValues()'>
+
+                Submit Payment
             </button>
 
         </form>

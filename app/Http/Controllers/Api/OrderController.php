@@ -29,7 +29,15 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $currentRestaurant = $data['restaurant_id'];
+        $Order = new Order();
+        $Order->fill($data);
+        $Order->status = 1;
+        $Order->total = $data['amount'];
+        $Order->save();
+        $Order->plates()->attach($data['plates']);
+        return redirect('single-restaurant/'. $currentRestaurant);
     }
 
     /**

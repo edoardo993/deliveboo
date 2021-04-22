@@ -127,7 +127,8 @@ const app = new Vue({
                     break;
             }
             return src;
-        }
+        },
+
     }
   })
 
@@ -137,30 +138,66 @@ const app = new Vue({
         // array contenente il nome ed il prezzo del piatto
         cartItem: [],
 
+        cartItemIds: [],
+
         // variabile totale iniziale impostata a zero
         total: 0,
 
         // array contenente i prezzi dei piatti selezionati
         totalPlatesPrices: [],
 
-        index: 0
-    },
-    mounted() {
-        // axios
-        //   .get('http://127.0.0.1:8000/api/categories')
-        //   .then((result) => {
-        //     console.log(result.data)
-        //     this.categories = result.data;
-        // });
+        index: 0,
+
+        storage:[],
+
+        // (dati form)
+        formData:{
+            address:'',
+            email:'',
+            name:'',
+        }
 
     },
+    mounted() {
+        this.storage = JSON.parse(window.sessionStorage.getItem('carrello'));
+        this.ids = JSON.parse(window.sessionStorage.getItem('ids'));
+        this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
+        if(this.storage.length > 0 && this.storagePrices.length > 0){
+
+            console.log('Storage:'+ this.storage);
+            console.log('Prices:'+ this.storagePrices);
+            for (let i = 0; i < this.storage.length; i++) {
+                this.cartItem.push(this.storage[i]);
+            }
+            for (let i = 0; i < this.ids.length; i++) {
+                this.cartItemIds.push(this.ids[i]);
+                console.log('Elenco Ids:'+ this.cartItemIds);
+            }
+            for (let i = 0; i < this.storagePrices.length; i++) {
+                this.totalPlatesPrices.push(this.storagePrices[i]);
+            }
+            this.totalOrderPrice();
+        }
+        window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItem));
+        window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+        window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
+    },
+
     methods: {
         newItem(item){
+            window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+            window.sessionStorage.removeItem("prezzi", JSON.stringify(this.totalPlatesPrices));
+            window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItemIds));
             console.log(item)
             this.cartItem.push(item.name);
-            console.log(this.cartItem);
+            this.cartItemIds.push(item.id);
+            console.log('Elenco Ids:'+ this.cartItemIds);
+            console.log('Questo è il carrello:' + this.cartItem);
             this.totalPlatesPrices.push(item.price);
             this.totalOrderPrice();
+            window.sessionStorage.setItem('ids', JSON.stringify(this.cartItemIds));
+            window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
+            window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
         },
         totalOrderPrice(){
             this.total=0;
@@ -174,6 +211,7 @@ const app = new Vue({
             console.log(this.index);
             this.totalPlatesPrices.splice(this.index, 1);
             this.cartItem.splice(this.index, 1);
+            this.cartItemIds.splice(this.index, 1);
             this.totalOrderPrice()
         },
         proceedToBraintree(idName1, idName2, idName3){
@@ -185,6 +223,13 @@ const app = new Vue({
 
             let itemsContainer=document.getElementById(idName3);
             itemsContainer.classList.add('hide')
+        },
+        getFormValues(){
+            document.formUno.action =  'http://127.0.0.1:8000/checkout';
+            document.formUno.submit();        // Submit the page
+            document.formUno.action = "http://127.0.0.1:8000/orders/store";
+            document.formUno.submit();        // Submit the page
+            return true;
         }
     }
 })

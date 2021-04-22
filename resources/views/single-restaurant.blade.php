@@ -85,7 +85,7 @@
 
                 <span class="your-order">Il tuo ordine</span>
 
-                <div class="cart-img-container" v-if="total<1">
+                <div class="cart-img-container" v-if="cartItem < 1">
                     <i class="fas fa-shopping-cart"></i>
                     <p>Clicca sui piatti per aggiungerli al carrello</p>
                 </div>
