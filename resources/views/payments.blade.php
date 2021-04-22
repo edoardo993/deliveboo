@@ -15,10 +15,9 @@
             <h2>ritorno senza andata</h2>
         @endif
 
-        {{-- <form action="{{ url('/checkout') }}" method="POST" id="payment-form" name='formUno'> --}}
-            <form action="{{ route('orders.store') }}" method="PUT" id="payment-form" name='formUno'>
+
+            <form action="{{ url('/checkout')}}" method="POST" id="payment-form" name='formUno'>
             @csrf
-            @method('POST')
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
                 <input type="email" class="form-control" id="email"  v-model='formData.email'>
@@ -107,7 +106,7 @@
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
 
-            <button type="submit" class="btn btn-success" v-on:click='getFormValues()'>
+            <button type="submit" class="btn btn-success" >
 
                 Submit Payment
             </button>

@@ -3636,15 +3636,6 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       paymentButton.classList.add('hide');
       var itemsContainer = document.getElementById(idName3);
       itemsContainer.classList.add('hide');
-    },
-    getFormValues: function getFormValues() {
-      document.formUno.action = 'http://127.0.0.1:8000/checkout';
-      document.formUno.submit(); // Submit the page
-
-      document.formUno.action = "http://127.0.0.1:8000/orders/store";
-      document.formUno.submit(); // Submit the page
-
-      return true;
     }
   }
 }); // for nav white background
