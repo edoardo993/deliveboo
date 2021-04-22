@@ -3487,6 +3487,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     singleRestaurant: function singleRestaurant(restaurant) {
       return window.location.href = 'http://127.0.0.1:8000/single-restaurant/' + restaurant.id;
     },
+    returnAllListRestaurant: function returnAllListRestaurant() {
+      this.results = [];
+    },
     setImg: function setImg(name) {
       var src;
       console.log(name);
