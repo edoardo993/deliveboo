@@ -138,7 +138,8 @@
                         </div>
 
 
-                    <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristoranti per te</h2>
+                            <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristoranti per te</h2>
+                            <div class="restaurant-container" v-if="!results.length">
 
                             <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in allRestaurants'

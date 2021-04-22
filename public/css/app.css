@@ -10218,7 +10218,6 @@ main .carousel-container .category-cards-container .single-card-category:hover {
 }
 main .carousel-container .title-search {
   font-size: 30px;
-  margin: 20px 0px;
   color: #FF3966;
 }
 main .carousel-container .slider-title {
@@ -10382,7 +10381,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   display: flex;
   padding-top: 30px;
   margin-top: 100px;
-  background: #5a5959;
+  background: #333;
   height: 230px;
   color: #fff;
   border-top-left-radius: 50% 20%;
@@ -11102,35 +11101,6 @@ body {
   border-radius: 7px;
 }
 
-.card {
-  margin-top: 100px;
-  color: #ec7f9a;
-}
-
-.card-header {
-  color: #fff;
-  text-align: center;
-  font-size: 25px;
-  background: #E73C68;
-  font-family: "Dancing Script", cursive;
-}
-
-.btn.btn-primary {
-  background: #E73C68;
-  border: none;
-}
-
-.btn-link {
-  color: #ec7f9a;
-}
-.btn-link:hover {
-  color: #ec7f9a;
-}
-
-.form-check-label {
-  color: #ec7f9a;
-}
-
 .border-none {
   border-style: none;
 }
@@ -11179,4 +11149,33 @@ body {
 .create-button:active {
   box-shadow: inset 2.5px 2.5px 2.5px grey;
   background: #f3f0f1;
+}
+
+.card {
+  margin-top: 100px;
+  color: #ec7f9a;
+}
+
+.card-header {
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  background: #E73C68;
+  font-family: "Dancing Script", cursive;
+}
+
+.btn.btn-primary {
+  background: #E73C68;
+  border: none;
+}
+
+.btn-link {
+  color: #ec7f9a;
+}
+.btn-link:hover {
+  color: #ec7f9a;
+}
+
+.form-check-label {
+  color: #ec7f9a;
 }

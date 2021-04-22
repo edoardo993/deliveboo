@@ -166,8 +166,13 @@ main{
 
         .title-search{
             font-size: 30px;
-            margin: 20px 0px;
+            // margin: 20px 0px;
             color: #FF3966
+        }
+        .slider-title{
+            color: rgba(255, 110, 102, 1);
+            align-self: flex-start;
+            margin-top: 50px
         }
         .fa-times-circle:hover{
             cursor: pointer;
@@ -330,7 +335,7 @@ $gray: #9b9b9b;
     padding-top: 30px;
     // align-items: center;
     margin-top: 100px;
-    background: #5a5959;
+    background: #333;
     height: 230px;
     color: #fff;
     border-top-left-radius: 50% 20%;
