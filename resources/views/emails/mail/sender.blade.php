@@ -7,6 +7,6 @@ E' un piacere averti qua con noi! La registrazione è avvenuta con successo!!!!!
 Vai alla tua dashboard!!!!!
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Grazie mille,<br>
+Deliveboo
 @endcomponent
