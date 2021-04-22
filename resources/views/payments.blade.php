@@ -18,7 +18,7 @@
         @endif
 
         {{-- <form action="{{ url('/checkout') }}" method="POST" id="payment-form" name='formUno'> --}}
-            <form action="{{ route('orders.store') }}" method="POST" id="payment-form" name='formUno'>
+            <form action="{{ route('orders.store') }}" method="PUT" id="payment-form" name='formUno'>
             @csrf
             @method('POST')
             <div class="form-group">
@@ -109,7 +109,7 @@
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
 
-            <button type="submit" class="btn btn-success" >
+            <button type="submit" class="btn btn-success" v-on:click='getFormValues()'>
 
                 Submit Payment
             </button>

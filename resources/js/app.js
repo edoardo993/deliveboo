@@ -221,13 +221,13 @@ const app = new Vue({
             let itemsContainer=document.getElementById(idName3);
             itemsContainer.classList.add('hide')
         },
-        // getFormValues(){
-        //     document.formUno.action = "{{ route('orders.store') }}";
-        //     document.formUno.submit();        // Submit the page
-        //     document.formUno.action =  'http://127.0.0.1:8000/checkout';
-        //     document.formUno.submit();        // Submit the page
-        //     return true;
-        // }
+        getFormValues(){
+            document.formUno.action =  'http://127.0.0.1:8000/checkout';
+            document.formUno.submit();        // Submit the page
+            document.formUno.action = "http://127.0.0.1:8000/orders/store";
+            document.formUno.submit();        // Submit the page
+            return true;
+        }
     }
 })
 
