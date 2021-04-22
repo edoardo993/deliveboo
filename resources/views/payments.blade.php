@@ -7,9 +7,9 @@
         {{-- <div class="spacer"></div> --}}
 
         @if (session()->has('success_message'))
-            {{-- <div class="alert alert-success">
+            <div class="alert alert-success">
                 {{ session()->get('success_message') }}
-            </div> --}}
+            </div>
             <h2>andata senza ritorno</h2>
         @endif
 
