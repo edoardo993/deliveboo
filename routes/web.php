@@ -27,6 +27,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'Admin\RestaurantController@index')->name('home');
+Route::get('/orders/store', 'Api\OrderController@store');
+Route::resource('orders','Api\OrderController');
 
 Route::prefix('admin')
     ->namespace('Admin')
@@ -92,7 +94,7 @@ Route::post('/checkout', function (Request $request) {
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
-        
+
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";

@@ -17,20 +17,23 @@
             <h2>ritorno senza andata</h2>
         @endif
 
-        <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
+        {{-- <form action="{{ url('/checkout') }}" method="POST" id="payment-form" name='formUno'> --}}
+            <form action="{{ route('orders.store') }}" method="POST" id="payment-form" name='formUno'>
             @csrf
 
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email"  v-model='formData.email'>
+
             </div>
 
             <div class="form-group">
-                <label for="name_on_card">Nome destinatario</label>
+                <label for="customer_name">Nome destinatario</label>
                 <input type="text"
                     class="form-control"
-                    id="name_on_card"
-                    name="name_on_card"
+                    id="customer_name"
+                    name="customer_name"
+                    v-model='formData.name'
                 >
             </div>
 
@@ -40,57 +43,30 @@
                     class="form-control"
                     id="address"
                     name="address"
+                    v-model='formData.address'
                 >
             </div>
 
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="address">Indirizzo di consegna</label>
-                        <input type="text"
-                            class="form-control"
-                            id="address"
-                            name="address"
-                        >
-                    </div>
-                </div>
+            <div class="form-group">
+                <input type="text"
+                    class="form-control hide"
+                    id="restaurant_id"
+                    name="restaurant_id"
+                    value='{{$restaurant->id}}'
+                    readonly
+                >
+            </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="city">Città</label>
-                        <input type="text"
-                            class="form-control"
-                            id="city"
-                            name="city"
-                        >
-                    </div>
-                </div>
+            <div class="form-group">
+                <input type="text"
+                    class="form-control "
+                    id="plates"
+                    name="plates[]"
+                    :value='cartItemIds'
+                    readonly
+                >
+            </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="province">Provincia</label>
-                        <input type="text"
-                            class="form-control"
-                            id="province"
-                            name="province"
-                        >
-                    </div>
-                </div>
-
-            </div> --}}
-
-            {{-- <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="postalcode">CAP</label>
-                        <input type="text"
-                            class="form-control"
-                            id="postalcode"
-                            name="postalcode"
-                        >
-                    </div>
-                </div>
-            </div> --}}
 
             <div class="row">
                 <div class="col-md-8">
@@ -136,7 +112,9 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
-            <button type="submit" class="btn btn-success">
+
+            <button type="submit" class="btn btn-success" >
+
                 Submit Payment
             </button>
 
