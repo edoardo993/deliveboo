@@ -171,7 +171,12 @@
                                             </span>
                                         </div>
 
-                                        <p class="restaurant-description">@{{ restaurant.description }}</p>
+                                        <span class="restaurant-description">@{{ restaurant.description }}</span>
+
+                                        <span class="restaurant-address">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            @{{ restaurant.address }}
+                                        </span>
 
                                     </div>
 

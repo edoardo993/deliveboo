@@ -82,7 +82,7 @@ header {
             font-size: 30px;
             color: #FFD3A4;
             font-family: 'Acme', sans-serif;
-            margin-top: 50px;
+            margin-top: 80px;
             line-height: 40px;
         }
         #logo-deliveboo{
@@ -166,11 +166,12 @@ main{
 
         .title-search{
             font-size: 30px;
-            // margin: 20px 0px;
-            color: #FF3966
+            align-self: flex-start;
+            color: #FF3966;
+            margin-top: 50px;
         }
         .slider-title{
-            color: rgba(255, 110, 102, 1);
+            color: #FF3966;
             align-self: flex-start;
             margin-top: 50px
         }
@@ -193,7 +194,7 @@ main{
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-radius: 7px;
+            border-radius: 4px;
             margin: 20px 20px;
 
             &:hover{
@@ -201,11 +202,11 @@ main{
                 transform: scale(1.1);
             }
             &-top{
-                height:60%;
+                height:50%;
                 width: 100%;
                 img{
                     width: 100%;
-                    border-radius: 7px 7px 0px 0px;
+                    border-radius: 4px 4px 0px 0px;
                 }
 
                 .single-restaurant-img{
@@ -214,17 +215,18 @@ main{
                 }
             }
             &-bottom{
-                height: 40%;
+                height: 50%;
                 .single-restaurant-misc{
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     span{
-                        padding: 5px 0px;
+                        padding: 5px 0;
                     }
-                     span:last-child .comma{
-                            display: none;
-                        }
+                    span:last-child .comma{
+                        display: none;
+                    }
                     div{
                         display: flex;
                     }
@@ -232,23 +234,24 @@ main{
                         font-weight: bold;
                         color:#EB5468;
                         margin-top: 20px;
-                        font-size: 34px;
+                        font-size: 30px;
                     }
-                    .restaurant-description{
+                    .restaurant-category{
+                        font-size: 20px;
+                    }
+                    .restaurant-description,
+                    .restaurant-address{
                         max-height: 70px;
                         overflow-y: hidden;
-                        padding: 25px;
-                        font-size: 22px;
+                        font-size: 20px;
                     }
-
+                    .fa-map-marker-alt{
+                        color: #FF3966
+                    }
                 }
             }
         }
-
     }
-    // .single-card-restaurant{
-    //     width:
-    // }
 }
 
 
