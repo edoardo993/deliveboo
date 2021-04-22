@@ -10,6 +10,7 @@
 @endphp
 
     <div class="upper-gradient"></div>
+
         <div class="single-restaurant-left-content">
 
             <div class="single-restaurant-spec">
@@ -91,12 +92,20 @@
 
                 <div class="cart-items-container" id="items-container">
 
-                    <div v-for="(item, index) in cartItem">
+                    <div v-for="(item, index) in cartItem"
+                        class="items-row"
+                    >
+
+                        <div class="edit-item-icon">
+                            <i class="fas fa-pen"></i>
+                        </div>
 
                         <div class="cart-item-name">@{{item}}
+
                             <span v-on:click="deletePlate(index)">
                                 <i class="fas fa-minus-circle"></i>
                             </span>
+
                         </div>
 
                     </div>
@@ -115,7 +124,7 @@
                     id="payment-button"
                     v-if="cartItem.length >= 1"
                     v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container')"
-                >Procedi all'ordine
+                >Procedi al pagamento
                 </div>
 
                 <div class="container hide" id="paymentsContainer">
@@ -126,11 +135,25 @@
 
             </div>
 
+            @if (session()->has('success_message'))
+            <div class="payment-succesfull payment-alert">
+                Il tuo pagamento è andato a buon fine! <br> Il tuo ordine è in preparazione,<br> saremo da te a breve!
+            </div>
+            {{-- <h2>andata senza ritorno</h2> --}}
+            @endif
+
+            @if(count($errors) > 0)
+            <div class="payment-failed payment-alert">
+                Il tuo pagamento non è andato a buon fine :(<br>Ricontrolla i dati inseriti e riprova!
+            </div>
+            @endif
+
         </div>
 
     @endsection
 
     @section('payments-script')
+
     <script src="https://js.braintreegateway.com/web/3.38.1/js/client.min.js"></script>
 
     <script src="https://js.braintreegateway.com/web/3.38.1/js/hosted-fields.min.js"></script>
@@ -199,4 +222,5 @@
             });
             });
     </script>
-    @endsection
+
+@endsection
