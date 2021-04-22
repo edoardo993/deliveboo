@@ -3554,22 +3554,42 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     total: 0,
     // array contenente i prezzi dei piatti selezionati
     totalPlatesPrices: [],
-    index: 0
+    index: 0,
+    storage: []
   },
-  mounted: function mounted() {// axios
-    //   .get('http://127.0.0.1:8000/api/categories')
-    //   .then((result) => {
-    //     console.log(result.data)
-    //     this.categories = result.data;
-    // });
+  mounted: function mounted() {
+    this.storage = JSON.parse(window.sessionStorage.getItem('carrello'));
+    this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
+
+    if (this.storage.length > 0 && this.storagePrices.length > 0) {
+      console.log('Storage:' + this.storage);
+      console.log('Prices:' + this.storagePrices);
+
+      for (var i = 0; i < this.storage.length; i++) {
+        this.cartItem.push(this.storage[i]);
+      }
+
+      for (var _i = 0; _i < this.storagePrices.length; _i++) {
+        this.totalPlatesPrices.push(this.storagePrices[_i]);
+      }
+
+      this.totalOrderPrice();
+    }
+
+    window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+    window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
   },
   methods: {
     newItem: function newItem(item) {
+      window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+      window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
       console.log(item);
       this.cartItem.push(item.name);
-      console.log(this.cartItem);
+      console.log('Questo è il carrello:' + this.cartItem);
       this.totalPlatesPrices.push(item.price);
       this.totalOrderPrice();
+      window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
+      window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
     },
     totalOrderPrice: function totalOrderPrice() {
       this.total = 0;
@@ -21013,7 +21033,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel {\n  display: flex;\n  flex-direction: column;\n   position: relative;\n}\n.VueCarousel--reverse {\n  flex-direction: column-reverse;\n}\n.VueCarousel-wrapper {\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n}\n.VueCarousel-inner {\n  display: flex;\n  flex-direction: row;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n}\n.VueCarousel-inner--center {\n  justify-content: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel {\r\n  display: flex;\r\n  flex-direction: column;\r\n   position: relative;\n}\n.VueCarousel--reverse {\r\n  flex-direction: column-reverse;\n}\n.VueCarousel-wrapper {\r\n  width: 100%;\r\n  position: relative;\r\n  overflow: hidden;\n}\n.VueCarousel-inner {\r\n  display: flex;\r\n  flex-direction: row;\r\n  -webkit-backface-visibility: hidden;\r\n          backface-visibility: hidden;\n}\n.VueCarousel-inner--center {\r\n  justify-content: center;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21037,7 +21057,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-navigation-button[data-v-d456e682] {\n  position: absolute;\n  top: 50%;\n  box-sizing: border-box;\n  color: #000;\n  text-decoration: none;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  border: none;\n  background-color: transparent;\n  padding: 0;\n  cursor: pointer;\n  outline: none;\n}\n.VueCarousel-navigation-button[data-v-d456e682]:focus {\n  outline: 1px solid lightblue;\n}\n.VueCarousel-navigation-next[data-v-d456e682] {\n  right: 0;\n  transform: translateY(-50%) translateX(100%);\n  font-family: \"system\";\n}\n.VueCarousel-navigation-prev[data-v-d456e682] {\n  left: 0;\n  transform: translateY(-50%) translateX(-100%);\n  font-family: \"system\";\n}\n.VueCarousel-navigation--disabled[data-v-d456e682] {\n  opacity: 0.5;\n  cursor: default;\n}\n\n/* Define the \"system\" font family */\n@font-face {\n  font-family: system;\n  font-style: normal;\n  font-weight: 300;\n  src: local(\".SFNSText-Light\"), local(\".HelveticaNeueDeskInterface-Light\"),\n    local(\".LucidaGrandeUI\"), local(\"Ubuntu Light\"), local(\"Segoe UI Symbol\"),\n    local(\"Roboto-Light\"), local(\"DroidSans\"), local(\"Tahoma\");\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-navigation-button[data-v-d456e682] {\r\n  position: absolute;\r\n  top: 50%;\r\n  box-sizing: border-box;\r\n  color: #000;\r\n  text-decoration: none;\r\n  -webkit-appearance: none;\r\n     -moz-appearance: none;\r\n          appearance: none;\r\n  border: none;\r\n  background-color: transparent;\r\n  padding: 0;\r\n  cursor: pointer;\r\n  outline: none;\n}\n.VueCarousel-navigation-button[data-v-d456e682]:focus {\r\n  outline: 1px solid lightblue;\n}\n.VueCarousel-navigation-next[data-v-d456e682] {\r\n  right: 0;\r\n  transform: translateY(-50%) translateX(100%);\r\n  font-family: \"system\";\n}\n.VueCarousel-navigation-prev[data-v-d456e682] {\r\n  left: 0;\r\n  transform: translateY(-50%) translateX(-100%);\r\n  font-family: \"system\";\n}\n.VueCarousel-navigation--disabled[data-v-d456e682] {\r\n  opacity: 0.5;\r\n  cursor: default;\n}\r\n\r\n/* Define the \"system\" font family */\n@font-face {\r\n  font-family: system;\r\n  font-style: normal;\r\n  font-weight: 300;\r\n  src: local(\".SFNSText-Light\"), local(\".HelveticaNeueDeskInterface-Light\"),\r\n    local(\".LucidaGrandeUI\"), local(\"Ubuntu Light\"), local(\"Segoe UI Symbol\"),\r\n    local(\"Roboto-Light\"), local(\"DroidSans\"), local(\"Tahoma\");\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21061,7 +21081,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-pagination[data-v-d7acf176] {\n  width: 100%;\n  text-align: center;\n}\n.VueCarousel-pagination--top-overlay[data-v-d7acf176] {\n  position: absolute;\n  top: 0;\n}\n.VueCarousel-pagination--bottom-overlay[data-v-d7acf176] {\n  position: absolute;\n  bottom: 0;\n}\n.VueCarousel-dot-container[data-v-d7acf176] {\n  display: inline-block;\n  margin: 0 auto;\n  padding: 0;\n}\n.VueCarousel-dot[data-v-d7acf176] {\n  display: inline-block;\n  cursor: pointer;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  border: none;\n  background-clip: content-box;\n  box-sizing: content-box;\n  padding: 0;\n  border-radius: 100%;\n  outline: none;\n}\n.VueCarousel-dot[data-v-d7acf176]:focus {\n  outline: 1px solid lightblue;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-pagination[data-v-d7acf176] {\r\n  width: 100%;\r\n  text-align: center;\n}\n.VueCarousel-pagination--top-overlay[data-v-d7acf176] {\r\n  position: absolute;\r\n  top: 0;\n}\n.VueCarousel-pagination--bottom-overlay[data-v-d7acf176] {\r\n  position: absolute;\r\n  bottom: 0;\n}\n.VueCarousel-dot-container[data-v-d7acf176] {\r\n  display: inline-block;\r\n  margin: 0 auto;\r\n  padding: 0;\n}\n.VueCarousel-dot[data-v-d7acf176] {\r\n  display: inline-block;\r\n  cursor: pointer;\r\n  -webkit-appearance: none;\r\n     -moz-appearance: none;\r\n          appearance: none;\r\n  border: none;\r\n  background-clip: content-box;\r\n  box-sizing: content-box;\r\n  padding: 0;\r\n  border-radius: 100%;\r\n  outline: none;\n}\n.VueCarousel-dot[data-v-d7acf176]:focus {\r\n  outline: 1px solid lightblue;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -21085,7 +21105,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-slide {\n  flex-basis: inherit;\n  flex-grow: 0;\n  flex-shrink: 0;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  -webkit-touch-callout: none;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  outline: none;\n}\n.VueCarousel-slide-adjustableHeight {\n  display: table;\n  flex-basis: auto;\n  width: 100%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.VueCarousel-slide {\r\n  flex-basis: inherit;\r\n  flex-grow: 0;\r\n  flex-shrink: 0;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-backface-visibility: hidden;\r\n          backface-visibility: hidden;\r\n  -webkit-touch-callout: none;\r\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\r\n  outline: none;\n}\n.VueCarousel-slide-adjustableHeight {\r\n  display: table;\r\n  flex-basis: auto;\r\n  width: 100%;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

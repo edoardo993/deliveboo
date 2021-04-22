@@ -124,7 +124,8 @@ const app = new Vue({
                     break;
             }
             return src;
-        }
+        },
+
     }
   })
 
@@ -140,24 +141,41 @@ const app = new Vue({
         // array contenente i prezzi dei piatti selezionati
         totalPlatesPrices: [],
 
-        index: 0
+        index: 0,
+
+        storage:[]
     },
     mounted() {
-        // axios
-        //   .get('http://127.0.0.1:8000/api/categories')
-        //   .then((result) => {
-        //     console.log(result.data)
-        //     this.categories = result.data;
-        // });
+        this.storage = JSON.parse(window.sessionStorage.getItem('carrello'));
+        this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
+        if(this.storage.length > 0 && this.storagePrices.length > 0){
 
+            console.log('Storage:'+ this.storage);
+            console.log('Prices:'+ this.storagePrices);
+            for (let i = 0; i < this.storage.length; i++) {
+                this.cartItem.push(this.storage[i]);
+            }
+            for (let i = 0; i < this.storagePrices.length; i++) {
+                this.totalPlatesPrices.push(this.storagePrices[i]);
+            }
+            this.totalOrderPrice();
+        }
+
+        window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+        window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
     },
+
     methods: {
         newItem(item){
+            window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+            window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
             console.log(item)
             this.cartItem.push(item.name);
-            console.log(this.cartItem);
+            console.log('Questo è il carrello:' + this.cartItem);
             this.totalPlatesPrices.push(item.price);
             this.totalOrderPrice();
+            window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
+            window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
         },
         totalOrderPrice(){
             this.total=0;
