@@ -1,0 +1,25 @@
+.card{
+    margin-top: 100px;
+    color: #ec7f9a;
+}
+.card-header{
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+    background: #E73C68;
+    font-family: 'Dancing Script', cursive;
+}
+.btn.btn-primary{
+    background: #E73C68;
+    border: none
+}
+.btn-link{
+    color: #ec7f9a;
+
+    &:hover{
+        color: #ec7f9a;
+    }
+}
+.form-check-label{
+    color: #ec7f9a;
+}

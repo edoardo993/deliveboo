@@ -10088,6 +10088,10 @@ header .jumbotron-delivery .restaurant-card .single-restaurant-img {
   padding: 0;
 }
 
+body {
+  background: #FF9B73;
+}
+
 header {
   width: 100%;
 }
@@ -10130,7 +10134,7 @@ header nav .user-info-group .login-links a:last-child {
 }
 .jumbotron-delivery .jumbotron-content-left #slogan {
   font-size: 30px;
-  color: #fff;
+  color: #FFD3A4;
   font-family: "Acme", sans-serif;
   margin-top: 50px;
   line-height: 40px;
@@ -10171,7 +10175,13 @@ header nav .user-info-group .login-links a:last-child {
 main {
   font-family: "Inter", sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+main .slider-title {
+  color: #FF3966;
+  margin-left: 15%;
+  margin-top: 50px;
 }
 main .carousel-container {
   display: flex;
@@ -10208,11 +10218,16 @@ main .carousel-container .category-cards-container .single-card-category:hover {
 }
 main .carousel-container .title-search {
   font-size: 30px;
+  margin: 20px 0px;
+  color: #FF3966;
 }
 main .carousel-container .slider-title {
   color: #ff6e66;
   align-self: flex-start;
   margin-top: 50px;
+}
+main .carousel-container .fa-times-circle:hover {
+  cursor: pointer;
 }
 main .restaurant-container {
   display: flex;
@@ -10221,8 +10236,8 @@ main .restaurant-container {
   flex-wrap: wrap;
 }
 main .restaurant-container .single-card-restaurant {
-  height: 500px;
-  width: calc((100% / 3) - 40px);
+  height: 400px;
+  width: calc((100% / 4) - 40px);
   background: #fff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   display: flex;
@@ -10268,12 +10283,13 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   font-weight: bold;
   color: #EB5468;
   margin-top: 20px;
-  font-size: 25px;
+  font-size: 34px;
 }
 main .restaurant-container .single-card-restaurant-bottom .single-restaurant-misc .restaurant-description {
   max-height: 70px;
   overflow-y: hidden;
   padding: 25px;
+  font-size: 22px;
 }
 
 .form__group {
@@ -10350,6 +10366,49 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 /* reset input */
 .form__field:required, .form__field:invalid {
   box-shadow: none;
+}
+
+.main-background {
+  position: absolute;
+  z-index: -1000;
+  width: 100%;
+  height: 700px;
+  background: #fff;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.deliveboo-footer {
+  display: flex;
+  padding-top: 30px;
+  margin-top: 100px;
+  background: #5a5959;
+  height: 230px;
+  color: #fff;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
+.deliveboo-footer ul li {
+  list-style-type: none;
+}
+.deliveboo-footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+.deliveboo-footer .footer-content .footer-logo-info .footer-logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+.deliveboo-footer .footer-content .footer-list-title {
+  text-transform: uppercase;
+  color: #ccc;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.deliveboo-footer .footer-content .footer-icons i {
+  padding-right: 17px;
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 
 .border-none {
@@ -11041,6 +11100,35 @@ body {
   font-size: 40px;
   color: #333;
   border-radius: 7px;
+}
+
+.card {
+  margin-top: 100px;
+  color: #ec7f9a;
+}
+
+.card-header {
+  color: #fff;
+  text-align: center;
+  font-size: 25px;
+  background: #E73C68;
+  font-family: "Dancing Script", cursive;
+}
+
+.btn.btn-primary {
+  background: #E73C68;
+  border: none;
+}
+
+.btn-link {
+  color: #ec7f9a;
+}
+.btn-link:hover {
+  color: #ec7f9a;
+}
+
+.form-check-label {
+  color: #ec7f9a;
 }
 
 .border-none {

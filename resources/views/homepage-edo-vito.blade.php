@@ -50,6 +50,8 @@
 
             </div>
 
+            <div class="main-background"></div>
+
             <main class="main-content-delivery">
 
 
@@ -83,9 +85,17 @@
 
                         </div>
 
-                        <h2 class="title-search" v-if="results.length > 0">Risultati per: @{{titleSearch}}</h2>
+                        <h2 class="title-search" v-if="results.length > 0">
+                            Risultati per: @{{titleSearch}}
+                            <i class="fas fa-times-circle" v-on:click="returnAllListRestaurant()"></i>
+                        </h2>
 
-                        <div class="restaurant-container">
+                        {{-- <h2 class="title-search"
+                            v-if="!results.includes(titleSearch)"
+                        >Nessun risultato per: @{{titleSearch}}
+                        </h2> --}}
+
+                    <div class="restaurant-container">
 
                             <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in results'
@@ -128,8 +138,7 @@
                         </div>
 
 
-                        <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristorante per prendere spunto</h2>
-                        <div class="restaurant-container" v-if="!results.length">
+                    <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristoranti per te</h2>
 
                             <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in allRestaurants'
