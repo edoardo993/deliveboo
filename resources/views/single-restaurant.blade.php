@@ -136,14 +136,14 @@
             </div>
 
             @if (session()->has('success_message'))
-            <div class="payment-succesfull payment-alert">
+            <div class="payment-alert">
                 Il tuo pagamento è andato a buon fine! <br> Il tuo ordine è in preparazione,<br> saremo da te a breve!
             </div>
             {{-- <h2>andata senza ritorno</h2> --}}
             @endif
 
             @if(count($errors) > 0)
-            <div class="payment-failed payment-alert">
+            <div class="payment-alert">
                 Il tuo pagamento non è andato a buon fine :(<br>Ricontrolla i dati inseriti e riprova!
             </div>
             @endif

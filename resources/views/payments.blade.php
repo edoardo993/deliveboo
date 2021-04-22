@@ -1,21 +1,6 @@
 <div class="container">
 
-    {{-- <div class="col-md-6 offset-md-3"> --}}
-
         <h3>Inserisci i tuoi dati</h3>
-
-        {{-- <div class="spacer"></div> --}}
-
-        {{-- @if (session()->has('success_message'))
-            <div class="payment-succesfull">
-                {{ session()->get('success_message') }}
-            </div> --}}
-            {{-- <h2>andata senza ritorno</h2> --}}
-        {{-- @endif --}}
-
-        {{-- @if(count($errors) > 0) --}}
-            {{-- <h2>ritorno senza andata</h2> --}}
-        {{-- @endif --}}
 
         <form action="{{ url('/checkout') }}" method="POST" id="payment-form">
             @csrf
