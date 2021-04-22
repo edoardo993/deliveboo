@@ -13,7 +13,13 @@
 };
 @endphp
 
-    <h2>{{$title}}</h2>
+@extends('layouts.app')
+@section('title', 'restaurant')
+@section('content')
+
+<div class="container-form container-1200">
+
+    <h2 class="text-center">{{$title}}</h2>
 
     <form action="{{$url}}" method="post">
 
@@ -43,11 +49,15 @@
 
             <label for="categories[]">Tipologia ristorante</label>
 
-            <select class="select" multiple name="categories[]">
-                @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
-                @endforeach
-            </select>
+            <div>
+
+                <select class="select select-container" multiple name="categories[]">
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+
+            </div>
 
         </div>
 
@@ -129,6 +139,14 @@
 
         </div>
 
-        <button type="submit" class="btn btn-primary">{{$submit}}</button>
+        {{-- <button type="submit" class="btn btn-primary">{{$submit}}</button> --}}
+
+        <button type="submit" class="create-button">
+            <div >{{$submit}}</div>
+        </button>
 
     </form>
+
+</div>
+
+@endsection

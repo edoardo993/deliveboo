@@ -10352,6 +10352,10 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   box-shadow: none;
 }
 
+.border-none {
+  border-style: none;
+}
+
 * {
   font-family: "Inter", sans-serif;
 }
@@ -10550,6 +10554,10 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 .user-wrapper .user-container .user-main-content .user-statistic-card .statistic-container {
   width: 90%;
   height: 80%;
+}
+
+.border-none {
+  border-style: none;
 }
 
 body {
@@ -11009,6 +11017,10 @@ body {
   border-radius: 0.25rem;
 }
 
+.border-none {
+  border-style: none;
+}
+
 .btn.btn-success.confirm-order {
   background: #ff6e66;
   border: none;
@@ -11029,4 +11041,54 @@ body {
   font-size: 40px;
   color: #333;
   border-radius: 7px;
+}
+
+.border-none {
+  border-style: none;
+}
+
+.container-form {
+  margin-top: 50px;
+}
+
+.select-container {
+  padding: 10px;
+  border-radius: 5px;
+}
+.select-container::-webkit-scrollbar {
+  width: 10px;
+}
+.select-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+.select-container::-webkit-scrollbar-thumb {
+  background: #ff6e66;
+  border-radius: 5px;
+}
+
+.create-button {
+  margin-top: 40px;
+  width: 182px;
+  height: 40px;
+  background: #fff;
+  position: relative;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  line-height: 40px;
+  font-weight: semibold;
+  box-shadow: 2.5px 2.5px 2.5px grey;
+  color: black;
+  border-style: none;
+}
+.create-button:hover {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  color: blue;
+  background: #f3f0f1;
+}
+.create-button:active {
+  box-shadow: inset 2.5px 2.5px 2.5px grey;
+  background: #f3f0f1;
 }

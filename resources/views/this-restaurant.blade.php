@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <title>Document</title>
-</head>
+@extends('partials/public-head')
+@section('title', 'plates-set')
+@section('content')
 
-<body>
+    <div class="main-background">
+
+    </div>
+
 
     <div  class="plate-container">
 
-        <div class="nav-container shadow-sm">
+        {{-- <div class="nav-container shadow-sm">
             <nav class="nav-one ">
                 <img style="height:60px;width:auto;" src="img/logo.svg" alt="">
-                {{-- <img width="200" height="200" src="pink-logo.svg" alt=""> --}}
+                <img width="200" height="200" src="pink-logo.svg" alt="">
                 <div> <strong>{{$restaurant->business_name}}</strong> </div>
             </nav>
-        </div>
+        </div> --}}
 
 
         <div class="plate-center">
 
+            {{-- <div class="business-name"> <strong>{{$restaurant->business_name}}</strong> </div> --}}
 
-            <h2 class="business-name">I tuoi piatti</h2>
+            <h2 class="business-name">I piatti del ristorante: {{$restaurant->business_name}}</h2>
 
             @foreach ($restaurant->plates as $plate)
 
@@ -47,10 +43,6 @@
 
                         <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="text-decoration-none">
                             <div class="utility-button-edit"><span>Modifica piatto</span></div>
-                        </a>
-
-                        <a class="text-decoration-none" href="{{ route('restaurants.index') }}">
-                            <div class="utility-button-home"><span>Torna alla home</span></div>
                         </a>
 
                         <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
@@ -82,8 +74,4 @@
              </div>
         </div>
     </div>
-
-    <script src="{{asset('js/app.js')}}"></script>
-
-</body>
-</html>
+@endsection

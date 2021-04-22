@@ -12,7 +12,13 @@ if (isset($edit) && !empty($edit)) {
 };
 @endphp
 
-<h2>{{$title}}</h2>
+@extends('layouts.app')
+@section('title', 'plate')
+@section('content')
+
+    <div class="container-form container-1200">
+
+        <h2>{{$title}}</h2>
  <form action="{{$url}}" method="post">
 
      @csrf
@@ -46,17 +52,10 @@ if (isset($edit) && !empty($edit)) {
          </div>
      </div>
 
-     <div class="form-group">
+     <div class="form-group border-select">
          <label for="typology">Tipologia piatto</label><br>
-         {{-- <input type="text"
-             class="form-control {{ $errors->has('typology') ? 'is-invalid' : ''}}"
-             id="typology"
-             placeholder="Inserisci la tipologia"
-             name="typology"
-             value="{{$edit ? $plate->typology : '' }}"
-             required
-         > --}}
-         <select class="form-select" aria-label="Default select example" name="typology">
+
+         <select class="form-select " aria-label="Default select example" name="typology">
             <option selected value="antipasti">Antipasti</option>
             <option value="primi">Primi piatti</option>
             <option value="secondi">Secondi piatti</option>
@@ -64,6 +63,7 @@ if (isset($edit) && !empty($edit)) {
             <option value="bevanda">Bevanda</option>
             <option value="dolce">Dolce</option>
           </select>
+
      </div>
 
      <div class="form-group">
@@ -112,6 +112,14 @@ if (isset($edit) && !empty($edit)) {
 
      </div>
 
-     <button type="submit" class="btn btn-primary">{{$submit}}</button>
+     {{-- <button type="submit" class="btn btn-primary">{{$submit}}</button> --}}
+
+     <button type="submit" class="create-button">
+        <div >{{$submit}}</div>
+    </button>
 
  </form>
+    </div>
+
+
+@endsection
