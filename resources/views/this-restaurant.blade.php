@@ -1,10 +1,10 @@
 @extends('partials/public-head')
 @section('title', 'plates-set')
-@section('content')
-
-    <div class="main-background">
-
-    </div>
+@section('main-content')
+@php
+    $idJs='app'
+@endphp
+    <div class="main-background"></div>
 
 
     <div  class="plate-container">
