@@ -20,7 +20,7 @@
         {{-- <form action="{{ url('/checkout') }}" method="POST" id="payment-form" name='formUno'> --}}
             <form action="{{ route('orders.store') }}" method="POST" id="payment-form" name='formUno'>
             @csrf
-
+            @method('POST')
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
                 <input type="email" class="form-control" id="email"  v-model='formData.email'>
@@ -58,13 +58,9 @@
             </div>
 
             <div class="form-group">
-                <input type="text"
-                    class="form-control "
-                    id="plates"
-                    name="plates[]"
-                    :value='cartItemIds'
-                    readonly
-                >
+                <select class="select hide" multiple name="plates[]">
+                        <option readonly selected v-for='id in cartItemIds' :value="id">@{{id}}</option>
+                </select>
             </div>
 
 
