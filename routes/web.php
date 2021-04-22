@@ -1,6 +1,8 @@
 <?php
 
 // use GuzzleHttp\Psr7\Request;
+
+use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -94,6 +96,14 @@ Route::post('/checkout', function (Request $request) {
     if ($result->success) {
         $transaction = $result->transaction;
         // header("Location: transaction.php?id=" . $transaction->id);
+        $data = $request->all();
+        $currentRestaurant = $data['restaurant_id'];
+        $Order = new Order();
+        $Order->fill($data);
+        $Order->status = 1;
+        $Order->total = $data['amount'];
+        $Order->save();
+        $Order->plates()->attach($data['plates']);
 
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {

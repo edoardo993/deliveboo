@@ -29,7 +29,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->all();
+        dd($request);
         $currentRestaurant = $data['restaurant_id'];
         $Order = new Order();
         $Order->fill($data);
