@@ -21,7 +21,6 @@
     display: flex;
     justify-content: center;
     .user-container{
-        // width: 1140px;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -33,10 +32,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            // span{
-            //     font-weight: 700;
-            //     font-size: 35px;
-            // }
             h2{
                 color: rgba(255,110,102,1);
                 margin-top: 20px;
@@ -52,7 +47,7 @@
             }
         .user-main-content{
             width: 100%;
-            margin: 80px 0px;
+            margin-top: 80px;
             display: flex;
             flex-direction: row;
             justify-content: center;
@@ -61,13 +56,9 @@
                 flex-direction: column;
             }
             .user-restaurant-card{
-                width: 50%;
-                // height: 400px;
+                width: 70%;
                 border-radius: 25px;
                 margin-bottom: 25px;
-                // box-shadow: 0 10px 20px rgba(#000, .19),
-                // 0 6px 6px rgba(#000, .23) ;
-                // background-color: #ffdaaa;
                 box-shadow:0px 0px 5px grey;
                 background-color: #fff;
                 display: flex;
@@ -106,7 +97,7 @@
                 }
                 .user-restaurant-button{
                   margin: 20px 0px;
-                  width: 280px;
+                  width: 450px;
                   display: flex;
                   flex-direction: row;
                   justify-content: space-around;
@@ -124,8 +115,6 @@
                 width: 50%;
                 height: 450px;
                 border-radius: 25px;
-                // box-shadow: 0 10px 20px rgba(#000, .19),
-                // 0 6px 6px rgba(#000, .23) ;
                 box-shadow:0px 0px 5px grey;
                 background-color: #fff;
                 display: flex;

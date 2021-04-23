@@ -7,20 +7,9 @@
     <div class="main-background"></div>
 
 
-    <div  class="container">
-
-        {{-- <div class="nav-container shadow-sm">
-            <nav class="nav-one ">
-                <img style="height:60px;width:auto;" src="img/logo.svg" alt="">
-                <img width="200" height="200" src="pink-logo.svg" alt="">
-                <div> <strong>{{$restaurant->business_name}}</strong> </div>
-            </nav>
-        </div> --}}
-
+    <div  class="container social-distancing">
 
         <div class="plate-center">
-
-            {{-- <div class="business-name"> <strong>{{$restaurant->business_name}}</strong> </div> --}}
 
             <h2 class="business-name">I piatti del ristorante: {{$restaurant->business_name}}</h2>
 

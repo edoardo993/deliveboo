@@ -5,7 +5,7 @@
 
 @section('main-content')
 
-<div class="user-wrapper">
+<div class="user-wrapper social-distancing">
     <div class="user-container container">
         <div class="user-title ">
             <h2>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</h2>
@@ -42,14 +42,9 @@
                     <form action="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">
                         <button type="submit" class="user-button border-none">Modifica</button>
                     </form>
-                </div>
-            </div>
-            <div class="user-statistic-card">
-                <h3 class="centered">Statistiche {{$userRestaurant->business_name}}</h3>
-                <div class="statistic-container">
-                    <div class="chart-container" style="width: 100%;">
-                        <a href="{{ route('show.orders', ['restaurant' => $userRestaurant])}}"> Ordini e statistihe</a>
-                    </div>
+                    <form action="{{ route('show.orders', ['restaurant' => $userRestaurant])}}">
+                        <button type="submit" class="user-button border-none">Ordini</button>
+                    </form>
                 </div>
             </div>
         </div>

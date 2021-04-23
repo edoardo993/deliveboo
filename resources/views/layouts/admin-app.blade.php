@@ -19,13 +19,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="statistic-body">
 
     <div id="app">
 
         <div class="main-background"></div>
 
-        <nav style="height:80px" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="sticky-nav">
+            <nav style="height:80px; width:100vw" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
                 <div class="container">
 
@@ -78,6 +79,7 @@
                 </div>
 
         </nav>
+        </div>
 
 
         <main class="">
@@ -96,13 +98,6 @@
                         <li>Cookie Policy</li>
                     </ul>
                 </div>
-
-                {{-- <div class="">
-                    <ul>
-                        <li class="footer-list-title">dove posso ordinare?</li>
-                        <li>Consegna a domicilio Milano</li>
-                    </ul>
-                </div> --}}
 
                 <div class="footer-none">
                     <ul>
