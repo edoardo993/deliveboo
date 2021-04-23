@@ -107,7 +107,7 @@
         <div class="container-1200 footer-content">
 
             <div class="footer-logo-info">
-                <img src="img/white-logo.png" class="footer-logo">
+                <img src="{{asset('img/white-logo.png')}}" class="footer-logo">
                 <ul>
                     <li>Termini e Condizioni</li>
                     <li>Privacy Policy</li>

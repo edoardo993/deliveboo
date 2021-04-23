@@ -8,11 +8,11 @@
             <div class="alert alert-success">
                 {{ session()->get('success_message') }}
             </div>
-            <h2>andata senza ritorno</h2>
+
         @endif
 
         @if(count($errors) > 0)
-            <h2>ritorno senza andata</h2>
+
         @endif
 
 

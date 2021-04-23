@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="form-container">
-        @include('partials.form-plate', ['edit' => true], ['plate' => $plate]);
+        @include('partials.form-plate', ['edit' => true], ['plate' => $plate])
     </div>
 </body>
 </html>
