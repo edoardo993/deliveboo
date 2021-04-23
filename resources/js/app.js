@@ -245,18 +245,3 @@ $(window).on("scroll", function() {
 });
 
 
-import Chart from 'chart.js/auto';
-
-var myVar = {
-    get a() {
-        return app.orders
-    },
-    set a(b) {
-	app.labels = b
-    }
-}
-
-console.log (myVar.a)
-
-
-

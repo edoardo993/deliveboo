@@ -76,32 +76,17 @@
             @foreach ($restaurant->orders as $order)
             <div class="card-plate-container">
 
-                <div class="card-plate-container-left">
+                <div class="card-specs">
 
-                    <p class="space-card-plate-container-right size-font">
-                        Id comanda:{{$order->id}}
-                        <br>
-                         Indirizzo Consegna:{{$order->address}}
-                        <br>
-                        Nome destinatario:{{$order->customer_name}}
-                        <br>
-                        Totale Pagato:{{$order->total}}
-                        <br>
-                        Specifiche Ordine :
+                    <p class="space-card-plate-container-right size-font"> Numero Ordine:{{$order->id}}</p>
+                    <p class="space-card-plate-container-right size-font"> Indirizzo Consegna:{{$order->address}}</p>
+                    <p class="space-card-plate-container-right size-font"> Specifiche Ordine :
                         @foreach ($order->plates as $plate)
                         {{$plate->name}}
-                        @endforeach
-                        <br>
-                    </p>
-                    <div class="text-container">
-                    </div>
-
+                        @endforeach</p>
+                    <p class="space-card-plate-container-right size-font"> Totale Pagato:{{$order->total}}€</p>
                 </div>
 
-                <div class="card-plate-container-right">
-
-
-                </div>
             </div>
 
 
@@ -117,6 +102,57 @@
              </div>
         </div>
     </div>
+    <footer class="deliveboo-footer">
+
+        <div class="container-1200 footer-content">
+
+            <div class="footer-logo-info">
+                <img src="img/white-logo.png" class="footer-logo">
+                <ul>
+                    <li>Termini e Condizioni</li>
+                    <li>Privacy Policy</li>
+                    <li>Cookie Policy</li>
+                </ul>
+            </div>
+
+            <div class="">
+                <ul>
+                    <li class="footer-list-title">dove posso ordinare?</li>
+                    <li>Consegna a domicilio Milano</li>
+                </ul>
+            </div>
+
+            <div class="">
+                <ul>
+                    <li class="footer-list-title">opportunità</li>
+                    <li>Diventa un ristorante Deliveboo</li>
+                    <li>Diventa un rider Deliveboo</li>
+                    <li>Lavora con Deliveboo</li>
+                </ul>
+            </div>
+
+            <div class="">
+
+                <div class="footer-icons">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+
+                <ul>
+                    <li>Deliveboo S.r.l</li>
+                    <li>Corso Buenos Aires, 4</li>
+                    <li>20124 Milano</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

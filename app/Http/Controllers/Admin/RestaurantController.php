@@ -132,9 +132,6 @@ class RestaurantController extends Controller
             }
         }
 
-
-
-        // Generate random colours for the groups
                  for ($i=0; $i <= 12; $i++) {
                     $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
                 }
