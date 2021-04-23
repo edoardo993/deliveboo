@@ -10053,7 +10053,7 @@ header nav {
   width: 100%;
   z-index: 1000000000;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) {
   header nav {
     width: 100vw;
   }
@@ -10433,7 +10433,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   display: flex;
   justify-content: space-between;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 992px) {
   .deliveboo-footer .footer-content {
     align-items: center;
     flex-direction: column;

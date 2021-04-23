@@ -43,7 +43,7 @@ header {
         top: 0;
         width:100%;
         z-index: 1000000000;
-        @media screen  and (max-width: 767px){
+        @media screen  and (max-width: 1200px){
             width:100vw;
          }
 
@@ -252,7 +252,7 @@ main{
                 width:100%;
                 margin: 10px 0px;
              }
-            //  @media screen  and (max-width: 1200px){
+            //  @media screen  and (max-width: 992px){
             //     width:calc((100% / 2) - 20px);
             //  }
 
@@ -418,7 +418,7 @@ $gray: #9b9b9b;
     .footer-content{
         display: flex;
         justify-content: space-between;
-        @media screen  and (max-width: 767px){
+        @media screen  and (max-width: 992px){
            align-items: center;
             flex-direction: column;
         }
