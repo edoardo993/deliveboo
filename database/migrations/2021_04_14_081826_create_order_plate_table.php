@@ -21,11 +21,13 @@ class CreateOrderPlateTable extends Migration
 
             $table->foreign('order_id')
                 ->references('id')
-                ->on('orders');
+                ->on('orders')
+                ->onDelete('cascade');
 
             $table->foreign('plate_id')
                 ->references('id')
-                ->on('plates');
+                ->on('plates')
+                ->onDelete('cascade');
         });
     }
 

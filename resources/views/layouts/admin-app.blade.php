@@ -88,10 +88,10 @@
 
         <footer class="deliveboo-footer">
 
-            <div class="container footer-content">
+            <div class="container-1200 footer-content">
 
                 <div class="footer-logo-info">
-                    <img src="{{ asset('img/white-logo.png')}}" class="footer-logo">
+                    <img src="{{ asset("img/white-logo.png") }}" class="footer-logo">
                     <ul>
                         <li>Termini e Condizioni</li>
                         <li>Privacy Policy</li>
@@ -99,10 +99,15 @@
                     </ul>
                 </div>
 
-                <div class="footer-none">
+                <div class="footer-logo-info">
                     <ul>
                         <li class="footer-list-title">dove posso ordinare?</li>
                         <li>Consegna a domicilio Milano</li>
+                    </ul>
+                </div>
+
+                <div class="footer-logo-info">
+                    <ul>
                         <li class="footer-list-title">opportunità</li>
                         <li>Diventa un ristorante Deliveboo</li>
                         <li>Diventa un rider Deliveboo</li>
@@ -110,7 +115,7 @@
                     </ul>
                 </div>
 
-                <div class="icons-container">
+                <div class="footer-logo-info">
 
                     <div class="footer-icons">
                         <i class="fab fa-instagram"></i>
