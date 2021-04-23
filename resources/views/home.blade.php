@@ -18,7 +18,7 @@
         </div>
         @foreach ($userRestaurants as $userRestaurant)
         <div class="user-main-content" id="root">
-            <div class="user-restaurant-card">
+            <div class="user-restaurant-card" href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
                 <div class="img-container">
                     <img src="{{$userRestaurant->pic_url}}" alt="immagine ristorante">
                 </div>
@@ -48,7 +48,7 @@
                 <h3 class="centered">Statistiche {{$userRestaurant->business_name}}</h3>
                 <div class="statistic-container">
                     <div class="chart-container" style="width: 100%;">
-                        <canvas id="myChart" ></canvas>
+                        <a href="{{ route('show.orders', ['restaurant' => $userRestaurant])}}"> Ordini e statistihe</a>
                     </div>
                 </div>
             </div>

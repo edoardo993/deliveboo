@@ -33,6 +33,7 @@ const app = new Vue({
         allRestaurants: [],
         userSearch: '',
         titleSearch:'',
+        orders:'',
     },
     mounted() {
         axios
@@ -81,7 +82,9 @@ const app = new Vue({
             return window.location.href='http://127.0.0.1:8000/single-restaurant/' + restaurant.id
         },
         returnAllListRestaurant(){
-            this.results = []
+            this.results = [];
+            this.userSearch = '';
+            this.titleSearch = '';
         },
         setImg(name){
             var src;
@@ -213,7 +216,7 @@ const app = new Vue({
             this.cartItemIds.splice(this.index, 1);
             this.totalOrderPrice()
         },
-        proceedToBraintree(idName1, idName2, idName3){
+        proceedToBraintree(idName1, idName2, idName3, idName4){
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.remove('hide');
 
@@ -221,8 +224,24 @@ const app = new Vue({
             paymentButton.classList.add('hide');
 
             let itemsContainer=document.getElementById(idName3);
-            itemsContainer.classList.add('hide')
+            itemsContainer.classList.add('hide');
+
+            let overlayDiv=document.getElementById(idName4);
+            overlayDiv.classList.remove('hide');
         },
+        backToCart(idName1, idName2, idName3, idName4){
+            let paymentsForm=document.getElementById(idName1);
+            paymentsForm.classList.add('hide');
+
+            let overlayDiv=document.getElementById(idName2);
+            overlayDiv.classList.add('hide');
+
+            let cartItems=document.getElementById(idName3);
+            cartItems.classList.remove('hide');
+
+            let proceedToPayment=document.getElementById(idName4);
+            proceedToPayment.classList.remove('hide');
+        }
     }
 })
 
@@ -243,41 +262,4 @@ $(window).on("scroll", function() {
     }
 });
 
-import Chart from 'chart.js/auto';
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
 

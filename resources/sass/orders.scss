@@ -5,34 +5,20 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Inter', sans-serif
 }
 .hide{
     display: none
-}
-#overlay-container{
-    height: 100%;
-    width: 100vw;
-    background: rgba(0,0,0, 0.6);
-    z-index: 100000;
-    position: absolute;
-    top: 0
 }
 #root{
     display: flex;
     justify-content: center;
 }
 .upper-gradient{
-    position: absolute;
-    z-index: -10;
+    position: absolute;z-index: -10;
     height: 200px;
     width: 100%;
-    background: linear-gradient(23deg,
-        rgba(255,51,102,1) 0%,
-        rgba(255,110,102,1) 25%,
-        rgba(255,140,102,1) 60%,
-        rgba(255,219,171,1) 100%
-    );
+    background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
 }
 .single-restaurant-left-content{
     min-height: 100vh;
@@ -51,32 +37,26 @@ body{
 
         .restaurant-img-business-name{
             display: flex;
-            text-transform: capitalize;
+            text-transform: capitalize
+        }
+        .restaurant-business-name{
+            color: #EB5468;
+            font-size: 30px;
 
             .restaurant-business-name-categories{
                 display: flex;
                 flex-direction: column;
 
-                .restaurant-business-name{
-                    color: #EB5468;
-                    font-size: 38px;
+                .restaurant-total-categories{
+                    color: red;
+                    font-size: 20px;
+                    font-weight: bold;
 
-                    .restaurant-total-categories{
-                        color: #818181;
+                    #restaurant-category{
+                        color: red !important;
                         font-size: 20px;
                         font-weight: bold;
-
-                        .restaurant-category{
-                            color: #818181;
-                            font-size: 20px;
-                            font-weight: bold;
-                        }
                     }
-                }
-                .fa-map-marker-alt{
-                    color: #EB5468;
-                    font-size: 20px;
-                    margin-right: 10px
                 }
             }
         }
@@ -154,17 +134,15 @@ body{
     }
 }
 .cart-container{
-    margin-top: 80px;
-    min-height: 100vh;
+    height: 300vh;
     width: 30%;
-    z-index: 10000000000;
 
     .cart{
         position: fixed;
         top: 90px;
         right: 220px;
         min-height: 400px;
-        width: 450px;
+        width: 500px;
         box-shadow: 0 0 10px #ccc;
         background: #fff;
         border-radius: 7px;
@@ -217,6 +195,15 @@ body{
                 .edit-item-icon{
                     margin-right: 20px
                 }
+
+                .fa-pen{
+                    font-size: 20px;
+                    color: rgba(255,110,102,1);
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
             }
 
             &::-webkit-scrollbar {
@@ -237,7 +224,7 @@ body{
         .total-button{
             position: absolute;
             bottom: 20px;
-            width: 410px;
+            width: 450px;
             height: 40px;
             background: rgba(255,110,102,1);
             text-align: center;

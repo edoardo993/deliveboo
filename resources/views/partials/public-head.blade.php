@@ -7,11 +7,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Acme:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body>
+
+        <div id="overlay-container" class="hide"></div>
 
             <header>
 
@@ -21,7 +24,11 @@
 
                         <a href="{{ url('/') }}">
                             <img style="height:60px;margin-top:10px;"
-                                src="../img/pink-logo.png"
+                                src="{{asset('img/white-logo.png')}}"
+                                id="white-logo"
+                            >
+                            <img style="height:60px;margin-top:10px;"
+                                src="{{asset('img/pink-logo.png')}}"
                                 class="hide"
                                 id="pink-logo"
                             >
@@ -35,10 +42,10 @@
                                     @auth
                                         <a href="{{ url('/admin/restaurants') }}" class="your-page white-font">La tua pagina</a>
                                     @else
-                                        <a href="{{ route('login') }}" class="your-page white-font">Login</a>
+                                        <a href="{{ route('login') }}" class="your-page white-font">Accedi</a>
 
                                         @if (Route::has('register'))
-                                            <a href="{{ route('register') }}" class="your-page white-font">Register</a>
+                                            <a href="{{ route('register') }}" class="your-page white-font">Registrati</a>
                                         @endif
                                     @endauth
                                 </div>
@@ -63,7 +70,7 @@
                 <div class="container-1200 footer-content">
 
                     <div class="footer-logo-info">
-                        <img src="img/white-logo.png" class="footer-logo">
+                        <img src="{{ asset("img/white-logo.png") }}" class="footer-logo">
                         <ul>
                             <li>Termini e Condizioni</li>
                             <li>Privacy Policy</li>
