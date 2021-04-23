@@ -10218,7 +10218,6 @@ main .carousel-container .category-cards-container .single-card-category:hover {
 }
 main .carousel-container .title-search {
   font-size: 30px;
-  margin: 20px 0px;
   color: #FF3966;
 }
 main .carousel-container .fa-times-circle:hover {
@@ -10382,7 +10381,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   display: flex;
   padding-top: 30px;
   margin-top: 100px;
-  background: #5a5959;
+  background: #333;
   height: 230px;
   color: #fff;
   border-top-left-radius: 50% 20%;

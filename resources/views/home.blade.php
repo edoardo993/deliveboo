@@ -47,8 +47,8 @@
             <div class="user-statistic-card">
                 <h3 class="centered">Statistiche {{$userRestaurant->business_name}}</h3>
                 <div class="statistic-container">
-                    <div class="chart-container" style="width: 100%;height:100%;">
-                        <Cases/>
+                    <div class="chart-container" style="width: 100%;">
+                        <canvas id="myChart" ></canvas>
                     </div>
                 </div>
             </div>
