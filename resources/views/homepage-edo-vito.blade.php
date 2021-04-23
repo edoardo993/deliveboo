@@ -138,11 +138,22 @@
                         </div>
 
 
-                            <h2 class="slider-title" v-if="!results.length">Ecco alcuni dei nostri ristoranti per te</h2>
-                            <div class="restaurant-container" v-if="!results.length">
+                            <h2 class="slider-title" v-if=" !results.length && titleSearch === '' ">
+                                Consigliati per te
+                            </h2>
+
+                            <h2 class="slider-title"
+                                v-if="titleSearch !== '' && !results.length"
+                            >
+                                Nessun risultato per: @{{titleSearch}}
+                                <i class="fas fa-times-circle" v-on:click="returnAllListRestaurant()"></i>
+                            </h2>
+
+                            <div class="restaurant-container">
 
                             <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in allRestaurants'
+                                v-if=" !results.length && titleSearch === '' "
                                 v-on:click="singleRestaurant(restaurant)"
                             >
 

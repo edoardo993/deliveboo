@@ -82,7 +82,9 @@ const app = new Vue({
             return window.location.href='http://127.0.0.1:8000/single-restaurant/' + restaurant.id
         },
         returnAllListRestaurant(){
-            this.results = []
+            this.results = [];
+            this.userSearch = '';
+            this.titleSearch = '';
         },
         setImg(name){
             var src;
@@ -214,7 +216,7 @@ const app = new Vue({
             this.cartItemIds.splice(this.index, 1);
             this.totalOrderPrice()
         },
-        proceedToBraintree(idName1, idName2, idName3){
+        proceedToBraintree(idName1, idName2, idName3, idName4){
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.remove('hide');
 
@@ -222,8 +224,24 @@ const app = new Vue({
             paymentButton.classList.add('hide');
 
             let itemsContainer=document.getElementById(idName3);
-            itemsContainer.classList.add('hide')
+            itemsContainer.classList.add('hide');
+
+            let overlayDiv=document.getElementById(idName4);
+            overlayDiv.classList.remove('hide');
         },
+        backToCart(idName1, idName2, idName3, idName4){
+            let paymentsForm=document.getElementById(idName1);
+            paymentsForm.classList.add('hide');
+
+            let overlayDiv=document.getElementById(idName2);
+            overlayDiv.classList.add('hide');
+
+            let cartItems=document.getElementById(idName3);
+            cartItems.classList.remove('hide');
+
+            let proceedToPayment=document.getElementById(idName4);
+            proceedToPayment.classList.remove('hide');
+        }
     }
 })
 
