@@ -10053,6 +10053,11 @@ header nav {
   width: 100%;
   z-index: 1000000000;
 }
+@media screen and (max-width: 767px) {
+  header nav {
+    width: 100vw;
+  }
+}
 header nav .nav-content-container {
   height: 80px;
 }
@@ -10081,21 +10086,41 @@ header nav .user-info-group .login-links a:hover {
   height: 500px;
   padding-top: 20px;
 }
+.jumbotron-delivery .first-container {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .jumbotron-delivery .first-container {
+    justify-content: center;
+  }
+}
 .jumbotron-delivery .jumbotron-content-left {
   display: flex;
   flex-direction: column;
   height: 560px;
+}
+@media screen and (max-width: 767px) {
+  .jumbotron-delivery .jumbotron-content-left {
+    align-items: center;
+  }
 }
 .jumbotron-delivery .jumbotron-content-left #slogan {
   font-size: 30px;
   color: #FFD3A4;
   font-family: "Acme", sans-serif;
   margin-top: 80px;
+  width: 200px;
   line-height: 40px;
 }
 .jumbotron-delivery .jumbotron-content-left #logo-deliveboo {
   width: 360px;
   margin: 30px 0 40px 0;
+}
+@media screen and (max-width: 767px) {
+  .jumbotron-delivery .jumbotron-content-left #logo-deliveboo {
+    width: 200px;
+  }
 }
 .jumbotron-delivery .jumbotron-content-left .input-group {
   width: 100%;
@@ -10125,6 +10150,11 @@ header nav .user-info-group .login-links a:hover {
   width: 300px;
   margin-top: 80px;
 }
+@media screen and (max-width: 767px) {
+  .jumbotron-delivery .jumbotron-content-right {
+    display: none;
+  }
+}
 
 main {
   display: flex;
@@ -10142,10 +10172,28 @@ main .carousel-container {
   align-items: center;
   width: 90%;
 }
+@media screen and (max-width: 767px) {
+  main .carousel-container {
+    width: 80%;
+  }
+}
 main .carousel-container .category-cards-container {
   display: flex;
   width: 100%;
   margin-top: 40px;
+}
+@media screen and (max-width: 767px) {
+  main .carousel-container .category-cards-container .normal-carousel {
+    display: none;
+  }
+}
+main .carousel-container .category-cards-container .media-carousel {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  main .carousel-container .category-cards-container .media-carousel {
+    display: block;
+  }
 }
 main .carousel-container .category-cards-container .single-card-category {
   margin: 10px;
@@ -10161,6 +10209,11 @@ main .carousel-container .category-cards-container .single-card-category h3 {
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  main .carousel-container .category-cards-container .single-card-category h3 {
+    display: none;
+  }
 }
 main .carousel-container .category-cards-container .single-card-category img {
   width: 100%;
@@ -10189,6 +10242,13 @@ main .restaurant-container {
   width: 70%;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 767px) {
+  main .restaurant-container {
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+  }
+}
 main .restaurant-container .single-card-restaurant {
   height: 400px;
   width: calc((100% / 3) - 20px);
@@ -10199,6 +10259,12 @@ main .restaurant-container .single-card-restaurant {
   align-items: flex-start;
   border-radius: 4px;
   margin: 10px;
+}
+@media screen and (max-width: 767px) {
+  main .restaurant-container .single-card-restaurant {
+    width: 100%;
+    margin: 10px 0px;
+  }
 }
 main .restaurant-container .single-card-restaurant:hover {
   cursor: pointer;
@@ -10259,6 +10325,11 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   padding: 15px 0 0;
   margin-top: 10px;
   width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .form__group {
+    display: none;
+  }
 }
 
 .form__field {
@@ -10341,7 +10412,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 }
 @media screen and (max-width: 768px) {
   .main-background {
-    display: none;
+    height: 300px;
   }
 }
 
@@ -10350,7 +10421,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   padding-top: 30px;
   margin-top: 100px;
   background: #333;
-  height: 230px;
+  min-height: 230px;
   color: #fff;
   border-top-left-radius: 50% 20%;
   border-top-right-radius: 50% 20%;
@@ -10364,22 +10435,25 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 }
 @media screen and (max-width: 767px) {
   .deliveboo-footer .footer-content {
-    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
   }
+}
+.deliveboo-footer .footer-content .footer-logo-info {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .deliveboo-footer .footer-content .footer-logo-info .footer-logo {
   width: 180px;
   margin-bottom: 20px;
 }
-@media screen and (max-width: 767px) {
-  .deliveboo-footer .footer-content .footer-logo-info .footer-logo {
-    display: none;
-  }
-}
-@media screen and (max-width: 767px) {
-  .deliveboo-footer .footer-content .footer-logo-info {
-    padding: 10px;
-  }
+.deliveboo-footer .footer-content .footer-list-title {
+  text-transform: uppercase;
+  color: #ccc;
+  font-size: 15px;
 }
 .deliveboo-footer .footer-content .footer-none .footer-list-title {
   text-transform: uppercase;

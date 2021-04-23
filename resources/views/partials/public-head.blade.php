@@ -20,7 +20,7 @@
 
                 <nav class="scroll">
 
-                    <div class="container-1200 flex-between nav-content-container">
+                    <div class="container flex-between nav-content-container">
 
                         <a href="{{ url('/') }}">
                             <img style="height:60px;margin-top:10px;"
@@ -78,14 +78,14 @@
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
                         <ul>
                             <li class="footer-list-title">dove posso ordinare?</li>
                             <li>Consegna a domicilio Milano</li>
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
                         <ul>
                             <li class="footer-list-title">opportunità</li>
                             <li>Diventa un ristorante Deliveboo</li>
@@ -94,7 +94,7 @@
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
 
                         <div class="footer-icons">
                             <i class="fab fa-instagram"></i>

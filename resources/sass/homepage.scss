@@ -41,11 +41,16 @@ header {
         height: 80px;
         position: fixed;
         top: 0;
-        width: 100%;
+        width:100%;
         z-index: 1000000000;
+        @media screen  and (max-width: 767px){
+            width:100vw;
+         }
+
 
         .nav-content-container{
             height: 80px;
+
         }
         #logo-nav{
             height: 140px
@@ -76,23 +81,37 @@ header {
     padding-top: 20px;
     // background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
     // padding: 50px 200px;
+    .first-container{
+       display: flex;
+       justify-content: space-between;
 
+       @media screen  and (max-width: 767px){
+          justify-content: center;
+        }
+    }
     .jumbotron-content-left{
         display: flex;
         flex-direction: column;
         // justify-content: space-around;
         height: 560px;
+        @media screen  and (max-width: 767px){
+            align-items: center;
+         }
 
         #slogan{
             font-size: 30px;
             color: #FFD3A4;
             font-family: 'Acme', sans-serif;
             margin-top: 80px;
+            width: 200px;
             line-height: 40px;
         }
         #logo-deliveboo{
             width: 360px;
-            margin: 30px 0 40px 0
+            margin: 30px 0 40px 0;
+            @media screen  and (max-width: 767px){
+                width: 200px;
+             }
         }
         .input-group{
             width: 100%;
@@ -113,6 +132,7 @@ header {
                     color: rgba(255, 255, 255, 0.5);
                 }
             }
+
         }
     }
     .jumbotron-content-right{
@@ -121,7 +141,11 @@ header {
         #sushi-img{
             width: 300px;
             margin-top: 80px
+
         }
+        @media screen  and (max-width: 767px){
+            display: none;
+         }
     }
 }
 main{
@@ -139,11 +163,25 @@ main{
         flex-direction: column;
         align-items: center;
         width: 90%;
+        @media screen  and (max-width: 767px){
+            width: 80%;
+         }
 
         .category-cards-container{
             display: flex;
             width: 100%;
             margin-top: 40px;
+            .normal-carousel{
+                @media screen  and (max-width: 767px){
+                    display: none;
+                 }
+            }
+            .media-carousel{
+                display: none;
+                @media screen  and (max-width: 767px){
+                    display: block;
+                 }
+            }
             .single-card-category{
                 margin: 10px;
                 text-align: center;
@@ -157,6 +195,10 @@ main{
                     background-color: rgba(0, 0, 0, 0.7);
                     color: #fff;
                     font-weight: bold;
+                    @media screen  and (max-width: 767px){
+                        display: none;
+                     }
+
                 }
                 img{
                     width: 100%;
@@ -189,6 +231,11 @@ main{
         margin-top: 40px;
         width: 70%;
         flex-wrap: wrap;
+        @media screen  and (max-width: 767px){
+            align-items: center;
+             flex-direction: column;
+             width: 90%;
+         }
 
         .single-card-restaurant{
             height: 400px;
@@ -201,6 +248,13 @@ main{
             align-items: flex-start;
             border-radius: 4px;
             margin: 10px;
+            @media screen  and (max-width: 767px){
+                width:100%;
+                margin: 10px 0px;
+             }
+            //  @media screen  and (max-width: 1200px){
+            //     width:calc((100% / 2) - 20px);
+            //  }
 
             &:hover{
                 cursor: pointer;
@@ -275,6 +329,9 @@ $gray: #9b9b9b;
   padding: 15px 0 0;
   margin-top: 10px;
   width: 100%;
+  @media screen  and (max-width: 767px){
+    display: none;
+   }
 }
 
 .form__field {
@@ -340,7 +397,7 @@ $gray: #9b9b9b;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
     @media screen  and (max-width: 768px){
-        display: none;
+        height: 300px;
     }
 }
 .deliveboo-footer{
@@ -349,7 +406,7 @@ $gray: #9b9b9b;
     // align-items: center;
     margin-top: 100px;
     background: #333;
-    height: 230px;
+    min-height: 230px;
     color: #fff;
     border-top-left-radius: 50% 20%;
     border-top-right-radius: 50% 20%;
@@ -362,25 +419,34 @@ $gray: #9b9b9b;
         display: flex;
         justify-content: space-between;
         @media screen  and (max-width: 767px){
-            justify-content: space-around;
+           align-items: center;
+            flex-direction: column;
         }
 
         .footer-logo-info{
-
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
 
             .footer-logo{
                 width: 180px;
                 margin-bottom: 20px;
                 @media screen  and (max-width: 767px){
-                    display: none;
+                    // display: none;
                 }
 
             }
             @media screen  and (max-width: 767px){
-                padding: 10px;
+                // padding: 10px;
             }
         }
-
+        .footer-list-title{
+            text-transform: uppercase;
+            color: #ccc;
+            font-size: 15px;
+        }
         .footer-none{
             .footer-list-title{
                 text-transform: uppercase;
