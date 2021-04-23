@@ -31,7 +31,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'Admin\RestaurantController@index')->name('home');
+Route::get('/restaurant-orders/{restaurant}', 'Admin\RestaurantController@showOrders')->name('show.orders');
 Route::get('/orders/store', 'Api\OrderController@store');
+Route::get('/orders/index', 'Api\OrderController@index');
 Route::resource('orders','Api\OrderController');
 
 Route::prefix('admin')
@@ -103,10 +105,11 @@ Route::post('/checkout', function (Request $request) {
         $Order = new Order();
         $Order->fill($data);
         $Order->status = 1;
+        $Order->restaurant_id = $currentRestaurant;
         $Order->total = $data['amount'];
         $Order->save();
         $Order->plates()->attach($data['plates']);
-        Mail::to($data['email'])->send(new OrderShipped());
+        Mail::to($data['mail'])->send(new OrderShipped());
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";

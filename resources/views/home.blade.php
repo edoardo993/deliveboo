@@ -48,7 +48,7 @@
                 <h3 class="centered">Statistiche {{$userRestaurant->business_name}}</h3>
                 <div class="statistic-container">
                     <div class="chart-container" style="width: 100%;">
-                        <canvas id="myChart" ></canvas>
+                        <a href="{{ route('show.orders', ['restaurant' => $userRestaurant])}}"> Ordini e statistihe</a>
                     </div>
                 </div>
             </div>
