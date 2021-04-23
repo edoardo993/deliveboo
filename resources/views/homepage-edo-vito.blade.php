@@ -6,7 +6,7 @@
 
             <div class="jumbotron-delivery">
 
-                <div class="container flex-between">
+                <div class="container first-container">
 
                     <div class="jumbotron-content-left">
 
@@ -65,6 +65,7 @@
                            :resistance-coef='60'
                            :navigation-enabled='true'
                            :pagination-enabled='false'
+                           class="normal-carousel"
                            >
 
                             <slide
@@ -82,6 +83,30 @@
                             </div>
                             </slide>
                         </carousel>
+
+                        <carousel :per-page="1"
+                        :mouse-drag="true"
+                         :resistance-coef='60'
+                         :navigation-enabled='true'
+                         :pagination-enabled='false'
+                         class="media-carousel"
+                         >
+
+                          <slide
+                              v-for="(category,index) in categories"
+                              :key='index'
+                          >
+                          <div class="single-card-category" v-on:click="searchCategory(category.name)" >
+                              <!--
+                                  da implementare tramite chiamata API a tabella img
+                                  fatta in DB (come sfondo o come img normale)
+                              -->
+                              <img :src="setImg(category.name)" alt="">
+                              <h3 class="category-name">@{{category.name}}</h3>
+                              {{-- <img :src="setImg(category.name)" alt=""> --}}
+                          </div>
+                          </slide>
+                      </carousel>
 
                         </div>
 

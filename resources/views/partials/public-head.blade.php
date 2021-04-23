@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOMEPAGE</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter&family=Acme:wght@400&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 
                 <nav class="scroll">
 
-                    <div class="container-1200 flex-between nav-content-container">
+                    <div class="container flex-between nav-content-container">
 
                         <a href="{{ url('/') }}">
                             <img style="height:60px;margin-top:10px;"
@@ -78,14 +78,14 @@
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
                         <ul>
                             <li class="footer-list-title">dove posso ordinare?</li>
                             <li>Consegna a domicilio Milano</li>
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
                         <ul>
                             <li class="footer-list-title">opportunità</li>
                             <li>Diventa un ristorante Deliveboo</li>
@@ -94,7 +94,7 @@
                         </ul>
                     </div>
 
-                    <div class="">
+                    <div class="footer-logo-info">
 
                         <div class="footer-icons">
                             <i class="fab fa-instagram"></i>
