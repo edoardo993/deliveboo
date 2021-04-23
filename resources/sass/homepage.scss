@@ -30,9 +30,6 @@
 }
 body{
     background: #FF9B73;
-    // @media screen  and (max-width: 768px){
-    // background-color: #fff;
-    // }
 }
 header {
     width: 100%;
@@ -353,6 +350,9 @@ $gray: #9b9b9b;
     .footer-content{
         display: flex;
         justify-content: space-between;
+        @media screen  and (max-width: 767px){
+            justify-content: space-around;
+        }
 
         .footer-logo-info{
 
@@ -360,18 +360,67 @@ $gray: #9b9b9b;
             .footer-logo{
                 width: 180px;
                 margin-bottom: 20px;
+                @media screen  and (max-width: 767px){
+                    display: none;
+                }
+
+            }
+            @media screen  and (max-width: 767px){
+                padding: 10px;
             }
         }
-        .footer-list-title{
-            text-transform: uppercase;
-            color: #ccc;
-            font-size: 15px;
-            margin-bottom: 10px
+
+        .footer-none{
+            .footer-list-title{
+                text-transform: uppercase;
+                color: #ccc;
+                font-size: 15px;
+            }
+            @media screen  and (max-width: 767px){
+                display: none;
+            }
         }
-        .footer-icons i{
-            padding-right: 17px;
-            font-size: 17px;
-            margin-bottom: 10px
+        .icons-container{
+            .footer-icons i{
+                padding-right: 17px;
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+            @media screen  and (max-width: 767px){
+                padding: 10px;
+            }
         }
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

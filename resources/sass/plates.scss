@@ -17,8 +17,6 @@ body{
     @include utility-button-home;
 }
 .container{
-    // width: 100vw;
-    // min-height: 100vh;
     .nav-one{
         display: flex;
         flex-direction: row;
@@ -37,8 +35,9 @@ body{
 
         .business-name{
             text-align: center;
-            margin-top: 30px;
-            font-size: 40px;
+            margin-top: 20px;
+            color: rgba(255,110,102,1);
+
         }
 
         .card-plate-container{
@@ -69,6 +68,7 @@ body{
                     height: 300px;
                     .weight{
                         font-weight: bold;
+                        // color: rgba(255,110,102,1);
                     }
                     &::-webkit-scrollbar {
                         width: 10px;

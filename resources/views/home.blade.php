@@ -8,7 +8,7 @@
 <div class="user-wrapper">
     <div class="user-container container">
         <div class="user-title ">
-            <span>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
+            <h2>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</h2>
             <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
 
             <form action="{{route('restaurants.create')}}">

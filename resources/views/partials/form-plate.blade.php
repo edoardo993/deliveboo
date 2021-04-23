@@ -9,7 +9,7 @@ if (isset($edit) && !empty($edit)) {
     $method='POST';
     $submit='Crea';
     $url=route('plates.store');
-};
+}
 @endphp
 
 
@@ -24,7 +24,7 @@ if (isset($edit) && !empty($edit)) {
 
     {{-- <div class="container-form container-1200"> --}}
         <div class="container-form container">
-        <h2>{{$title}}</h2>
+        <h2 class="text-center">{{$title}}</h2>
  <form action="{{$url}}" method="post">
 
      @csrf
@@ -108,12 +108,12 @@ if (isset($edit) && !empty($edit)) {
         <label for="visible">Il piatto è disponibile?</label>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="visible" id="exampleRadios1" value="1" checked>
-            <label class="form-check-label" for="exampleRadios1">Si</label>
+            <label  for="exampleRadios1">Si</label>
         </div>
 
         <div class="form-check">
             <input class="form-check-input" type="radio" name="visible" id="exampleRadios2" value="0">
-            <label class="form-check-label" for="exampleRadios2">No</label>
+            <label  for="exampleRadios2">No</label>
         </div>
 
      </div>

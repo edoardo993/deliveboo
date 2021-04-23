@@ -10,7 +10,7 @@
     $method='POST';
     $submit='Crea';
     $url=route('restaurants.store');
-};
+}
 @endphp
 
 @extends('layouts.admin-app')

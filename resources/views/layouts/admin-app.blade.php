@@ -30,7 +30,7 @@
                 <div class="container">
 
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <img style="height:60px;" src="{{ asset('img/pink-logo.png')}}" alt="">
+                            <img style="height:60px" src="{{ asset('img/pink-logo.png')}}" alt="">
                          </a>
                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                              <span class="navbar-toggler-icon"></span>
@@ -86,7 +86,7 @@
 
         <footer class="deliveboo-footer">
 
-            <div class="container-1200 footer-content">
+            <div class="container footer-content">
 
                 <div class="footer-logo-info">
                     <img src="{{ asset('img/white-logo.png')}}" class="footer-logo">
@@ -97,15 +97,17 @@
                     </ul>
                 </div>
 
-                <div class="">
+                {{-- <div class="">
                     <ul>
                         <li class="footer-list-title">dove posso ordinare?</li>
                         <li>Consegna a domicilio Milano</li>
                     </ul>
-                </div>
+                </div> --}}
 
-                <div class="">
+                <div class="footer-none">
                     <ul>
+                        <li class="footer-list-title">dove posso ordinare?</li>
+                        <li>Consegna a domicilio Milano</li>
                         <li class="footer-list-title">opportunità</li>
                         <li>Diventa un ristorante Deliveboo</li>
                         <li>Diventa un rider Deliveboo</li>
@@ -113,7 +115,7 @@
                     </ul>
                 </div>
 
-                <div class="">
+                <div class="icons-container">
 
                     <div class="footer-icons">
                         <i class="fab fa-instagram"></i>
