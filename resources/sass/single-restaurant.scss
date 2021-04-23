@@ -15,7 +15,8 @@ body{
     justify-content: center;
 }
 .upper-gradient{
-    position: absolute;z-index: -10;
+    position: absolute;
+    z-index: -10;
     height: 200px;
     width: 100%;
     background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
@@ -134,7 +135,7 @@ body{
     }
 }
 .cart-container{
-    height: 300vh;
+    min-height: 100vh;
     width: 30%;
 
     .cart{
@@ -142,7 +143,7 @@ body{
         top: 90px;
         right: 220px;
         min-height: 400px;
-        width: 500px;
+        width: 450px;
         box-shadow: 0 0 10px #ccc;
         background: #fff;
         border-radius: 7px;

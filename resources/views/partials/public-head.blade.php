@@ -21,7 +21,11 @@
 
                         <a href="{{ url('/') }}">
                             <img style="height:60px;margin-top:10px;"
-                                src="../img/pink-logo.png"
+                                src="{{asset('img/white-logo.png')}}"
+                                id="white-logo"
+                            >
+                            <img style="height:60px;margin-top:10px;"
+                                src="{{asset('img/pink-logo.png')}}"
                                 class="hide"
                                 id="pink-logo"
                             >
@@ -63,7 +67,7 @@
                 <div class="container-1200 footer-content">
 
                     <div class="footer-logo-info">
-                        <img src="img/white-logo.png" class="footer-logo">
+                        <img src="{{ asset("img/white-logo.png") }}" class="footer-logo">
                         <ul>
                             <li>Termini e Condizioni</li>
                             <li>Privacy Policy</li>

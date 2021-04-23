@@ -8,7 +8,7 @@
 <div class="user-wrapper">
     <div class="user-container container">
         <div class="user-title ">
-            <span>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
+            <span>Benvenuto {{Auth::User()->name}}! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
             <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
 
             <form action="{{route('restaurants.create')}}">
@@ -18,7 +18,7 @@
         </div>
         @foreach ($userRestaurants as $userRestaurant)
         <div class="user-main-content" id="root">
-            <div class="user-restaurant-card">
+            <div class="user-restaurant-card" href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
                 <div class="img-container">
                     <img src="{{$userRestaurant->pic_url}}" alt="immagine ristorante">
                 </div>

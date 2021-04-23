@@ -3,7 +3,6 @@
 body{
     overflow-x: hidden;
     font-family: 'Inter', sans-serif;
-    text-transform: capitalize;
 }
 .utility-button-danger{
     @include utility-button-danger;

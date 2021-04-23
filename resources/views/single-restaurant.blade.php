@@ -9,6 +9,8 @@
     $idJs='root'
 @endphp
 
+    <div class="main-background"></div>
+
     <div class="upper-gradient"></div>
 
         <div class="single-restaurant-left-content">
