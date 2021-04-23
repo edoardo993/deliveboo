@@ -16,9 +16,9 @@ body{
 .utility-button-home{
     @include utility-button-home;
 }
-.plate-container{
-    width: 100vw;
-    min-height: 100vh;
+.container{
+    // width: 100vw;
+    // min-height: 100vh;
     .nav-one{
         display: flex;
         flex-direction: row;
@@ -47,9 +47,10 @@ body{
             align-items: center;
             justify-content: space-between;
             margin-top:  30px ;
-            background-color:  rgba(255,219,171,1);
+            background-color: #fff;
             border-radius: 25px;
             box-shadow:0px 0px 5px grey;
+
 
             .card-plate-container-left{
                 width: 500px;
@@ -60,11 +61,15 @@ body{
                 padding: 5px 0;
                 .size-font{
                     font-size: 20px;
+
                 }
                 .text-container{
                     word-break: break-all;
                     overflow-y: auto;
                     height: 300px;
+                    .weight{
+                        font-weight: bold;
+                    }
                     &::-webkit-scrollbar {
                         width: 10px;
                       }
@@ -122,7 +127,7 @@ body{
 }
 
 .red{
-        width: 182px;
+        width: 120px;
         height: 40px;
         background: #fff;
         position: relative;

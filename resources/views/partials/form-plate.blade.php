@@ -12,12 +12,18 @@ if (isset($edit) && !empty($edit)) {
 };
 @endphp
 
-@extends('layouts.app')
+
+
+@extends('layouts.admin-app')
 @section('title', 'plate')
-@section('content')
+@section('main-content')
 
-    <div class="container-form container-1200">
+{{-- @php
+    $idJs='app'
+@endphp --}}
 
+    {{-- <div class="container-form container-1200"> --}}
+        <div class="container-form container">
         <h2>{{$title}}</h2>
  <form action="{{$url}}" method="post">
 

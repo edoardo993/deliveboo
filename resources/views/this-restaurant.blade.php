@@ -1,4 +1,4 @@
-@extends('partials/public-head')
+@extends('layouts.admin-app')
 @section('title', 'plates-set')
 @section('main-content')
 @php
@@ -7,7 +7,7 @@
     <div class="main-background"></div>
 
 
-    <div  class="plate-container">
+    <div  class="container">
 
         {{-- <div class="nav-container shadow-sm">
             <nav class="nav-one ">
@@ -31,7 +31,7 @@
                 <div class="card-plate-container-left">
 
                     <div class="text-container">
-                        <p class="space-card-plate-container-right size-font">{{$plate->name}}</p>
+                        <p class="space-card-plate-container-right size-font weight">{{$plate->name}}</p>
                         <p class="space-card-plate-container-right size-font">{{$plate->typology}}</p>
                         <p class="space-card-plate-container-right size-font"> {{$plate->description}}</p>
                         <p class="space-card-plate-container-right size-font">{{$plate->price}}€</p>
@@ -42,14 +42,14 @@
                 <div class="card-plate-container-right">
 
                         <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="text-decoration-none">
-                            <div class="utility-button-edit"><span>Modifica piatto</span></div>
+                            <div class="utility-button-edit"><span>Modifica </span></div>
                         </a>
 
                         <form action="{{route('plates.destroy', ['plate' => $plate->id])}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="utility-button-danger border-none" data-toggle="modal" data-target="#exampleModal{{$plate->id}}">
-                                <div class="red">Elimina piatto</div>
+                                <div class="red">Elimina </div>
                             </button>
 
                             @include('partials.delete-modal-plate', ['plate'=> $plate->id])
@@ -63,11 +63,11 @@
                 <div class="footer-container">
 
                     <a class="text-decoration-none" href="{{ route('plates.create', ['restaurant' => $restaurant])}}">
-                        <div class="utility-button-edit"><span>Inserisci un nuovo piatto</span></div>
+                        <div class="utility-button-edit"><span>Inserisci</span></div>
                     </a>
 
                     <a class="text-decoration-none" href="{{route('restaurants.index')}}">
-                        <div class="utility-button-home"><span>Torna ai tuoi ristoranti</span></div>
+                        <div class="utility-button-home"><span>Dashboard</span></div>
                     </a>
 
                 </div>

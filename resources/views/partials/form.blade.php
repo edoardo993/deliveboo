@@ -13,11 +13,11 @@
 };
 @endphp
 
-@extends('layouts.app')
+@extends('layouts.admin-app')
 @section('title', 'restaurant')
-@section('content')
+@section('main-content')
 
-<div class="container-form container-1200">
+<div class="container-form container">
 
     <h2 class="text-center">{{$title}}</h2>
 

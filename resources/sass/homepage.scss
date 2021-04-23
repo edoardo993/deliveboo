@@ -29,7 +29,10 @@
     padding: 0;
 }
 body{
-    background: #FF9B73
+    background: #FF9B73;
+    // @media screen  and (max-width: 768px){
+    // background-color: #fff;
+    // }
 }
 header {
     width: 100%;
@@ -40,7 +43,6 @@ header {
         top: 0;
         width: 100%;
         z-index: 1000;
-        // background: #fff;
 
         .nav-content-container{
             height: 80px;
@@ -324,6 +326,9 @@ $gray: #9b9b9b;
     background: #fff;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
+    @media screen  and (max-width: 768px){
+        display: none;
+    }
 }
 .deliveboo-footer{
     display: flex;

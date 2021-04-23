@@ -1,18 +1,18 @@
 
 {{-- MODIFICARE QUI IL CONTENT PER LA PAGINA DOPO ESSERSI LOGGATI (la section content la troviamo in app.blade.php) --}}
 
-@extends('layouts.app')
+@extends('layouts.admin-app')
 
-@section('content')
+@section('main-content')
 
 <div class="user-wrapper">
-    <div class="user-container">
+    <div class="user-container container">
         <div class="user-title ">
             <span>Benvenuto {{Auth::User()->name}} ! Qui di seguito trovi la lista dei tuoi Ristoranti</span>
             <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
 
             <form action="{{route('restaurants.create')}}">
-                <button type="submit" class="user-button border-none">Crea nuovo ristorante</button>
+                <button type="submit" class="user-button border-none">Crea</button>
             </form>
 
         </div>
@@ -35,12 +35,12 @@
                         @csrf
                         @method('DELETE')
                         <button type="button" data-toggle="modal" data-target="#exampleModal{{$userRestaurant->id}}" class="user-button-delete border-none">
-                            Cancella Ristorante
+                            Cancella
                         </button>
                         @include('partials.delete-modal',['restaurant'=> $userRestaurant->id])
                     </form>
                     <form action="{{route('restaurants.edit', ['restaurant' => $userRestaurant->id])}}">
-                        <button type="submit" class="user-button border-none">Modifica ristorante</button>
+                        <button type="submit" class="user-button border-none">Modifica</button>
                     </form>
                 </div>
             </div>
