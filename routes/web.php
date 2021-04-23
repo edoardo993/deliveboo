@@ -106,7 +106,7 @@ Route::post('/checkout', function (Request $request) {
         $Order->total = $data['amount'];
         $Order->save();
         $Order->plates()->attach($data['plates']);
-        Mail::to($data['email'])->send(new OrderShipped());
+        // Mail::to($data['mail'])->send(new OrderShipped());
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";

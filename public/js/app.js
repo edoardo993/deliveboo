@@ -3270,6 +3270,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     },
     returnAllListRestaurant: function returnAllListRestaurant() {
       this.results = [];
+      this.userSearch = '';
+      this.titleSearch = '';
     },
     setImg: function setImg(name) {
       var src;
@@ -3410,13 +3412,25 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       this.cartItemIds.splice(this.index, 1);
       this.totalOrderPrice();
     },
-    proceedToBraintree: function proceedToBraintree(idName1, idName2, idName3) {
+    proceedToBraintree: function proceedToBraintree(idName1, idName2, idName3, idName4) {
       var paymentsForm = document.getElementById(idName1);
       paymentsForm.classList.remove('hide');
       var paymentButton = document.getElementById(idName2);
       paymentButton.classList.add('hide');
       var itemsContainer = document.getElementById(idName3);
       itemsContainer.classList.add('hide');
+      var overlayDiv = document.getElementById(idName4);
+      overlayDiv.classList.remove('hide');
+    },
+    backToCart: function backToCart(idName1, idName2, idName3, idName4) {
+      var paymentsForm = document.getElementById(idName1);
+      paymentsForm.classList.add('hide');
+      var overlayDiv = document.getElementById(idName2);
+      overlayDiv.classList.add('hide');
+      var cartItems = document.getElementById(idName3);
+      cartItems.classList.remove('hide');
+      var proceedToPayment = document.getElementById(idName4);
+      proceedToPayment.classList.remove('hide');
     }
   }
 }); // for nav white background

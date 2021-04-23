@@ -20,7 +20,7 @@
             @csrf
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
-                <input type="email" class="form-control" id="email"  v-model='formData.email'>
+                <input type="email" class="form-control" id="email"  v-model='formData.email' name="mail">
 
             </div>
 
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label for="amount">Amount</label>
+                        <label for="amount">Totale</label>
                         <input type="text"
                             class="form-control"
                             id="amount"
@@ -78,7 +78,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="cc_number">Credit Card Number</label>
+                    <label for="cc_number">Numero carta di credito</label>
 
                     <div class="form-group" id="card-number">
 
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="expiry">Expiry</label>
+                    <label for="expiry">Data di scadenza</label>
 
                     <div class="form-group" id="expiration-date">
 
@@ -105,10 +105,14 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
+            <button type="submit" class="btn btn-success"
+                v-on:click="backToCart('paymentsContainer', 'overlay-container', 'items-container', 'payment-button')"
+            >
+                Torna al carrello
+            </button>
 
-            <button type="submit" class="btn btn-success" >
-
-                Submit Payment
+            <button type="submit" class="btn btn-success">
+                Procedi all'ordine
             </button>
 
         </form>

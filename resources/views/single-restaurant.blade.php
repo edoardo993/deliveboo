@@ -29,6 +29,10 @@
                             {{$restaurant->business_name}}
                         </span>
 
+                        <span class="restaurant-address">
+                            <i class="fas fa-map-marker-alt"></i>{{$restaurant->address}}
+                        </span>
+
                         <div class="restaurant-total-categories">
 
                             @foreach ($restaurant->categories as $category)
@@ -58,6 +62,7 @@
 
                         <div class="plates-container"
                             v-on:click="newItem({{$plate}})"
+                            v-if="{{$plate->visible}}"
                         >
                             <span class="plate-name">
                                 {{$plate->name}}
@@ -98,10 +103,6 @@
                         class="items-row"
                     >
 
-                        <div class="edit-item-icon">
-                            <i class="fas fa-pen"></i>
-                        </div>
-
                         <div class="cart-item-name">@{{item}}
 
                             <span v-on:click="deletePlate(index)">
@@ -125,7 +126,7 @@
                 <div class="total-button"
                     id="payment-button"
                     v-if="cartItem.length >= 1"
-                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container')"
+                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container', 'overlay-container')"
                 >Procedi al pagamento
                 </div>
 
