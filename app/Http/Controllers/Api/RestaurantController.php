@@ -26,13 +26,10 @@ class RestaurantController extends Controller
     {
         $str = $request->str;
         $restaurant = Restaurant::orderBy('id','desc')->with(['categories'])->select('id', 'business_name', 'pic_url', 'address', 'description', 'opening_hours');
-        if ($str) {
-           $restaurant->where('business_name',$str)
+           $restaurant->where('business_name', $str )
            ->orWhereHas('categories',function($q) use($str){
                $q->where('name',$str);
            });
-        }
-
         $finalArray= $restaurant->get();
         return response()->json($finalArray);
     }

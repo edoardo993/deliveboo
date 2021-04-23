@@ -2,9 +2,11 @@
 
 // use GuzzleHttp\Psr7\Request;
 
+use App\Mail\OrderShipped;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -104,7 +106,7 @@ Route::post('/checkout', function (Request $request) {
         $Order->total = $data['amount'];
         $Order->save();
         $Order->plates()->attach($data['plates']);
-
+        Mail::to($data['email'])->send(new OrderShipped());
         return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
     } else {
         $errorString = "";
