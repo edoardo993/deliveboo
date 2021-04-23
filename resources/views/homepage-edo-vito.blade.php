@@ -6,7 +6,7 @@
 
             <div class="jumbotron-delivery">
 
-                <div class="container-1200 flex-between">
+                <div class="container flex-between">
 
                     <div class="jumbotron-content-left">
 

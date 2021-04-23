@@ -10,11 +10,36 @@ body{
 .hide{
     display: none
 }
+.payment-alert{
+    display: flex;
+    flex-direction: column;
+    z-index: 10000000;
+
+    .modal-img{
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    .payment-alert-text{
+        font-size: 30px;
+        color: #FF3966;
+        font-family: 'Dancing Script', cursive;
+        margin-bottom: 30px;
+    }
+}
 #overlay-container{
     height: 100%;
     width: 100vw;
     background: rgba(0,0,0, 0.6);
-    z-index: 100000;
+    z-index: 1000;
+    position: absolute;
+    top: 0
+}
+#overlay-container-z-index-max{
+    height: 100%;
+    width: 100vw;
+    background: rgba(0,0,0, 0.6);
+    z-index: 10000;
     position: absolute;
     top: 0
 }
@@ -157,7 +182,7 @@ body{
     margin-top: 80px;
     min-height: 100vh;
     width: 30%;
-    z-index: 10000000000;
+    z-index: 1001;
 
     .cart{
         position: fixed;

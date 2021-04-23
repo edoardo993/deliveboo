@@ -1,10 +1,6 @@
 @extends('partials/public-head')
 @section('main-content')
 
-@include('partials.modal-payments-success')
-
-@include('partials.modal-payments-error')
-
 @php
     $idJs='root'
 @endphp
@@ -86,7 +82,7 @@
 
         </div>
 
-        <div class="cart-container">
+        <div class="cart-container" id="cartContainer">
 
             <div class="cart">
 
@@ -103,7 +99,7 @@
                         class="items-row"
                     >
 
-                        <div class="cart-item-name">@{{item}}
+                        <div class="cart-item-name">@{{item}} @{{itemsFlag[index]}}
 
                             <span v-on:click="deletePlate(index)">
                                 <i class="fas fa-minus-circle"></i>
@@ -139,16 +135,43 @@
             </div>
 
             @if (session()->has('success_message'))
-            <div class="payment-alert">
-                Il tuo pagamento è andato a buon fine! <br> Il tuo ordine è in preparazione,<br> saremo da te a breve!
-            </div>
-            {{-- <h2>andata senza ritorno</h2> --}}
+
+                <div class="payment-alert" id="payment-alert">
+
+                    <img class="modal-img" src="{{asset('img/sushi.svg')}}">
+
+                    <p class="payment-alert-text">Il tuo pagamento è andato a buon fine! <br> L'ordine è in preparazione,<br> saremo da te a breve!</p>
+
+                    <button type="submit"
+                        class="btn btn-success"
+                        v-on:click="backToMenu('overlay-container-z-index-max', 'payment-alert')"
+                    >
+                        Torna al ristorante
+                    </button>
+
+                </div>
+
+                <div id="overlay-container-z-index-max"></div>
+
             @endif
 
             @if(count($errors) > 0)
-            <div class="payment-alert">
-                Il tuo pagamento non è andato a buon fine :(<br>Ricontrolla i dati inseriti e riprova!
-            </div>
+
+                <div class="payment-alert" id="payment-alert">
+
+                    <p class="payment-alert-text">Il tuo pagamento non è andato a buon fine :(<br>Ricontrolla i dati inseriti e riprova!</p>
+
+                    <button type="submit"
+                        class="btn btn-success"
+                        v-on:click="backToMenu('overlay-container-z-index-max', 'payment-alert')"
+                    >
+                        Procedi all'ordine
+                    </button>
+
+                </div>
+
+                <div id="overlay-container-z-index-max"></div>
+
             @endif
 
         </div>

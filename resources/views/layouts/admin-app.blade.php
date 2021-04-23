@@ -82,7 +82,7 @@
         </div>
 
 
-        <main class="">
+        <main class="main-content-container">
             @yield('main-content')
         </main>
 

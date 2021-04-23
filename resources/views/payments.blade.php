@@ -2,20 +2,6 @@
 
         <h3>Inserisci i tuoi dati</h3>
 
-        {{-- <div class="spacer"></div> --}}
-
-        @if (session()->has('success_message'))
-            <div class="alert alert-success">
-                {{ session()->get('success_message') }}
-            </div>
-
-        @endif
-
-        @if(count($errors) > 0)
-
-        @endif
-
-
             <form action="{{ url('/checkout')}}" method="POST" id="payment-form" name='formUno'>
             @csrf
             <div class="form-group">
@@ -62,7 +48,7 @@
 
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="amount">Totale</label>
                         <input type="text"
