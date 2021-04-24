@@ -99,7 +99,7 @@
                         class="items-row"
                     >
 
-                        <div class="cart-item-name">@{{item}} @{{itemsFlag[index]}}
+                        <div class="cart-item-name">@{{item}}
 
                             <span v-on:click="deletePlate(index)">
                                 <i class="fas fa-minus-circle"></i>
@@ -133,6 +133,22 @@
                 </div>
 
             </div>
+
+            {{-- xs resolution button --}}
+            <div class="hide-button-payment-container"
+                id="payment-button"
+                v-if="cartItem.length >= 1"
+            >
+                <div class="hide-button-payment"
+                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container', 'overlay-container')"
+                >
+                    <span>Il mio ordine:</span>
+
+                    <span>@{{total}}€</span>
+
+                </div>
+            </div>
+            {{-- xs resolution button --}}
 
             @if (session()->has('success_message'))
 

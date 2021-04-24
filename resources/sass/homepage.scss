@@ -30,8 +30,9 @@
     background: #fff;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
+
     @media screen  and (max-width: 768px){
-        display: none;
+        height: 16700px;
     }
 }
 *{
@@ -91,9 +92,14 @@ header {
 }
 .jumbotron-delivery{
     @include background-grd;
+    height: 550px;
     padding-top: 20px;
     // background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
     // padding: 50px 200px;
+
+    @media screen  and (max-width: 767px){
+        height: 400px
+      }
     .first-container{
        display: flex;
        justify-content: space-between;
@@ -169,7 +175,11 @@ main{
     .slider-title{
         color: #FF3966;
         margin-left: 15%;
-        margin-top: 50px
+        margin-top: 50px;
+
+        @media screen  and (max-width: 767px){
+            margin-top: 50px;
+        }
     }
     .carousel-container{
         display: flex;
@@ -244,10 +254,11 @@ main{
         margin-top: 40px;
         width: 70%;
         flex-wrap: wrap;
+
         @media screen  and (max-width: 767px){
             align-items: center;
-             flex-direction: column;
-             width: 90%;
+            flex-direction: column;
+            width: 90%;
          }
 
         .single-card-restaurant{
@@ -261,13 +272,15 @@ main{
             align-items: flex-start;
             border-radius: 4px;
             margin: 10px;
+
+            @media screen  and (max-width: 992px){
+                width:calc((100% / 2) - 20px);
+            }
             @media screen  and (max-width: 767px){
                 width:100%;
                 margin: 10px 0px;
              }
-            //  @media screen  and (max-width: 992px){
-            //     width:calc((100% / 2) - 20px);
-            //  }
+
 
             &:hover{
                 cursor: pointer;
@@ -410,8 +423,11 @@ $gray: #9b9b9b;
     background: #fff;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
+
     @media screen  and (max-width: 768px){
-        height: 300px;
+        height: 450px;
+        border-bottom-left-radius: 50% 10%;
+        border-bottom-right-radius: 50% 10%;
     }
 }
 .deliveboo-footer{
