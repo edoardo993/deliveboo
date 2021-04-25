@@ -10470,16 +10470,6 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   color: #ccc;
   font-size: 15px;
 }
-@media screen and (max-width: 767px) {
-  .deliveboo-footer .footer-content .footer-logo-info {
-    padding: 10px;
-  }
-}
-.deliveboo-footer .footer-content .footer-list-title {
-  text-transform: uppercase;
-  color: #ccc;
-  font-size: 15px;
-}
 .deliveboo-footer .footer-content .footer-none .footer-list-title {
   text-transform: uppercase;
   color: #ccc;
