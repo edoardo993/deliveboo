@@ -10609,6 +10609,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-transform: capitalize;
 }
 @media screen and (max-width: 768px) {
   .user-wrapper .user-container .user-main-content {
@@ -10633,7 +10634,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 .user-wrapper .user-container .user-main-content .user-restaurant-card .img-container {
   margin-top: 15px;
   min-width: 200px;
-  max-width: 100%;
+  max-width: 80%;
   background-color: #fff;
   max-height: 500px;
   min-height: 200px;
@@ -10653,10 +10654,11 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 .user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-description {
   width: 100%;
   max-height: 50px;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: center;
   word-break: break-all;
   padding: 20px;
+  text-transform: capitalize;
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card .user-restaurant-button {
   margin: 20px 0px;
