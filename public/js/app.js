@@ -3238,7 +3238,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     });
     axios.get('http://127.0.0.1:8000/api/restaurants').then(function (result) {
       console.log(result.data);
-      _this.allRestaurants = result.data.slice(0, 10);
+      _this.allRestaurants = result.data.slice(0, 12);
     });
   },
   methods: {
@@ -3426,6 +3426,14 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       itemsContainer.classList.add('hide');
       var overlayDiv = document.getElementById(idName4);
       overlayDiv.classList.remove('hide');
+      $('html, body').css({
+        overflow: 'hidden',
+        height: '100%'
+      });
+    },
+    proceedToBraintreeXs: function proceedToBraintreeXs(idName1) {
+      var paymentsForm = document.getElementById(idName1);
+      paymentsForm.classList.add('block');
     },
     backToCart: function backToCart(idName1, idName2, idName3, idName4) {
       var paymentsForm = document.getElementById(idName1);
@@ -3436,12 +3444,10 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       cartItems.classList.remove('hide');
       var proceedToPayment = document.getElementById(idName4);
       proceedToPayment.classList.remove('hide');
-    },
-    backToMenu: function backToMenu(idName1, idName2) {
-      var backToMenu = document.getElementById(idName1);
-      backToMenu.classList.add('hide');
-      var paymentAlert = document.getElementById(idName2);
-      paymentAlert.classList.add('hide');
+      $('html, body').css({
+        overflow: 'auto',
+        height: 'auto'
+      });
     }
   }
 }); // for nav white background

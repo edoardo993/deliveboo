@@ -7,7 +7,7 @@
 
     <div class="main-background"></div>
 
-    <div class="upper-gradient"></div>
+    <div class="upper-gradient" id="prova"></div>
 
         <div class="single-restaurant-left-content">
 
@@ -55,6 +55,8 @@
                 <div class="single-restaurant-wrap">
 
                     @foreach ($restaurant->plates as $plate)
+
+                        {{-- <h2>{{$plate->typology}}</h2> --}}
 
                         <div class="plates-container"
                             v-on:click="newItem({{$plate}})"
@@ -116,7 +118,7 @@
                 </div>
 
                 <div class="total-products" v-if="total>0">
-                    Totale prodotti: @{{total}}€
+                    Totale prodotti: @{{total.toFixed(2)}}€
                 </div>
 
                 <div class="total-button"
@@ -140,14 +142,22 @@
                 v-if="cartItem.length >= 1"
             >
                 <div class="hide-button-payment"
-                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container', 'overlay-container')"
+                    v-on:click="proceedToBraintreeXs('cartContainer')"
                 >
                     <span>Il mio ordine:</span>
 
-                    <span>@{{total}}€</span>
+                    <span>@{{total.toFixed(2)}}€</span>
 
                 </div>
             </div>
+
+            <div id="overlay-container-z-index-max" class="hide"></div>
+
+            {{-- <div class="container hide" id="paymentsContainerXs">
+
+                @include('payments')
+
+            </div> --}}
             {{-- xs resolution button --}}
 
             @if (session()->has('success_message'))
@@ -160,9 +170,9 @@
 
                     <button type="submit"
                         class="btn btn-success"
-                        v-on:click="backToMenu('overlay-container-z-index-max', 'payment-alert')"
+                        onclick="location.href = '/'"
                     >
-                        Torna al ristorante
+                        Torna alla home
                     </button>
 
                 </div>
@@ -171,17 +181,17 @@
 
             @endif
 
-            @if(count($errors) > 0)
+            @if (session()->has('error'))
 
-                <div class="payment-alert" id="payment-alert">
+                <div class="payment-alert" id="payment-alert-failed">
 
                     <p class="payment-alert-text">Il tuo pagamento non è andato a buon fine :(<br>Ricontrolla i dati inseriti e riprova!</p>
 
                     <button type="submit"
                         class="btn btn-success"
-                        v-on:click="backToMenu('overlay-container-z-index-max', 'payment-alert')"
+                        v-on:click="backToMenu()"
                     >
-                        Procedi all'ordine
+                    Torna al ristorante
                     </button>
 
                 </div>
@@ -263,6 +273,24 @@
             }, false);
             });
             });
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+                });
+            }, false);
+            })();
     </script>
 
 @endsection

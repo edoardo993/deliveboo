@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" class="needs-validation" novalidate>
                         @csrf
 
                         <div class="form-group row">
@@ -24,11 +24,9 @@
                                     autocomplete="name"
                                     autofocus>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    <div class="invalid-feedback">
+                                        Inserisci un nome valido
+                                    </div>
                             </div>
                         </div>
 
@@ -43,13 +41,12 @@
                                     value="{{ old('lastname') }}"
                                     required
                                     autocomplete="lastname"
-                                    autofocus>
+                                    autofocus
+                                >
 
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback">
+                                    Inserisci un cognome valido
+                                </div>
                             </div>
                         </div>
 
@@ -59,11 +56,9 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback">
+                                    Inserisci una mail corretta
+                                </div>
                             </div>
                         </div>
 
@@ -73,11 +68,9 @@
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback">
+                                    Inserisci una password corretta (minimo 8 caratteri)
+                                </div>
                             </div>
                         </div>
 
@@ -95,6 +88,11 @@
                                     required
                                     autocomplete="new-password"
                                 >
+
+                                <div class="invalid-feedback">
+                                    Inserisci la stessa password di sopra
+                                </div>
+
                             </div>
                         </div>
 
@@ -102,13 +100,21 @@
                             <label for="PI" class="col-md-4 col-form-label text-md-right">{{ __('Partita Iva') }}</label>
 
                             <div class="col-md-6">
-                                <input id="PI" type="text" class="form-control @error('name') is-invalid @enderror" name="PI" value="{{ old('PI') }}" required autocomplete="PI" autofocus>
+                                <input id="PI"
+                                    type="text"
+                                    class="form-control"
+                                    name="PI"
+                                    value="{{ old('PI') }}"
+                                    required
+                                    autocomplete="PI"
+                                    autofocus
+                                    minlength="11"
+                                >
 
-                                @error('PI')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="invalid-feedback">
+                                    Inserisci una Partita Iva valida (11 cifre)
+                                </div>
+
                             </div>
                         </div>
 

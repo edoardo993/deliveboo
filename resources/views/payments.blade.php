@@ -2,11 +2,17 @@
 
         <h3>Inserisci i tuoi dati</h3>
 
-            <form action="{{ url('/checkout')}}" method="POST" id="payment-form" name='formUno'>
+            <form action="{{ url('/checkout')}}" method="POST" id="payment-form" name='formUno' novalidate class="needs-validation">
             @csrf
             <div class="form-group">
                 <label for="email">Indirizzo Email</label>
-                <input type="email" class="form-control" id="email" name="mail" v-model='formData.email'>
+                <input type="email"
+                    class="form-control"
+                    id="email"
+                    name="mail"
+                    v-model='formData.email'
+                    required
+                >
 
             </div>
 
@@ -17,6 +23,7 @@
                     id="customer_name"
                     name="customer_name"
                     v-model='formData.name'
+                    required
                 >
             </div>
 
@@ -27,6 +34,7 @@
                     id="address"
                     name="address"
                     v-model='formData.address'
+                    required
                 >
             </div>
 
@@ -56,7 +64,7 @@
                             id="amount"
                             name="amount"
                             readonly="readonly"
-                            :value="total"
+                            :value="total.toFixed(2)"
                         >
                     </div>
                 </div>
@@ -64,7 +72,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="cc_number">Numero carta di credito</label>
+                    <label for="cc_number" required>Numero carta di credito</label>
 
                     <div class="form-group" id="card-number">
 
@@ -72,7 +80,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="expiry">Data di scadenza</label>
+                    <label for="expiry" required>Data di scadenza</label>
 
                     <div class="form-group" id="expiration-date">
 
@@ -80,10 +88,14 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="cvv">CVV</label>
+                    <label for="cvv" required>CVV</label>
 
                     <div class="form-group" id="cvv">
 
+                    </div>
+
+                    <div class="invalid-feedback">
+                        Inserisci una Partita Iva valida (11 cifre)
                     </div>
                 </div>
 

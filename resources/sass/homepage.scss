@@ -92,7 +92,7 @@ header {
 }
 .jumbotron-delivery{
     @include background-grd;
-    height: 550px;
+    height: 570px;
     padding-top: 20px;
     // background: linear-gradient(23deg, rgba(255,51,102,1) 0%, rgba(255,110,102,1) 25%, rgba(255,140,102,1) 60%, rgba(255,219,171,1) 100%);
     // padding: 50px 200px;
@@ -122,7 +122,7 @@ header {
             color: #FFD3A4;
             font-family: 'Acme', sans-serif;
             margin-top: 80px;
-            width: 200px;
+            width: 400px;
             line-height: 40px;
         }
         #logo-deliveboo{
@@ -158,8 +158,8 @@ header {
 
         // da sistemare
         #sushi-img{
-            width: 300px;
-            margin-top: 80px
+            width: 400px;
+            // margin-top: 80px
 
         }
         @media screen  and (max-width: 767px){
@@ -263,7 +263,7 @@ main{
 
         .single-card-restaurant{
             height: 400px;
-            width:calc((100% / 3) - 20px);
+            width:calc((100% / 3) - 60px);
             background: #fff;
             box-shadow: 0 10px 20px rgba(#000, .19),
             0 6px 6px rgba(#000, .23) ;
@@ -271,7 +271,7 @@ main{
             flex-direction: column;
             align-items: flex-start;
             border-radius: 4px;
-            margin: 10px;
+            margin: 30px;
 
             @media screen  and (max-width: 992px){
                 width:calc((100% / 2) - 20px);
@@ -321,6 +321,7 @@ main{
                         color:#EB5468;
                         margin-top: 20px;
                         font-size: 25px;
+                        text-transform: capitalize;
                     }
                     .restaurant-category{
                         font-size: 20px;

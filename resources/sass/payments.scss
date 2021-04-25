@@ -4,6 +4,7 @@
 }
 .payment-alert{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -16,5 +17,18 @@
     transform: translate(-50%, -50%);
     font-size: 40px;
     color: #333;
-    border-radius: 7px
+    border-radius: 7px;
+    z-index: 100000000000;
+
+    .modal-img{
+        width: 180px;
+        margin-bottom: 20px;
+    }
+
+    .payment-alert-text{
+        font-size: 30px;
+        color: #FF3966;
+        font-family: 'Dancing Script', cursive;
+        margin-bottom: 30px;
+    }
 }

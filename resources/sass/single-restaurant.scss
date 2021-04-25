@@ -1,31 +1,13 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Rubik', sans-serif;
-}
 .hide{
     display: none
 }
-.payment-alert{
-    display: flex;
-    flex-direction: column;
-    z-index: 10000000;
-
-    .modal-img{
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .payment-alert-text{
-        font-size: 30px;
-        color: #FF3966;
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 30px;
-    }
+.block{
+    display: block !important
 }
 #overlay-container{
     height: 100%;
@@ -93,6 +75,20 @@ body{
         }
     }
 }
+// .payment-container-xs{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     background: #fff;
+//     padding: 20px;
+//     border-radius: 5px;
+//     z-index: 3400000000;
+
+//     @media screen and (min-width: 992px){
+//         display: none
+//     }
+// }
 .single-restaurant-left-content{
     min-height: 100vh;
     width: 40%;
@@ -206,6 +202,7 @@ body{
 
         .single-restaurant-wrap{
             display: flex;
+            // flex-direction: column;
             display:rgb(107, 121, 107);
             flex-wrap: wrap;
             width: 100%;
@@ -280,10 +277,12 @@ body{
     margin-top: 80px;
     min-height: 100vh;
     width: 30%;
-    z-index: 1001;
+    z-index: 100000001;
 
     @media screen and (max-width: 992px){
-        display: none
+        display: none;
+        width: 0;
+
     }
 
     .cart{
@@ -298,7 +297,15 @@ body{
         padding: 20px;
 
         @media screen and (max-width: 992px){
-            display: none
+            top: 90px;
+            right: 40%;
+        }
+        @media screen and (max-width: 767px){
+            width: 80%;
+            top: 90%;
+            right: 0;
+            left: 50%;
+            transform: translate(-50%, -90%);
         }
 
         .your-order{

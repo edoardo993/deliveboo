@@ -1,10 +1,11 @@
 @mixin utility-button-danger {
-    width: 120px;
+    min-width: 120px;
     height: 40px;
     background: #fff;
     position: relative;
     border-radius: 32px;
     text-align: center;
+    padding: 0 30px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     span {
@@ -27,12 +28,13 @@
   }
 
   @mixin utility-button-edit {
-    width: 120px;
+    min-width: 120px;
     height: 40px;
     background: #fff;
     position: relative;
     border-radius: 32px;
     text-align: center;
+    padding: 0 30px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     span {
@@ -55,12 +57,13 @@
   }
 
   @mixin utility-button-home {
-    width: 120px;
+    min-width: 120px;
     height: 40px;
     background: #fff;
     position: relative;
     border-radius: 32px;
     text-align: center;
+    padding: 0 30px;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
     span {
