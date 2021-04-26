@@ -99,9 +99,9 @@
                         class="items-row"
                     >
 
-                        <div class="cart-item-name">@{{item}}
+                        <div class="cart-item-name">@{{item.name}} @{{item.quantity}}
 
-                            <span v-on:click="deletePlate(index)">
+                            <span v-on:click="deletePlate(index, item)">
                                 <i class="fas fa-minus-circle"></i>
                             </span>
 

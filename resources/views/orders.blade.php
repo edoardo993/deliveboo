@@ -92,6 +92,7 @@
                         <p class="space-card-plate-container-right size-font weight"> Ordine N. {{$order->id}}</p>
                         <p class="space-card-plate-container-right size-font"> Indirizzo Consegna: {{$order->address}}</p>
                         <p class="space-card-plate-container-right plate-description size-font"> Specifiche Ordine:
+
                             @foreach ($order->plates as $plate)
                             {{$plate->name}}
                             @endforeach</p>
