@@ -82,25 +82,25 @@
             <div class="chart-container" style=" width:100%">
                 <canvas id="userChart" ></canvas>
             </div>
-            @foreach ($restaurant->orders as $order)
+
             <div class="statistic-container">
 
-                <div class="statistic-card">
+                @foreach ($restaurant->orders as $order)
 
-                    <p class="space-card-plate-container-right size-font weight"> Ordine N.: {{$order->id}}</p>
-                    <p class="space-card-plate-container-right size-font"> Indirizzo Consegna: {{$order->address}}</p>
-                    <p class="space-card-plate-container-right size-font"> Specifiche Ordine:
-                        @foreach ($order->plates as $plate)
-                        {{$plate->name}}
-                        @endforeach</p>
-                    <div class="space-card-plate-container-right size-font"> Totale Pagato: {{$order->total}}€</div>
-                </div>
+                    <div class="statistic-card">
 
+                        <p class="space-card-plate-container-right size-font weight"> Ordine N. {{$order->id}}</p>
+                        <p class="space-card-plate-container-right size-font"> Indirizzo Consegna: {{$order->address}}</p>
+                        <p class="space-card-plate-container-right plate-description size-font"> Specifiche Ordine:
+                            @foreach ($order->plates as $plate)
+                            {{$plate->name}}
+                            @endforeach</p>
+                        <div class="space-card-plate-container-right size-font"> Totale Pagato: {{$order->total}}€</div>
+                    </div>
+
+                @endforeach
 
             </div>
-
-
-           @endforeach
 
              <div class="button-container">
 

@@ -1,7 +1,7 @@
 @mixin utility-button-danger {
     min-width: 120px;
     height: 40px;
-    background: #fff;
+    background: none;
     position: relative;
     border-radius: 32px;
     text-align: center;
@@ -17,7 +17,7 @@
         color: black;
       &:hover {
         box-shadow: inset 2.5px 2.5px 2.5px grey;
-        color: red;
+        color: rgb(224, 92, 92);
         background: #f3f0f1;
       }
       &:active {
@@ -113,7 +113,8 @@
 @mixin form-button-red{
     width: 120px;
     height: 40px;
-    background: #fff;
+    background: rgb(224, 92, 92);
+    color: #fff;
     position: relative;
     border-radius: 32px;
     text-align: center;
@@ -122,10 +123,9 @@
     line-height: 40px;
     font-weight: semibold;
     box-shadow:2.5px 2.5px 2.5px grey;
-    color: black;
     &:hover {
       box-shadow: inset 2.5px 2.5px 2.5px grey;
-      color: red;
+      color: rgb(224, 92, 92);
       background: #f3f0f1;
     }
     &:active {

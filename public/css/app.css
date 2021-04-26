@@ -10538,7 +10538,8 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 .user-button-delete {
   width: 120px;
   height: 40px;
-  background: #fff;
+  background: #e05c5c;
+  color: #fff;
   position: relative;
   border-radius: 32px;
   text-align: center;
@@ -10547,11 +10548,10 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   line-height: 40px;
   font-weight: semibold;
   box-shadow: 2.5px 2.5px 2.5px grey;
-  color: black;
 }
 .user-button-delete:hover {
   box-shadow: inset 2.5px 2.5px 2.5px grey;
-  color: red;
+  color: #e05c5c;
   background: #f3f0f1;
 }
 .user-button-delete:active {
@@ -10629,7 +10629,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card {
   width: 70%;
-  border-radius: 25px;
+  border-radius: 7px;
   margin-bottom: 25px;
   box-shadow: 0px 0px 5px grey;
   background-color: #fff;
@@ -10656,7 +10656,7 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card a {
   font-size: 30px;
-  color: #000;
+  color: #EB5468;
   font-weight: bold;
 }
 .user-wrapper .user-container .user-main-content .user-restaurant-card span {
@@ -10744,7 +10744,7 @@ body {
 .utility-button-danger {
   min-width: 120px;
   height: 40px;
-  background: #fff;
+  background: none;
   position: relative;
   border-radius: 32px;
   text-align: center;
@@ -10762,7 +10762,7 @@ body {
 }
 .utility-button-danger:nth-child(1):hover {
   box-shadow: inset 2.5px 2.5px 2.5px grey;
-  color: red;
+  color: #e05c5c;
   background: #f3f0f1;
 }
 .utility-button-danger:nth-child(1):active {
@@ -10881,6 +10881,11 @@ body {
     margin: 0 20px;
   }
 }
+.plates-container .plate-center .orders-title {
+  color: red;
+  font-size: 30px;
+  text-transform: uppercase;
+}
 .plates-container .plate-center .card-plate-container {
   display: flex;
   flex-direction: column;
@@ -10907,7 +10912,7 @@ body {
   }
 }
 .plates-container .plate-center .card-plate-container .plate-description {
-  min-height: 100px;
+  min-height: 30px;
   margin-bottom: 10px;
   max-height: 200px;
   overflow-y: auto;
@@ -11002,7 +11007,7 @@ body {
 .red {
   width: 120px;
   height: 40px;
-  background: #fff;
+  background: #e05c5c;
   position: relative;
   border-radius: 32px;
   text-align: center;
@@ -11011,12 +11016,12 @@ body {
   line-height: 40px;
   font-weight: semibold;
   box-shadow: 2.5px 2.5px 2.5px grey;
-  color: black;
+  color: #fff;
   border-style: none;
 }
 .red:hover {
   box-shadow: inset 2.5px 2.5px 2.5px grey;
-  color: red;
+  color: #e05c5c;
   background: #f3f0f1;
 }
 .red:active {
@@ -11583,23 +11588,30 @@ body {
 
 .statistic-container {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   margin-top: 30px;
 }
 .statistic-container .statistic-card {
-  width: 500px;
+  width: calc(100% / 2 - 40px);
   background-color: #fff;
-  border-radius: 100px;
+  border-radius: 7px;
   box-shadow: 0px 0px 5px grey;
-  border-radius: 25px;
   padding: 20px;
+  margin: 20px;
+  height: 300px;
+  font-size: 1.3rem;
+  color: #333;
+}
+.statistic-container .statistic-card p:first-child {
+  font-size: 2rem;
+  color: #ff6e66;
+  text-align: center;
 }
 
 .button-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-top: 60px;
