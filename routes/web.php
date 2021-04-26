@@ -100,8 +100,10 @@ Route::post('/checkout', function (Request $request) {
 
     if ($result->success) {
         $transaction = $result->transaction;
+
         // header("Location: transaction.php?id=" . $transaction->id);
         $data = $request->all();
+        $currentQuantity = $data['quantity'];
         $currentRestaurant = $data['restaurant_id'];
         $Order = new Order();
         $Order->fill($data);

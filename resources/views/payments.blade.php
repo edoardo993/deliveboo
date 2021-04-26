@@ -50,7 +50,13 @@
 
             <div class="form-group">
                 <select class="select hide" multiple name="plates[]">
-                        <option readonly selected v-for='id in cartItemIds' :value="id">@{{id}}</option>
+                    <option readonly selected v-for='plate in cartItem' :value="plate.id">@{{plate.id}}</option>
+                </select>
+            </div>
+
+            <div class="form-group hide">
+                <select class="select" multiple name="quantity[]">
+                    <option readonly selected v-for='plate in cartItem' :value="plate.quantity">@{{plate.quantity}}</option>
                 </select>
             </div>
 

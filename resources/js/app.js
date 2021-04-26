@@ -166,65 +166,108 @@ const app = new Vue({
             address:'',
             email:'',
             name:'',
+        },
+
+        cartAdd: {
+            id: 0,
+            name: 0,
+            price: 0,
+            quantity: 0
         }
     },
     mounted() {
         if (sessionStorage.getItem("carrello") != null) {
             this.storage = JSON.parse(window.sessionStorage.getItem('carrello'));
-            this.ids = JSON.parse(window.sessionStorage.getItem('ids'));
-            this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
-            if(this.storage.length > 0 && this.storagePrices.length > 0){
+            // this.ids = JSON.parse(window.sessionStorage.getItem('ids'));
+            // this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
+            if(this.storage.length > 0){
 
                 console.log('Storage:'+ this.storage);
-                console.log('Prices:'+ this.storagePrices);
-                for (let i = 0; i < this.storage.length; i++) {
-                    this.cartItem.push(this.storage[i]);
-                }
-                for (let i = 0; i < this.ids.length; i++) {
-                    this.cartItemIds.push(this.ids[i]);
-                    console.log('Elenco Ids:'+ this.cartItemIds);
-                }
-                for (let i = 0; i < this.storagePrices.length; i++) {
-                    this.totalPlatesPrices.push(this.storagePrices[i]);
-                }
+                // console.log('Prices:'+ this.storagePrices);
+                // for (let i = 0; i < this.storage.length; i++) {
+                    this.cartItem = this.storage;
+                // }
+                // for (let i = 0; i < this.ids.length; i++) {
+                //     this.cartItemIds.push(this.ids[i]);
+                //     console.log('Elenco Ids:'+ this.cartItemIds);
+                // }
+                // for (let i = 0; i < this.storagePrices.length; i++) {
+                //     this.totalPlatesPrices.push(this.storagePrices[i]);
+                // }
                 this.totalOrderPrice();
             }
-            window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItem));
+            // window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItem));
             window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
-            window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
+            // window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
         };
     },
 
     methods: {
-        newItem(item){
-            window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
-            window.sessionStorage.removeItem("prezzi", JSON.stringify(this.totalPlatesPrices));
-            window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItemIds));
-            console.log(item);
-            this.cartItem.push(item.name);
-            this.cartItemIds.push(item.id);
-            console.log('Elenco Ids:'+ this.cartItemIds);
-            console.log('Questo è il carrello:' + this.cartItem);
-            this.totalPlatesPrices.push(item.price);
-            this.totalOrderPrice();
-            window.sessionStorage.setItem('ids', JSON.stringify(this.cartItemIds));
-            window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
-            window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
+        newItem (item) {
+            // window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+            var findProduct = this.cartItem.find(o => o.id === item.id)
+            if(findProduct){
+
+                findProduct.price = findProduct.price + (findProduct.price / findProduct.quantity);
+                findProduct.quantity += 1;
+                this.totalOrderPrice();
+                return
+            }
+            this.cartAdd.id = item.id;
+            this.cartAdd.name = item.name;
+            this.cartAdd.price = item.price;
+            this.cartAdd.quantity = 1;
+            this.cartItem.push(this.cartAdd);
+            this.cartAdd = {}
+        //    this.storeCart();
+           this.totalOrderPrice();
+           window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
         },
+        // newItem(item){
+        //     window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
+        //     window.sessionStorage.removeItem("prezzi", JSON.stringify(this.totalPlatesPrices));
+        //     window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItemIds));
+        //     console.log(item);
+
+        //     this.cartItem.push(item.name);
+        //     this.cartItemIds.push(item.id);
+        //     console.log('Elenco Ids:'+ this.cartItemIds);
+        //     console.log('Questo è il carrello:' + this.cartItem);
+        //     this.totalPlatesPrices.push(item.price);
+        //     this.totalOrderPrice();
+        //     window.sessionStorage.setItem('ids', JSON.stringify(this.cartItemIds));
+        //     window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
+        //     window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
+        // },
         totalOrderPrice(){
             this.total=0;
-            for(var x=0; x<this.totalPlatesPrices.length; x++){
-                this.total+=parseFloat(this.totalPlatesPrices[x]);
+            for(var x=0; x<this.cartItem.length; x++){
+                this.total+=parseFloat(this.cartItem[x].price);
             }
             console.log(this.total)
         },
-        deletePlate(index){
+        deletePlate(index, item){
             this.index=index;
             console.log(this.index);
-            this.totalPlatesPrices.splice(this.index, 1);
-            this.cartItem.splice(this.index, 1);
-            this.cartItemIds.splice(this.index, 1);
-            this.totalOrderPrice()
+
+            var findProduct = this.cartItem.find(o => o.id === item.id)
+            if(findProduct){
+                findProduct.price = findProduct.price - (findProduct.price / findProduct.quantity);
+                findProduct.quantity -= 1;
+                if(findProduct.quantity === 0){
+                    this.cartItem.splice(this.index, 1)
+                }
+
+                console.log(findProduct)
+                this.totalOrderPrice()
+
+
+            }
+
+            // this.totalPlatesPrices.splice(this.index, 1);
+            // this.cartItem.splice(this.index, 1);
+            // this.cartItemIds.splice(this.index, 1);
+            // this.totalOrderPrice()
         },
         proceedToBraintree(idName1, idName2, idName3, idName4){
             let paymentsForm=document.getElementById(idName1);
