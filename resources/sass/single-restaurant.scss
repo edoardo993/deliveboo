@@ -75,20 +75,6 @@
         }
     }
 }
-// .payment-container-xs{
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     background: #fff;
-//     padding: 20px;
-//     border-radius: 5px;
-//     z-index: 3400000000;
-
-//     @media screen and (min-width: 992px){
-//         display: none
-//     }
-// }
 .single-restaurant-left-content{
     min-height: 100vh;
     width: 40%;
@@ -97,9 +83,6 @@
 
     @media screen and (max-width: 992px){
         width: 80%;
-    }
-    @media screen and (max-width: 767px){
-        // width: 60%;
     }
 
     .single-restaurant-spec{
@@ -202,7 +185,6 @@
 
         .single-restaurant-wrap{
             display: flex;
-            // flex-direction: column;
             display:rgb(107, 121, 107);
             flex-wrap: wrap;
             width: 100%;
@@ -242,10 +224,6 @@
                 .plate-name{
                     font-size: 20px;
                     text-transform: capitalize;
-
-                    @media screen and (max-width: 767px){
-                        // font-size: 12px;
-                    }
                 }
                 .plate-description{
                     word-break: break-all;
@@ -395,10 +373,6 @@
         }
     }
 }
-
-
-
-
 #card-number, #cvv, #expiration-date {
     background: white;
     height: 38px;

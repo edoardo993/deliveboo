@@ -14,15 +14,6 @@
 
                         <img id="logo-deliveboo" width="" src="../img/whitelogotype.svg" alt="">
 
-                        {{-- <div class="input-group">
-                            <input v-model='userSearch'
-                                v-on:keyup.enter="search()"
-                                class="form-control"
-                                type="search"
-                                placeholder="Cerca un ristorante"
-                            >
-                        </div> --}}
-
                         <div class="form__group field">
 
                             <input v-model='userSearch'
@@ -72,14 +63,9 @@
                                 v-for="(category,index) in categories"
                                 :key='index'
                             >
-                            <div class="single-card-category" v-on:click="searchCategory(category.name)" >
-                                <!--
-                                    da implementare tramite chiamata API a tabella img
-                                    fatta in DB (come sfondo o come img normale)
-                                -->
+                            <div class="single-card-category" v-on:click="searchCategory(category.name)">
                                 <img :src="setImg(category.name)" alt="">
                                 <h3 class="category-name">@{{category.name}}</h3>
-                                {{-- <img :src="setImg(category.name)" alt=""> --}}
                             </div>
                             </slide>
                         </carousel>
@@ -96,14 +82,9 @@
                               v-for="(category,index) in categories"
                               :key='index'
                           >
-                          <div class="single-card-category" v-on:click="searchCategory(category.name)" >
-                              <!--
-                                  da implementare tramite chiamata API a tabella img
-                                  fatta in DB (come sfondo o come img normale)
-                              -->
+                          <div class="single-card-category" v-on:click="searchCategory(category.name)">
                               <img :src="setImg(category.name)" alt="">
                               <h3 class="category-name">@{{category.name}}</h3>
-                              {{-- <img :src="setImg(category.name)" alt=""> --}}
                           </div>
                           </slide>
                       </carousel>
@@ -114,11 +95,6 @@
                             Risultati per: @{{titleSearch}}
                             <i class="fas fa-times-circle" v-on:click="returnAllListRestaurant()"></i>
                         </h2>
-
-                        {{-- <h2 class="title-search"
-                            v-if="!results.includes(titleSearch)"
-                        >Nessun risultato per: @{{titleSearch}}
-                        </h2> --}}
 
                     <div class="restaurant-container">
 
@@ -224,7 +200,6 @@
 
                     </div>
 
-                    {{-- ristoranti iniziali --}}
                 </div>
 
 

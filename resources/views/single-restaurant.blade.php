@@ -56,8 +56,6 @@
 
                     @foreach ($restaurant->plates as $plate)
 
-                        {{-- <h2>{{$plate->typology}}</h2> --}}
-
                         <div class="plates-container"
                             v-on:click="newItem({{$plate}})"
                             v-if="{{$plate->visible}}"
@@ -111,10 +109,6 @@
 
                     </div>
 
-                    {{-- <p v-for="(price, index) in totalPlatesPrices">
-                        @{{price}}€
-                    </p> --}}
-
                 </div>
 
                 <div class="total-products" v-if="total>0">
@@ -152,12 +146,6 @@
             </div>
 
             <div id="overlay-container-z-index-max" class="hide"></div>
-
-            {{-- <div class="container hide" id="paymentsContainerXs">
-
-                @include('payments')
-
-            </div> --}}
             {{-- xs resolution button --}}
 
             @if (session()->has('success_message'))

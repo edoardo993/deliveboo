@@ -118,8 +118,6 @@ if (isset($edit) && !empty($edit)) {
 
      </div>
 
-     {{-- <button type="submit" class="btn btn-primary">{{$submit}}</button> --}}
-
      <button type="submit" class="create-button">
         <div >{{$submit}}</div>
     </button>
