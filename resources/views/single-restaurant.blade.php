@@ -177,7 +177,7 @@
 
                     <button type="submit"
                         class="btn btn-success"
-                        v-on:click="backToMenu()"
+                        onclick="location.href = '/'"
                     >
                     Torna al ristorante
                     </button>
