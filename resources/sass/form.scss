@@ -9,6 +9,7 @@
     h2{
         color: rgba(255,110,102,1);
     }
+
 }
 
 .select-container{
@@ -35,6 +36,7 @@
 .create-button{
     margin-top: 40px;
     @include create-button;
+    text-align: center;
 }
 
 

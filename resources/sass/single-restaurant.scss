@@ -1,31 +1,13 @@
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Rubik', sans-serif;
-}
 .hide{
     display: none
 }
-.payment-alert{
-    display: flex;
-    flex-direction: column;
-    z-index: 10000000;
-
-    .modal-img{
-        width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .payment-alert-text{
-        font-size: 30px;
-        color: #FF3966;
-        font-family: 'Dancing Script', cursive;
-        margin-bottom: 30px;
-    }
+.block{
+    display: block !important
 }
 #overlay-container{
     height: 100%;
@@ -59,24 +41,87 @@ body{
         rgba(255,219,171,1) 100%
     );
 }
+.hide-button-payment-container{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    padding: 8px;
+    background: #fff;
+    font-size: 17px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    @media screen and (max-width: 992px){
+        display: block
+    }
+    @media screen and (max-width: 767px){
+        display: block
+    }
+
+    .hide-button-payment{
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        background: rgba(255,110,102,1);
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 7px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
+// .payment-container-xs{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     background: #fff;
+//     padding: 20px;
+//     border-radius: 5px;
+//     z-index: 3400000000;
+
+//     @media screen and (min-width: 992px){
+//         display: none
+//     }
+// }
 .single-restaurant-left-content{
     min-height: 100vh;
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-direction: column;
 
+    @media screen and (max-width: 992px){
+        width: 80%;
+    }
+    @media screen and (max-width: 767px){
+        // width: 60%;
+    }
+
     .single-restaurant-spec{
         margin: 90px 0 20px 0;
-        height: 200px;
+        min-height: 200px;
         width: 100%;
         background: #fff;
         box-shadow: 0 0 10px #ccc;
         border-radius: 7px;
         padding: 20px;
 
+        @media screen and (max-width: 767px){
+            margin: 90px 0 15px 0;
+        }
+
         .restaurant-img-business-name{
             display: flex;
             text-transform: capitalize;
+
+            @media screen and (max-width: 767px){
+                flex-direction: column;
+            }
 
             .restaurant-business-name-categories{
                 display: flex;
@@ -84,7 +129,20 @@ body{
 
                 .restaurant-business-name{
                     color: #EB5468;
-                    font-size: 38px;
+                    font-size: 33px;
+                    line-height: 35px;
+                    margin-bottom: 10px;
+
+                    @media screen and (max-width: 1200px){
+                        font-size: 20px;
+                        line-height: 24px;
+                        margin-bottom: 10px
+                    }
+                    @media screen and (max-width: 767px){
+                        font-size: 20px;
+                        line-height: 24px;
+                        margin-bottom: 8px
+                    }
 
                     .restaurant-total-categories{
                         color: #818181;
@@ -101,7 +159,12 @@ body{
                 .fa-map-marker-alt{
                     color: #EB5468;
                     font-size: 20px;
-                    margin-right: 10px
+                    margin-right: 10px;
+
+                    @media screen and (max-width: 767px){
+                        font-size: 17px;
+                        margin-right: 5px;
+                    }
                 }
             }
         }
@@ -116,6 +179,13 @@ body{
             height: 100px;
             margin-right: 30px;
 
+            @media screen and (max-width: 767px){
+                width: 100%;
+                height: 50%;
+                margin-right: 15px;
+                margin-bottom: 15px
+            }
+
             img{
                 width: 100%;
                 height: 100%
@@ -126,11 +196,25 @@ body{
         display: flex;
         justify-content: center;
 
+        @media screen and (max-width: 767px){
+            flex-direction: column;
+        }
+
         .single-restaurant-wrap{
             display: flex;
+            // flex-direction: column;
             display:rgb(107, 121, 107);
             flex-wrap: wrap;
             width: 100%;
+
+            @media screen and (max-width: 1200px){
+                flex-direction: column;
+                flex-wrap: none;
+            }
+            @media screen and (max-width: 767px){
+                flex-direction: column;
+                flex-wrap: none;
+            }
 
             .plates-container{
                 width: 45%;
@@ -139,18 +223,29 @@ body{
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: center;
-                margin: 15px;
+                margin: 10px;
                 padding: 0 15px;
                 box-shadow: 0 0 10px #ccc;
                 background: #fff;
                 border-radius: 7px;
+
+                @media screen and (max-width: 1200px){
+                    width: 95%;
+                }
+                @media screen and (max-width: 767px){
+                    width: 95%;
+                }
 
                 &:hover{
                     cursor: pointer;
                 }
                 .plate-name{
                     font-size: 20px;
-                    text-transform: capitalize
+                    text-transform: capitalize;
+
+                    @media screen and (max-width: 767px){
+                        // font-size: 12px;
+                    }
                 }
                 .plate-description{
                     word-break: break-all;
@@ -182,18 +277,36 @@ body{
     margin-top: 80px;
     min-height: 100vh;
     width: 30%;
-    z-index: 1001;
+    z-index: 100000001;
+
+    @media screen and (max-width: 992px){
+        display: none;
+        width: 0;
+
+    }
 
     .cart{
         position: fixed;
         top: 90px;
-        right: 220px;
+        right: 15%;
         min-height: 400px;
-        width: 450px;
+        width: 25%;
         box-shadow: 0 0 10px #ccc;
         background: #fff;
         border-radius: 7px;
         padding: 20px;
+
+        @media screen and (max-width: 992px){
+            top: 90px;
+            right: 40%;
+        }
+        @media screen and (max-width: 767px){
+            width: 80%;
+            top: 90%;
+            right: 0;
+            left: 50%;
+            transform: translate(-50%, -90%);
+        }
 
         .your-order{
             font-size: 30px;
@@ -262,7 +375,7 @@ body{
         .total-button{
             position: absolute;
             bottom: 20px;
-            width: 410px;
+            width: 90%;
             height: 40px;
             background: rgba(255,110,102,1);
             text-align: center;

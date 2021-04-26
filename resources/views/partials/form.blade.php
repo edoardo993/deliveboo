@@ -17,7 +17,7 @@
 @section('title', 'restaurant')
 @section('main-content')
 
-<div class="container-form container">
+<div class="container-form container" >
 
     <h2 class="text-center">{{$title}}</h2>
 

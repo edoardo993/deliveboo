@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /*
 |--------------------------------------------------------------------------
@@ -120,6 +121,7 @@ Route::post('/checkout', function (Request $request) {
 
         // $_SESSION["errors"] = $errorString;
         // header("Location: index.php");
-        return back()->withErrors('An error occurred with the message: '.$result->message);
+        // return back()->withErrors('An error occurred with the message: '.$result->message);
+        return back()->with('error', 'Transaction successful. The ID is:');
     }
 });

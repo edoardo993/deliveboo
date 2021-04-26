@@ -46,7 +46,7 @@ const app = new Vue({
             .get('http://127.0.0.1:8000/api/restaurants')
             .then((result) => {
                 console.log(result.data)
-                this.allRestaurants = result.data.slice(0, 10);
+                this.allRestaurants = result.data.slice(0, 12);
             });
     },
     methods:{
@@ -183,7 +183,6 @@ const app = new Vue({
             email:'',
             name:'',
         }
-
     },
     mounted() {
         if (sessionStorage.getItem("carrello") != null) {
@@ -217,7 +216,7 @@ const app = new Vue({
             window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
             window.sessionStorage.removeItem("prezzi", JSON.stringify(this.totalPlatesPrices));
             window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItemIds));
-            console.log(item)
+            console.log(item);
             this.cartItem.push(item.name);
             this.cartItemIds.push(item.id);
             console.log('Elenco Ids:'+ this.cartItemIds);
@@ -255,6 +254,15 @@ const app = new Vue({
 
             let overlayDiv=document.getElementById(idName4);
             overlayDiv.classList.remove('hide');
+
+            $('html, body').css({
+                overflow: 'hidden',
+                height: '100%'
+            });
+        },
+        proceedToBraintreeXs(idName1){
+            let paymentsForm=document.getElementById(idName1);
+            paymentsForm.classList.add('block');
         },
         backToCart(idName1, idName2, idName3, idName4){
             let paymentsForm=document.getElementById(idName1);
@@ -268,13 +276,11 @@ const app = new Vue({
 
             let proceedToPayment=document.getElementById(idName4);
             proceedToPayment.classList.remove('hide');
-        },
-        backToMenu(idName1, idName2){
-            let backToMenu=document.getElementById(idName1);
-            backToMenu.classList.add('hide');
 
-            let paymentAlert=document.getElementById(idName2);
-            paymentAlert.classList.add('hide');
+            $('html, body').css({
+                overflow: 'auto',
+                height: 'auto'
+            });
         }
     }
 })
