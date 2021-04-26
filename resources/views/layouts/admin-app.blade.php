@@ -131,6 +131,8 @@
                         <li>20124 Milano</li>
                     </ul>
 
+                    <div class="return-button" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
+
                 </div>
 
             </div>

@@ -3227,6 +3227,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     });
   },
   methods: {
+    returnTop: function returnTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
+    },
     search: function search() {
       this.results = [];
       this.searchrestaurant();
@@ -3313,6 +3320,19 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       }
 
       return src;
+    }
+  }
+});
+var foot = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
+  el: '#foot',
+  data: {},
+  methods: {
+    returnTop: function returnTop() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
   }
 });

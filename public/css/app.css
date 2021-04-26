@@ -10509,6 +10509,93 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   box-shadow: none;
 }
 
+.main-background {
+  position: absolute;
+  z-index: -1000;
+  width: 100%;
+  height: 700px;
+  background: #fff;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+@media screen and (max-width: 768px) {
+  .main-background {
+    height: 450px;
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+  }
+}
+
+.deliveboo-footer {
+  display: flex;
+  padding-top: 30px;
+  margin-top: 100px;
+  background: #333;
+  min-height: 230px;
+  color: #fff;
+  border-top-left-radius: 50% 20%;
+  border-top-right-radius: 50% 20%;
+}
+.deliveboo-footer ul li {
+  list-style-type: none;
+}
+.deliveboo-footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 992px) {
+  .deliveboo-footer .footer-content {
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.deliveboo-footer .footer-content .footer-logo-info {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.deliveboo-footer .footer-content .footer-logo-info .footer-logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+.deliveboo-footer .footer-content .footer-list-title {
+  text-transform: uppercase;
+  color: #ccc;
+  font-size: 15px;
+}
+.deliveboo-footer .footer-content .footer-none .footer-list-title {
+  text-transform: uppercase;
+  color: #ccc;
+  font-size: 15px;
+}
+@media screen and (max-width: 767px) {
+  .deliveboo-footer .footer-content .footer-none {
+    display: none;
+  }
+}
+.deliveboo-footer .footer-content .icons-container .footer-icons i {
+  padding-right: 17px;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 767px) {
+  .deliveboo-footer .footer-content .icons-container {
+    padding: 10px;
+  }
+}
+
+.return-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px white;
+}
+
 .border-none {
   border-style: none;
 }
