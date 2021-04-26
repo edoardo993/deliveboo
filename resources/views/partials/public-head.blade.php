@@ -65,7 +65,7 @@
 
             </div>
 
-            <footer class="deliveboo-footer">
+            <footer id="foot" class="deliveboo-footer">
 
                 <div class="container-1200 footer-content">
 
@@ -109,6 +109,8 @@
                             <li>Corso Buenos Aires, 4</li>
                             <li>20124 Milano</li>
                         </ul>
+
+                        <div class="return-button" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
 
                     </div>
 

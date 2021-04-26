@@ -10491,6 +10491,16 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   }
 }
 
+.return-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px white;
+}
+
 .border-none {
   border-style: none;
 }

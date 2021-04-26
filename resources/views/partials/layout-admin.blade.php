@@ -58,7 +58,7 @@
 
             </div>
 
-            <footer class="deliveboo-footer">
+            <footer id="foot" class="deliveboo-footer">
 
                 <div class="container-1200 footer-content">
 

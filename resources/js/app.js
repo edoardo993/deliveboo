@@ -50,6 +50,13 @@ const app = new Vue({
             });
     },
     methods:{
+        returnTop:function(){
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth'
+            });
+          },
         search() {
             this.results = [];
             this.searchrestaurant();
@@ -131,6 +138,22 @@ const app = new Vue({
             return src;
         },
 
+    }
+  })
+
+  const foot = new Vue({
+    el: '#foot',
+    data: {
+
+    },
+    methods:{
+        returnTop:function(){
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth'
+            });
+          },
     }
   })
 
