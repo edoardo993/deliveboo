@@ -269,7 +269,7 @@ const app = new Vue({
             // this.cartItemIds.splice(this.index, 1);
             // this.totalOrderPrice()
         },
-        proceedToBraintree(idName1, idName2, idName3, idName4){
+        proceedToBraintree(idName1, idName2, idName3, idName4, idName5){
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.remove('hide');
 
@@ -282,6 +282,9 @@ const app = new Vue({
             let overlayDiv=document.getElementById(idName4);
             overlayDiv.classList.remove('hide');
 
+            let totalProducts=document.getElementById(idName5);
+            totalProducts.classList.add('hide');
+
             $('html, body').css({
                 overflow: 'hidden',
                 height: '100%'
@@ -291,7 +294,7 @@ const app = new Vue({
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.add('block');
         },
-        backToCart(idName1, idName2, idName3, idName4){
+        backToCart(idName1, idName2, idName3, idName4, idName5){
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.add('hide');
 
@@ -303,6 +306,9 @@ const app = new Vue({
 
             let proceedToPayment=document.getElementById(idName4);
             proceedToPayment.classList.remove('hide');
+
+            let totalCartPrice=document.getElementById(idName5);
+            totalCartPrice.classList.remove('hide');
 
             $('html, body').css({
                 overflow: 'auto',

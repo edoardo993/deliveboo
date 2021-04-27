@@ -111,14 +111,14 @@
 
                 </div>
 
-                <div class="total-products" v-if="total>0">
+                <div class="total-products" v-if="total>0" id="total-products-price">
                     Totale prodotti: @{{total.toFixed(2)}}€
                 </div>
 
                 <div class="total-button"
                     id="payment-button"
                     v-if="cartItem.length >= 1"
-                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container', 'overlay-container')"
+                    v-on:click="proceedToBraintree('paymentsContainer', 'payment-button', 'items-container', 'overlay-container', 'total-products-price')"
                 >Procedi al pagamento
                 </div>
 

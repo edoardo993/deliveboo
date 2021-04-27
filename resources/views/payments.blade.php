@@ -61,7 +61,7 @@
             </div>
 
 
-            <div class="row">
+            <div class="row hide">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="amount">Totale</label>
@@ -110,13 +110,13 @@
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
             <button type="submit" class="btn btn-success"
-                v-on:click="backToCart('paymentsContainer', 'overlay-container', 'items-container', 'payment-button')"
+                v-on:click="backToCart('paymentsContainer', 'overlay-container', 'items-container', 'payment-button', 'total-products-price')"
             >
                 Torna al carrello
             </button>
 
             <button type="submit" class="btn btn-success">
-                Procedi all'ordine
+                Procedi all'ordine @{{total.toFixed(2)}}€
             </button>
 
         </form>

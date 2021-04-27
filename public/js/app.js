@@ -3460,7 +3460,7 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       // this.totalOrderPrice()
 
     },
-    proceedToBraintree: function proceedToBraintree(idName1, idName2, idName3, idName4) {
+    proceedToBraintree: function proceedToBraintree(idName1, idName2, idName3, idName4, idName5) {
       var paymentsForm = document.getElementById(idName1);
       paymentsForm.classList.remove('hide');
       var paymentButton = document.getElementById(idName2);
@@ -3469,6 +3469,8 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       itemsContainer.classList.add('hide');
       var overlayDiv = document.getElementById(idName4);
       overlayDiv.classList.remove('hide');
+      var totalProducts = document.getElementById(idName5);
+      totalProducts.classList.add('hide');
       $('html, body').css({
         overflow: 'hidden',
         height: '100%'
@@ -3478,7 +3480,7 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       var paymentsForm = document.getElementById(idName1);
       paymentsForm.classList.add('block');
     },
-    backToCart: function backToCart(idName1, idName2, idName3, idName4) {
+    backToCart: function backToCart(idName1, idName2, idName3, idName4, idName5) {
       var paymentsForm = document.getElementById(idName1);
       paymentsForm.classList.add('hide');
       var overlayDiv = document.getElementById(idName2);
@@ -3487,6 +3489,8 @@ var root = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       cartItems.classList.remove('hide');
       var proceedToPayment = document.getElementById(idName4);
       proceedToPayment.classList.remove('hide');
+      var totalCartPrice = document.getElementById(idName5);
+      totalCartPrice.classList.remove('hide');
       $('html, body').css({
         overflow: 'auto',
         height: 'auto'
