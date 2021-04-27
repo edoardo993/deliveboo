@@ -154,7 +154,7 @@ class RestaurantController extends Controller
     {
         $categories= Category::all();
 
-        return view('auth.edit-restaurant', compact('restaurant','categories'));
+        return view('home', compact('restaurant','categories'));
     }
 
     /**
