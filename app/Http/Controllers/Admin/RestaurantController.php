@@ -153,8 +153,8 @@ class RestaurantController extends Controller
     public function edit(Restaurant $restaurant)
     {
         $categories= Category::all();
-
-        return view('home', compact('restaurant','categories'));
+        $userRestaurants = Restaurant::where('user_id', $currentUser->id)->get();
+        return view('home', compact('restaurant','categories','userRestaurant'));
     }
 
     /**
