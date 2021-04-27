@@ -72,6 +72,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $email= $data['email'];
+        Mail::to($email)->send(new MailSender());
         return User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
@@ -80,6 +81,5 @@ class RegisterController extends Controller
             'PI' => $data['PI']
         ]);
 
-        Mail::to($email)->send(new MailSender());
     }
 }
