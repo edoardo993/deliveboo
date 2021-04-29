@@ -10435,6 +10435,9 @@ main .restaurant-container .single-card-restaurant-bottom .single-restaurant-mis
   border-top-left-radius: 50% 20%;
   border-top-right-radius: 50% 20%;
 }
+.deliveboo-footer a {
+  color: #fff;
+}
 .deliveboo-footer ul li {
   list-style-type: none;
 }

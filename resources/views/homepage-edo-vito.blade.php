@@ -11,7 +11,7 @@
 
                     <div class="jumbotron-content-left">
 
-                        <p id="slogan">Il cibo che preferisci a Milano, <br> comodamente a casa tua!</p>
+                        <p id="slogan">A Milano, il cibo che preferisci<br> comodamente a casa tua!</p>
 
                         <img id="logo-deliveboo" width="" src="../img/whitelogotype.svg" alt="">
 

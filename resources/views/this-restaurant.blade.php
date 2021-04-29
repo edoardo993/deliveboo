@@ -47,6 +47,10 @@
                     {{$plate->price}}€
                 </div>
 
+                <div v-if="{{$plate->visible}} === 0" class="space-card-plate-container-right size-font">
+                    <span class="title-plates-description">Non disponibile</span>
+                </div>
+
                 <div class="button-container">
 
                         <a href="{{route('plates.edit', ['plate' => $plate->id])}}" class="text-decoration-none">

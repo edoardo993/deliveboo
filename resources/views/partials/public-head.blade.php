@@ -69,7 +69,9 @@
                 <div class="container-1200 footer-content">
 
                     <div class="footer-logo-info">
-                        <img src="{{ asset("img/white-logo.png") }}" class="footer-logo">
+                        <a href="{{ url('/') }}">
+                            <img src="{{ asset("img/white-logo.png") }}" class="footer-logo">
+                        </a>
                         <ul>
                             <li>Termini e Condizioni</li>
                             <li>Privacy Policy</li>
@@ -87,7 +89,7 @@
                     <div class="footer-logo-info">
                         <ul>
                             <li class="footer-list-title">opportunità</li>
-                            <li>Diventa un ristorante Deliveboo</li>
+                            <li><a href="{{ url('/register') }}">Diventa un ristoratore Deliveboo</a></li>
                             <li>Diventa un rider Deliveboo</li>
                             <li>Lavora con Deliveboo</li>
                         </ul>
