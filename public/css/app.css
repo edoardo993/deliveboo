@@ -11080,10 +11080,13 @@ body {
   margin-bottom: 10px;
   max-height: 200px;
   overflow-y: auto;
+  width: 100%;
+  text-align: center;
 }
 .plates-container .plate-center .card-plate-container .title-plates-description {
   color: #222;
   font-size: 23px;
+  margin-bottom: 10px;
 }
 .plates-container .plate-center .card-plate-container .weight {
   font-weight: bold;
