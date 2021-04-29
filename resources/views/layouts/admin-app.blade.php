@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Deliveboo</title>
+    <link rel="icon" href="{{asset('img/sushi.svg')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

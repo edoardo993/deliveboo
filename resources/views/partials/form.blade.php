@@ -14,7 +14,6 @@
 @endphp
 
 @extends('layouts.admin-app')
-@section('title', 'restaurant')
 @section('main-content')
 
 <div class="container-form container" >
