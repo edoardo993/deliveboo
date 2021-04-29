@@ -7,6 +7,12 @@
 
     <div class="main-background"></div>
 
+    <div class="sushi-background">
+        <img src="{{asset('img/sushi.svg')}}" alt="">
+    </div>
+
+    <div class="return-to-top hide" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
+
     <div class="upper-gradient" id="prova"></div>
 
         <div class="single-restaurant-left-content">
@@ -68,7 +74,7 @@
                                 {{$plate->description}}
                             </span>
 
-                            <span>
+                            <span class="plate-price">
                                 {{$plate->price}}€
                             </span>
 
@@ -84,9 +90,11 @@
 
         <div class="cart-container" id="cartContainer">
 
-            <div class="cart">
+            <div class="cart" id="cart">
 
-                <span class="your-order">Il tuo ordine</span>
+                <i class="fas fa-times close-tab hide" v-on:click="closeTab('cart', 'overlay-container')"></i>
+
+                <h2 class="your-order">Il tuo ordine</h2>
 
                 <div class="cart-img-container" v-if="cartItem < 1">
                     <i class="fas fa-shopping-cart"></i>
@@ -99,11 +107,31 @@
                         class="items-row"
                     >
 
-                        <div class="cart-item-name">@{{item.name}} @{{item.quantity}}
+                        <div class="cart-item-name no-capitalize">
 
-                            <span v-on:click="deletePlate(index, item)">
-                                <i class="fas fa-minus-circle"></i>
-                            </span>
+                            <div class="cart-item-name-left-part">
+
+                                <div v-on:click="deletePlate(index, item)" class="delete-item-button">
+
+                                    -
+
+                                </div>
+
+                                x@{{item.quantity}}
+
+                            </div>
+
+                            <div class="item-name no-capitalize">
+
+                                <div class=''>
+                                    @{{item.name}}
+                                </div>
+
+                                <div class=''>
+                                    @{{item.price.toFixed(2)}}€
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -136,7 +164,7 @@
                 v-if="cartItem.length >= 1"
             >
                 <div class="hide-button-payment"
-                    v-on:click="proceedToBraintreeXs('cartContainer')"
+                    v-on:click="proceedToBraintreeXs('cartContainer', 'cart', 'overlay-container')"
                 >
                     <span>Il mio ordine:</span>
 

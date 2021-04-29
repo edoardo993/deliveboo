@@ -30,17 +30,19 @@ const app = new Vue({
             .get('http://127.0.0.1:8000/api/restaurants')
             .then((result) => {
                 console.log(result.data)
-                this.allRestaurants = result.data.slice(0, 12);
+                let allData = result.data;
+                this.allRestaurants = allData.slice(0, 12)
+                // this.allRestaurants = result.data.slice(0, 12);
             });
     },
     methods:{
-        returnTop:function(){
+        returnTop(){
             window.scrollTo({
               top: 0,
               left: 0,
               behavior: 'smooth'
             });
-          },
+        },
         search() {
             this.results = [];
             this.searchrestaurant();
@@ -178,33 +180,17 @@ const app = new Vue({
     mounted() {
         if (sessionStorage.getItem("carrello") != null) {
             this.storage = JSON.parse(window.sessionStorage.getItem('carrello'));
-            // this.ids = JSON.parse(window.sessionStorage.getItem('ids'));
-            // this.storagePrices = JSON.parse(window.sessionStorage.getItem('prezzi'));
             if(this.storage.length > 0){
-
                 console.log('Storage:'+ this.storage);
-                // console.log('Prices:'+ this.storagePrices);
-                // for (let i = 0; i < this.storage.length; i++) {
-                    this.cartItem = this.storage;
-                // }
-                // for (let i = 0; i < this.ids.length; i++) {
-                //     this.cartItemIds.push(this.ids[i]);
-                //     console.log('Elenco Ids:'+ this.cartItemIds);
-                // }
-                // for (let i = 0; i < this.storagePrices.length; i++) {
-                //     this.totalPlatesPrices.push(this.storagePrices[i]);
-                // }
+                this.cartItem = this.storage;
                 this.totalOrderPrice();
             }
-            // window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItem));
             window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
-            // window.sessionStorage.removeItem("prezzi", JSON.stringify(this.cartItem));
         };
     },
 
     methods: {
         newItem (item) {
-            // window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
             var findProduct = this.cartItem.find(o => o.id === item.id)
             if(findProduct){
 
@@ -219,26 +205,9 @@ const app = new Vue({
             this.cartAdd.quantity = 1;
             this.cartItem.push(this.cartAdd);
             this.cartAdd = {}
-        //    this.storeCart();
            this.totalOrderPrice();
            window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
         },
-        // newItem(item){
-        //     window.sessionStorage.removeItem("carrello", JSON.stringify(this.cartItem));
-        //     window.sessionStorage.removeItem("prezzi", JSON.stringify(this.totalPlatesPrices));
-        //     window.sessionStorage.removeItem("ids", JSON.stringify(this.cartItemIds));
-        //     console.log(item);
-
-        //     this.cartItem.push(item.name);
-        //     this.cartItemIds.push(item.id);
-        //     console.log('Elenco Ids:'+ this.cartItemIds);
-        //     console.log('Questo è il carrello:' + this.cartItem);
-        //     this.totalPlatesPrices.push(item.price);
-        //     this.totalOrderPrice();
-        //     window.sessionStorage.setItem('ids', JSON.stringify(this.cartItemIds));
-        //     window.sessionStorage.setItem('prezzi', JSON.stringify(this.totalPlatesPrices));
-        //     window.sessionStorage.setItem('carrello', JSON.stringify(this.cartItem));
-        // },
         totalOrderPrice(){
             this.total=0;
             for(var x=0; x<this.cartItem.length; x++){
@@ -263,11 +232,6 @@ const app = new Vue({
 
 
             }
-
-            // this.totalPlatesPrices.splice(this.index, 1);
-            // this.cartItem.splice(this.index, 1);
-            // this.cartItemIds.splice(this.index, 1);
-            // this.totalOrderPrice()
         },
         proceedToBraintree(idName1, idName2, idName3, idName4, idName5){
             let paymentsForm=document.getElementById(idName1);
@@ -290,9 +254,22 @@ const app = new Vue({
                 height: '100%'
             });
         },
-        proceedToBraintreeXs(idName1){
+        proceedToBraintreeXs(idName1, idName2, idName3){
             let paymentsForm=document.getElementById(idName1);
             paymentsForm.classList.add('block');
+
+            let cartXs=document.getElementById(idName2);
+            cartXs.classList.remove('hide');
+
+            let overlayXs=document.getElementById(idName3);
+            overlayXs.classList.remove('hide');
+        },
+        closeTab(idName1, idName2){
+            let paymentsForm=document.getElementById(idName1);
+            paymentsForm.classList.add('hide');
+
+            let noOverlay=document.getElementById(idName2);
+            noOverlay.classList.add('hide');
         },
         backToCart(idName1, idName2, idName3, idName4, idName5){
             let paymentsForm=document.getElementById(idName1);
@@ -314,6 +291,13 @@ const app = new Vue({
                 overflow: 'auto',
                 height: 'auto'
             });
+        },
+        returnTop(){
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth'
+            });
         }
     }
 })
@@ -326,13 +310,24 @@ $(window).on("scroll", function() {
         $(".your-page").removeClass("white-font");
         $("#pink-logo").removeClass("hide");
         $("#white-logo").addClass("hide");
+        $(".scroll").removeClass("no-box-shadow");
+        $(".scroll-orders").addClass('white-background');
+        $(".scroll-orders").removeClass("no-box-shadow");
     }else {
         $('.scroll').removeClass("white-background");
         $("#pink-logo").addClass("hide");
         $("#white-logo").removeClass("hide");
         $(".your-page").removeClass("black-font");
         $(".your-page").addClass("white-font");
+        $(".scroll").addClass("no-box-shadow");
+        $(".scroll-orders").removeClass('white-background');
+        $(".scroll-orders").addClass("no-box-shadow");
+    }
+
+
+    if($(window).scrollTop() > 700) {
+        $(".return-to-top").removeClass("hide");
+    }else {
+        $(".return-to-top").addClass("hide");
     }
 });
-
-

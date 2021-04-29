@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+#return-to-cart{
+    @media screen and (max-width: 992px){
+        display: none
+    }
+}
+.no-capitalize{
+    text-transform: none;
+}
 .hide{
     display: none
 }
@@ -28,6 +36,22 @@
 #root{
     display: flex;
     justify-content: center;
+}
+.sushi-background{
+    position: absolute;
+    top: 500px;
+    right: 20%;
+    height: 180px;
+    width: 180px;
+
+    @media screen and (max-width: 992px){
+        display: none
+    }
+
+    img{
+        height: 100%;
+        width: 100%
+    }
 }
 .upper-gradient{
     position: absolute;
@@ -115,6 +139,7 @@
                     font-size: 33px;
                     line-height: 35px;
                     margin-bottom: 10px;
+                    font-weight: bold;
 
                     @media screen and (max-width: 1200px){
                         font-size: 20px;
@@ -129,13 +154,11 @@
 
                     .restaurant-total-categories{
                         color: #818181;
-                        font-size: 20px;
+                        font-size: 29px;
                         font-weight: bold;
 
                         .restaurant-category{
                             color: #818181;
-                            font-size: 20px;
-                            font-weight: bold;
                         }
                     }
                 }
@@ -154,7 +177,10 @@
         .restaurant-description{
             color: #202020;
             margin-top: 15px;
-            text-transform: capitalize;
+
+            &::first-letter{
+                text-transform: uppercase;
+            }
         }
 
         .restaurant-img-container{
@@ -181,6 +207,7 @@
 
         @media screen and (max-width: 767px){
             flex-direction: column;
+            width: 100%
         }
 
         .single-restaurant-wrap{
@@ -223,13 +250,29 @@
                 }
                 .plate-name{
                     font-size: 20px;
-                    text-transform: capitalize;
+                    font-weight: bold;
+                    color: #2D2D2D;
+
+                    &::first-letter{
+                        text-transform: uppercase;
+                    }
+                }
+                .plate-price{
+                    font-weight: bold;
+                    color: #6C6C6C;
+                    font-size: 17px;
+
                 }
                 .plate-description{
                     word-break: break-all;
-                    text-transform: capitalize;
                     overflow-y: auto;
                     margin: 15px 0 15px 0;
+                    color: #6C6C6C;
+                    font-size: 18px;
+
+                    &::first-letter{
+                        text-transform: uppercase;
+                    }
 
                     &::-webkit-scrollbar {
                         width: 10px;
@@ -273,21 +316,41 @@
         border-radius: 7px;
         padding: 20px;
 
+        @media screen and (min-width: 996px){
+            display: block !important
+        }
         @media screen and (max-width: 992px){
             top: 90px;
-            right: 40%;
+            right: 10%;
+            width: 80%
         }
         @media screen and (max-width: 767px){
             width: 80%;
-            top: 90%;
+            top: 85%;
             right: 0;
             left: 50%;
             transform: translate(-50%, -90%);
         }
 
+        .close-tab{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #EB5468;
+
+            @media screen and (max-width: 992px){
+                display: block !important
+            }
+            @media screen and (max-width: 767px){
+                display: block !important
+            }
+        }
         .your-order{
             font-size: 30px;
-            font-weight: bold
+            font-weight: bold;
+            color: #EB5468;
+            text-align: center;
         }
         .cart-img-container{
             display: flex;
@@ -307,15 +370,55 @@
                 color: #9A9A9A
             }
         }
-        .cart-item-name,
         .total-products{
+            position: absolute;
+            bottom: 50px;
             text-transform: capitalize;
             margin-bottom: 20px;
             font-size: 20px;
             color: #333
         }
+        .cart-item-name{
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+
+            &-left-part{
+                font-size: 18px;
+                width: 70px;
+                display: flex;
+                align-items: center;
+
+                .delete-item-button{
+                    height: 20px;
+                    width: 20px;
+                    background: rgb(228, 227, 227);
+                    line-height: 20px;
+                    text-align: center;
+                    border-radius: 2px;
+                    font-size: 20px;
+                    margin-right: 8px;
+
+                    &:hover{
+                        background: red;
+                        cursor: pointer;
+                        color: #fff
+                    }
+                }
+            }
+
+            .item-name{
+                font-size: 18px;
+
+                &::first-letter{
+                    text-transform: uppercase;
+                }
+            }
+        }
         .fa-minus-circle{
-            color: red;
+            color: #EB5468;
 
             &:hover{
                 cursor: pointer;
@@ -328,6 +431,11 @@
 
             .items-row{
                 display: flex;
+                flex-direction: column;
+                min-height: 40px;
+                width: 100%;
+                padding: 10px;
+
 
                 .edit-item-icon{
                     margin-right: 20px

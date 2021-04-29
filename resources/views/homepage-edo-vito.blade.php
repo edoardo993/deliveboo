@@ -3,6 +3,7 @@
 @php
     $idJs='app'
 @endphp
+            <div class="return-to-top hide" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
 
             <div class="jumbotron-delivery">
 
@@ -10,7 +11,7 @@
 
                     <div class="jumbotron-content-left">
 
-                        <p id="slogan">Il cibo che preferisci a Milano, <br> comodamente a casa tua</p>
+                        <p id="slogan">Il cibo che preferisci a Milano, <br> comodamente a casa tua!</p>
 
                         <img id="logo-deliveboo" width="" src="../img/whitelogotype.svg" alt="">
 
@@ -51,7 +52,7 @@
 
                     <div class="category-cards-container">
 
-                        <carousel :per-page="4"
+                        <carousel :per-page="3"
                           :mouse-drag="true"
                            :resistance-coef='60'
                            :navigation-enabled='true'
@@ -89,16 +90,87 @@
                           </slide>
                       </carousel>
 
+                      <carousel :per-page="2"
+                        :mouse-drag="true"
+                         :resistance-coef='60'
+                         :navigation-enabled='true'
+                         :pagination-enabled='false'
+                         class="tablet-carousel"
+                         >
+
+                          <slide
+                              v-for="(category,index) in categories"
+                              :key='index'
+                          >
+                          <div class="single-card-category" v-on:click="searchCategory(category.name)">
+                              <img :src="setImg(category.name)" alt="">
+                              <h3 class="category-name">@{{category.name}}</h3>
+                          </div>
+                          </slide>
+                      </carousel>
+
                         </div>
 
-                        <h2 class="title-search" v-if="results.length > 0">
+                        <h2 class="title-search" v-if="results.length > 0" id="anchor">
                             Risultati per: @{{titleSearch}}
                             <i class="fas fa-times-circle" v-on:click="returnAllListRestaurant()"></i>
                         </h2>
 
                     <div class="restaurant-container">
 
-                            <div class="single-card-restaurant grow"
+                        <div class="flip-card"
+                                    v-for='(restaurant, index) in results'
+                                    v-on:click="singleRestaurant(restaurant)"
+                                >
+                                    <div class="flip-card-inner">
+
+                                      <div class="flip-card-front">
+
+                                        <div class="img-container">
+                                            <img v-if="restaurant.pic_url.length > 20"
+                                                class="single-restaurant-img"
+                                                :src="restaurant.pic_url"
+                                            >
+
+                                            <img v-else
+                                                class="single-restaurant-img"
+                                                src="https://www.associazioneostetriche.it/wp-content/uploads/2018/05/immagine-non-disponibile.png"
+                                            >
+                                        </div>
+
+                                        <div class="new-restaurant-name-container">
+                                            <h5 class="new-restaurant-name">@{{ restaurant.business_name }}</h5>
+                                        </div>
+
+                                      </div>
+
+                                      <div class="flip-card-back">
+
+                                        <h5 class="new-restaurant-name-back">@{{ restaurant.business_name }}</h5>
+
+                                        <p class="new-restaurant-description">@{{ restaurant.description }}</p>
+
+                                        <div>
+                                            <span class="new-restaurant-category"
+                                                v-for="category in restaurant.categories"
+                                            >
+                                                @{{category.name}}<span class="comma">,</span>
+                                            </span>
+                                        </div>
+
+                                        <span class="new-restaurant-address">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            @{{ restaurant.address }}
+                                        </span>
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+
+                                  {{-- old cards --}}
+                            {{-- <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in results'
                                 v-on:click="singleRestaurant(restaurant)"
                             >
@@ -134,7 +206,8 @@
 
                                 </div>
 
-                            </div>
+                            </div> --}}
+                            {{-- end old cards --}}
 
                         </div>
 
@@ -152,7 +225,62 @@
 
                             <div class="restaurant-container">
 
-                            <div class="single-card-restaurant grow"
+                                {{-- new cards --}}
+                                <div class="flip-card"
+                                    v-for='(restaurant, index) in allRestaurants'
+                                    v-if=" !results.length && titleSearch === '' "
+                                    v-on:click="singleRestaurant(restaurant)"
+                                >
+                                    <div class="flip-card-inner">
+
+                                      <div class="flip-card-front">
+
+                                        <div class="img-container">
+                                            <img v-if="restaurant.pic_url.length > 20"
+                                                class="single-restaurant-img"
+                                                :src="restaurant.pic_url"
+                                            >
+
+                                            <img v-else
+                                                class="single-restaurant-img"
+                                                src="https://www.associazioneostetriche.it/wp-content/uploads/2018/05/immagine-non-disponibile.png"
+                                            >
+                                        </div>
+
+                                        <div class="new-restaurant-name-container">
+                                            <h5 class="new-restaurant-name">@{{ restaurant.business_name }}</h5>
+                                        </div>
+
+                                      </div>
+
+                                      <div class="flip-card-back">
+
+                                        <h5 class="new-restaurant-name-back">@{{ restaurant.business_name }}</h5>
+
+                                        <p class="new-restaurant-description">@{{ restaurant.description }}</p>
+
+                                        <div>
+                                            <span class="restaurant-category"
+                                                v-for="category in restaurant.categories"
+                                            >
+                                                @{{category.name}}<span class="comma">,</span>
+                                            </span>
+                                        </div>
+
+                                        <span class="new-restaurant-address">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            @{{ restaurant.address }}
+                                        </span>
+
+                                      </div>
+
+                                    </div>
+
+                                  </div>
+                                  {{-- new nuove cards --}}
+
+                                  {{-- old cards --}}
+                            {{-- <div class="single-card-restaurant grow"
                                 v-for='(restaurant, index) in allRestaurants'
                                 v-if=" !results.length && titleSearch === '' "
                                 v-on:click="singleRestaurant(restaurant)"
@@ -194,7 +322,8 @@
 
                                 </div>
 
-                            </div>
+                            </div> --}}
+                            {{-- end old cards --}}
 
                         </div>
 

@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- Styles -->
@@ -24,6 +24,8 @@
     <div id="app">
 
         <div class="main-background"></div>
+
+        <div class="return-to-top hide" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
 
         <div class="sticky-nav">
             <nav style="height:80px; width:100vw" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -130,8 +132,6 @@
                         <li>Corso Buenos Aires, 4</li>
                         <li>20124 Milano</li>
                     </ul>
-
-                    <div class="return-button" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
 
                 </div>
 

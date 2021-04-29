@@ -2,6 +2,7 @@
 
 @section('main-content')
 
+
 <div class="user-wrapper social-distancing">
 
     <div class="user-container container">
@@ -12,7 +13,7 @@
             <p>Clicca sul nome di un Ristorante per visualizzare la lista dei piatti disponibili </p>
 
             <form action="{{route('restaurants.create')}}">
-                <button type="submit" class="user-button border-none">Crea</button>
+                <button type="submit" class="user-button border-none">Aggiungi</button>
             </form>
 
         </div>
@@ -20,6 +21,8 @@
         @foreach ($userRestaurants as $userRestaurant)
 
         <div class="user-main-content" id="root">
+
+            <div class="return-to-top hide" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
 
             <div class="user-restaurant-card" href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
 
@@ -55,7 +58,7 @@
                         @csrf
                         @method('DELETE')
                         <button type="button" data-toggle="modal" data-target="#exampleModal{{$userRestaurant->id}}" class="user-button-delete border-none">
-                            Cancella
+                            Elimina
                         </button>
                         @include('partials.delete-modal',['restaurant'=> $userRestaurant->id])
                     </form>

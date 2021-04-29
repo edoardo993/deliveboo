@@ -4,12 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HOMEPAGE</title>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Acme:wght@400&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body>
@@ -18,7 +16,7 @@
 
             <header>
 
-                <nav class="scroll">
+                <nav class="scroll no-box-shadow">
 
                     <div class="container flex-between nav-content-container">
 
@@ -110,7 +108,7 @@
                             <li>20124 Milano</li>
                         </ul>
 
-                        <div class="return-button" @click="returnTop()"><i class="fas fa-chevron-up"></i></div>
+                        {{-- <div class="return-button" @click="returnTop()"><i class="fas fa-chevron-up"></i></div> --}}
 
                     </div>
 

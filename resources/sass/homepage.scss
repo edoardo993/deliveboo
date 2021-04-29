@@ -1,12 +1,34 @@
 @import 'layouts';
 
 // utility class
+.return-to-top{
+    color: #fff;
+    position: fixed;
+    bottom: 100px;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow:0px 0px 10px white;
+
+    @media screen  and (max-width: 768px){
+        display: none
+    }
+
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.2)
+    }
+}
 .main-background{
     position: absolute;
     z-index: -1000;
     width: 100%;
     height: 700px;
-    background: #fff;
+    background: #FBF6F6;
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
 
@@ -31,21 +53,11 @@
 .black-font{
     color: #000
 }
+.no-box-shadow{
+    box-shadow: none;
+}
 .white-font{
     color: #fff
-}
-.main-background{
-    position: absolute;
-    z-index: -1000;
-    width: 100%;
-    height: 700px;
-    background: #fff;
-    border-bottom-left-radius: 50% 20%;
-    border-bottom-right-radius: 50% 20%;
-
-    @media screen  and (max-width: 768px){
-        height: 16700px;
-    }
 }
 *{
     box-sizing: border-box;
@@ -59,8 +71,12 @@ body{
 
 header {
     width: 100%;
+    box-shadow: 0 10px 20px rgba(#000, .19),
+        0 6px 6px rgba(#000, .23) ;
 
     nav{
+        box-shadow: 0 10px 20px rgba(#000, .19),
+            0 6px 6px rgba(#000, .23) ;
         height: 80px;
         position: fixed;
         top: 0;
@@ -127,10 +143,13 @@ header {
         #slogan{
             font-size: 30px;
             color: #FFD3A4;
-            font-family: 'Acme', sans-serif;
             margin-top: 80px;
-            width: 400px;
+            max-width: 450px;
             line-height: 40px;
+
+            @media screen  and (max-width: 767px){
+                font-size: 23px;
+            }
         }
         #logo-deliveboo{
             width: 360px;
@@ -175,38 +194,52 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    .slider-title{
-        color: #FF3966;
-        margin-left: 15%;
-        margin-top: 50px;
 
-        @media screen  and (max-width: 767px){
-            margin-top: 50px;
-        }
-    }
     .carousel-container{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 90%;
-        @media screen  and (max-width: 767px){
+        width: 60%;
+
+        @media screen  and (min-width: 1201px){
+            width: 60%;
+        }
+        @media screen  and (max-width: 1200px){
             width: 80%;
-         }
+        }
+        @media screen  and (max-width: 992px){
+            width: 80%;
+        }
 
         .category-cards-container{
             display: flex;
             width: 100%;
             margin-top: 40px;
+
             .normal-carousel{
-                @media screen  and (max-width: 767px){
+                @media screen  and (max-width: 992px){
                     display: none;
-                 }
+                }
             }
             .media-carousel{
                 display: none;
+
+                @media screen  and (max-width: 992px){
+                    display: none;
+                }
                 @media screen  and (max-width: 767px){
                     display: block;
-                 }
+                }
+            }
+            .tablet-carousel{
+                display: none;
+
+                @media screen  and (max-width: 992px){
+                    display: block;
+                }
+                @media screen  and (max-width: 767px){
+                    display: none;
+                }
             }
             .single-card-category{
                 margin: 10px;
@@ -216,6 +249,7 @@ main{
                 align-items: center;
                 justify-content: center;
                 border-radius: 7px;
+
                 h3{
                     position: absolute;
                     background-color: rgba(0, 0, 0, 0.7);
@@ -223,14 +257,12 @@ main{
                     font-weight: bold;
                     @media screen  and (max-width: 767px){
                         display: none;
-                     }
-
+                    }
                 }
                 img{
                     width: 100%;
                     border-radius: 7px;
                 }
-
                 &:hover{
                     cursor: pointer;
                 }
@@ -244,9 +276,15 @@ main{
             margin-top: 50px;
         }
         .slider-title{
-            color: #FF3966;
             align-self: flex-start;
-            margin-top: 50px
+            color: #FF3966;
+            margin-top: 50px;
+            font-size: 45px;
+
+            @media screen  and (max-width: 992px){
+                font-size: 20px;
+                margin-top: 20px;
+            }
         }
         .fa-times-circle:hover{
             cursor: pointer;
@@ -255,35 +293,40 @@ main{
     .restaurant-container{
         display: flex;
         margin-top: 40px;
-        width: 70%;
+        width: 100%;
         flex-wrap: wrap;
 
+        @media screen  and (min-width: 1200px){
+            width: 100%;
+        }
+        @media screen  and (max-width: 992px){
+            width: 100%;
+        }
         @media screen  and (max-width: 767px){
             align-items: center;
             flex-direction: column;
-            width: 90%;
-         }
+            width: 95%;
+        }
 
         .single-card-restaurant{
             height: 400px;
-            width:calc((100% / 3) - 60px);
+            width:calc((100% / 3) - 30px);
             background: #fff;
             box-shadow: 0 10px 20px rgba(#000, .19),
             0 6px 6px rgba(#000, .23) ;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            border-radius: 4px;
-            margin: 30px;
+            // border-radius: 4px;
+            margin: 15px;
 
             @media screen  and (max-width: 992px){
-                width:calc((100% / 2) - 20px);
+                width:calc((100% / 2) - 30px);
             }
             @media screen  and (max-width: 767px){
                 width:100%;
                 margin: 10px 0px;
-             }
-
+            }
 
             &:hover{
                 cursor: pointer;
@@ -294,7 +337,7 @@ main{
                 width: 100%;
                 img{
                     width: 100%;
-                    border-radius: 4px 4px 0px 0px;
+                    // border-radius: 4px 4px 0px 0px;
                 }
 
                 .single-restaurant-img{
@@ -329,12 +372,18 @@ main{
                     .restaurant-category{
                         font-size: 20px;
                     }
+                    .restaurant-description::first-letter{
+                        text-transform: uppercase;
+                    }
+                    .restaurant-address{
+                        text-transform: capitalize;
+                    }
                     .restaurant-description,
                     .restaurant-address{
                         max-height: 70px;
                         overflow-y: hidden;
                         font-size: 20px;
-                        color: #818181
+                        color: #818181;
                     }
                     .fa-map-marker-alt{
                         color: #FF3966
@@ -508,7 +557,112 @@ $gray: #9b9b9b;
 
 
 
+.flip-card {
+    // background-color: transparent;
+    width: calc((100% / 3) - 30px);
+    height: 250px;
+    perspective: 1000px;
+    margin: 15px;
 
+    @media screen  and (max-width: 992px){
+        width: calc((100% / 2) - 30px);
+    }
+    @media screen  and (max-width: 767px){
+        width:100%;
+        margin: 10px 0px;
+    }
+
+    &:hover .flip-card-inner {
+        transform: rotateY(180deg);
+        cursor: pointer;
+    }
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.9s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+        .flip-card-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: #ec587b;
+            color: #fff;
+
+            .img-container{
+                height: 200px;
+                width: 100%;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .new-restaurant-name-container{
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: capitalize;
+
+                .new-restaurant-name{
+                    font-size: 23px;
+
+                    @media screen  and (max-width: 767px){
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+        .flip-card-back {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            background-color: #fff;
+            color: red;
+            transform: rotateY(180deg);
+            padding: 0 20px;
+
+            .new-restaurant-name-back{
+                color: #ec587b;
+                text-transform: capitalize;
+                font-size: 32px;
+
+                @media screen  and (max-width: 992px){
+                    font-size: 25px;
+                }
+            }
+            .new-restaurant-description,
+            .new-restaurant-address{
+                color: #333;
+                font-size: 16px;
+            }
+            .new-restaurant-description::first-letter{
+                text-transform: uppercase;
+            }
+            .new-restaurant-address{
+                text-transform: capitalize;
+            }
+            div{
+                color: #bbb
+            }
+            .fa-map-marker-alt{
+                color: #ec587b;
+            }
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+    }
+}
 
 
 

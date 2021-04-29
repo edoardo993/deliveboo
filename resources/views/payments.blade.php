@@ -5,36 +5,39 @@
             <form action="{{ url('/checkout')}}" method="POST" id="payment-form" name='formUno' novalidate class="needs-validation">
             @csrf
             <div class="form-group">
-                <label for="email">Indirizzo Email</label>
+                <label for="email" class="hide"></label>
                 <input type="email"
                     class="form-control"
                     id="email"
                     name="mail"
                     v-model='formData.email'
                     required
+                    placeholder="Inserisci la tua mail"
                 >
 
             </div>
 
             <div class="form-group">
-                <label for="customer_name">Nome destinatario</label>
+                <label for="customer_name" class="hide"></label>
                 <input type="text"
                     class="form-control"
                     id="customer_name"
                     name="customer_name"
                     v-model='formData.name'
                     required
+                    placeholder="Inserisci nome e cognome"
                 >
             </div>
 
             <div class="form-group">
-                <label for="address">Indirizzo di consegna</label>
+                <label for="address" class="hide"></label>
                 <input type="text"
                     class="form-control"
                     id="address"
                     name="address"
                     v-model='formData.address'
                     required
+                    placeholder="Inserisci l'indirizzo di consegna"
                 >
             </div>
 
@@ -77,7 +80,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <label for="cc_number" required>Numero carta di credito</label>
 
                     <div class="form-group" id="card-number">
@@ -109,7 +112,9 @@
 
             <input id="nonce" name="payment_method_nonce" type="hidden"/>
 
-            <button type="submit" class="btn btn-success"
+            <button type="submit"
+                class="btn btn-success"
+                id="return-to-cart"
                 v-on:click="backToCart('paymentsContainer', 'overlay-container', 'items-container', 'payment-button', 'total-products-price')"
             >
                 Torna al carrello
