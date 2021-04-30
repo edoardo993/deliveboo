@@ -11478,6 +11478,9 @@ body {
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container:hover {
   cursor: pointer;
 }
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container:hover .price-add-icon .add-cart-icon {
+  opacity: 1;
+}
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .plate-name {
   font-size: 20px;
   font-weight: bold;
@@ -11486,10 +11489,21 @@ body {
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .plate-name::first-letter {
   text-transform: uppercase;
 }
-.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .plate-price {
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .price-add-icon {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .price-add-icon .plate-price {
   font-weight: bold;
   color: #6C6C6C;
   font-size: 17px;
+}
+.single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .price-add-icon .add-cart-icon {
+  opacity: 0;
+  color: #ff3366;
+  font-size: 22px;
+  align-self: flex-end;
 }
 .single-restaurant-left-content .single-restaurant-plates .single-restaurant-wrap .plates-container .plate-description {
   word-break: break-all;
@@ -11739,7 +11753,7 @@ body {
 .payment-alert .payment-alert-text {
   font-size: 30px;
   color: #FF3966;
-  font-family: "Dancing Script", cursive;
+  font-family: "Quicksand";
   margin-bottom: 30px;
 }
 

@@ -165,10 +165,15 @@
                     labels:  {!!json_encode($chart->labels)!!} ,
                     datasets: [
                         {
-                            label: '2021',
+                            label: "Ordini 2020",
+                            backgroundColor: "rgba(255,51,102,0.8)",
+                            data: [4, 9, 3, 6, 12, 2, 17, 13, 5, 18, 15, 7]
+                        },
+                        {
+                            label: 'Ordini 2021',
                             backgroundColor: {!! json_encode($chart->colours)!!} ,
                             data:  {!! json_encode($chart->dataset)!!} ,
-                        },
+                        }
                     ]
                 },
                 options: {

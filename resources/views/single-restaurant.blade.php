@@ -74,9 +74,15 @@
                                 {{$plate->description}}
                             </span>
 
-                            <span class="plate-price">
-                                {{$plate->price}}€
-                            </span>
+                            <div class="price-add-icon">
+                                <span class="plate-price">
+                                    {{$plate->price}}€
+                                </span>
+
+                                <span class="add-cart-icon">
+                                    <i class="fas fa-cart-plus"></i>
+                                </span>
+                            </div>
 
                         </div>
 

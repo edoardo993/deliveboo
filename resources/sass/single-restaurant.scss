@@ -248,6 +248,9 @@
                 &:hover{
                     cursor: pointer;
                 }
+                &:hover .price-add-icon .add-cart-icon{
+                    opacity: 1
+                }
                 .plate-name{
                     font-size: 20px;
                     font-weight: bold;
@@ -257,12 +260,24 @@
                         text-transform: uppercase;
                     }
                 }
-                .plate-price{
-                    font-weight: bold;
-                    color: #6C6C6C;
-                    font-size: 17px;
+                .price-add-icon{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
 
+                    .plate-price{
+                        font-weight: bold;
+                        color: #6C6C6C;
+                        font-size: 17px;
+                    }
+                    .add-cart-icon{
+                        opacity: 0;
+                        color: rgba(255,51,102,1);
+                        font-size: 22px;
+                        align-self: flex-end;
+                    }
                 }
+
                 .plate-description{
                     word-break: break-all;
                     overflow-y: auto;

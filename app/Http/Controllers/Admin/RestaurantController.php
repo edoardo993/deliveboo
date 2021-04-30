@@ -131,9 +131,8 @@ class RestaurantController extends Controller
                 $december[] = $thisOrder;
             }
         }
-
                  for ($i=0; $i <= 12; $i++) {
-                    $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+                    $colours[] = '#FF8' . substr(str_shuffle('012346789'), 0, 3);
                 }
                 // Prepare the data for returning with the view
                 $chart = new Chart();
