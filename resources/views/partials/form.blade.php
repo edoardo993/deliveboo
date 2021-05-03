@@ -20,7 +20,7 @@
 
     <h2 class="text-center">{{$title}}</h2>
 
-    <form action="{{$url}}" method="post">
+    <form action="{{$url}}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method($method)
@@ -123,7 +123,7 @@
 
             <label for="pic_url">Immagine ristorante</label>
 
-            <input type="text"
+            <input type="file"
                 class="form-control {{ $errors->has('pic_url') ? 'is-invalid' : ''}}"
                 id="pic_url"
                 placeholder="Inserisci l'immagine"

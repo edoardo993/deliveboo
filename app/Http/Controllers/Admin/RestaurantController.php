@@ -48,11 +48,14 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
+        $path = $request->file('pic_url')->store('public');
+
         $data = $request->all();
 
         $currentUser = Auth::user();
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($data);
+        $newRestaurant->pic_url = $path;
         $newRestaurant->user_id = $currentUser->id;
         $newRestaurant->save();
         $newRestaurant->categories()->attach($data['categories']);
@@ -165,7 +168,13 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, Restaurant $restaurant)
     {
+        $path = $request->file('pic_url')->store('public');
         $data = $request->all();
+        $restaurant->pic_url = $path;
+        if(!empty($data['categories'])){
+            $restaurant->categories()->detach($restaurant->categories);
+            $restaurant->categories()->attach($data['categories']);
+        }
         $restaurant->update($data);
 
         return redirect()->route('restaurants.show', compact('restaurant'));

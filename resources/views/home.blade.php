@@ -27,7 +27,7 @@
             <div class="user-restaurant-card" href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}">
 
                 <div class="img-container">
-                    <img src="{{$userRestaurant->pic_url}}" alt="immagine ristorante">
+                    <img src="{{asset($userRestaurant->pic_url)}}" alt="immagine ristorante">
                 </div>
 
                 <a href="{{ route('restaurants.show', ['restaurant' => $userRestaurant])}}"> {{$userRestaurant->business_name}}</a>
