@@ -138,6 +138,12 @@
 
         </div>
 
+
+        <div class="form-group">
+            <label for="slug">Come vuoi che venga visualizzato il tuo nome nella URL? ( Consiglio: inserire il nome ristorante )</label>
+            <input type="text" name="slug" class="form-control" value="{{ $edit ? $restaurant->business_name : old('slug') }}" placeholder="nome ristorante" required>
+        </div>
+
         <button type="submit" class="create-button">
             <div >{{$submit}}</div>
         </button>

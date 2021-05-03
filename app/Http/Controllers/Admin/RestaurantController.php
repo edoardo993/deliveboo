@@ -7,7 +7,7 @@ use App\Chart;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Restaurant;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -51,7 +51,7 @@ class RestaurantController extends Controller
         $path = $request->file('pic_url')->store('public');
 
         $data = $request->all();
-
+        $data['slug'] = Str::slug($data['slug'], '-');
         $currentUser = Auth::user();
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($data);
@@ -70,7 +70,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('this-restaurant', compact('restaurant'));
+        return view('this-restaurant', compact('restaurant'))->withRestaurant($restaurant);
     }
 
     public function showOrders(Restaurant $restaurant)
@@ -143,7 +143,7 @@ class RestaurantController extends Controller
                 $chart->dataset = [count($january),count($february),count($march),count($april),count($may),count($june),count($july),count($august),count($september),count($october),count($november),count($december)];
                 $chart->colours = $colours;
 
-        return view('orders', compact('restaurant'))->with('chart', $chart);
+        return view('orders',['restaurant' => $restaurant])->with('chart', $chart);
     }
 
     /**
@@ -156,7 +156,7 @@ class RestaurantController extends Controller
     {
         $categories= Category::all();
 
-        return view('auth.edit-restaurant', compact('restaurant','categories'));
+        return view('auth.edit-restaurant', compact('restaurant','categories'))->withRestaurant($restaurant);
     }
 
     /**
@@ -170,6 +170,7 @@ class RestaurantController extends Controller
     {
         $path = $request->file('pic_url')->store('public');
         $data = $request->all();
+        $data['slug'] = Str::slug($data['slug'], '-');
         $restaurant->pic_url = $path;
         if(!empty($data['categories'])){
             $restaurant->categories()->detach($restaurant->categories);
