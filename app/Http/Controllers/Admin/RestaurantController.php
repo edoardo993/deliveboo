@@ -51,7 +51,7 @@ class RestaurantController extends Controller
         $path = $request->file('pic_url')->store('public');
 
         $data = $request->all();
-        $data['slug'] = Str::slug($data['slug'], '-');
+        // $data['slug'] = Str::slug($data['slug'], '-');
         $currentUser = Auth::user();
         $newRestaurant = new Restaurant();
         $newRestaurant->fill($data);
@@ -170,7 +170,7 @@ class RestaurantController extends Controller
     {
         $path = $request->file('pic_url')->store('public');
         $data = $request->all();
-        $data['slug'] = Str::slug($data['slug'], '-');
+        // $data['slug'] = Str::slug($data['slug'], '-');
         $restaurant->pic_url = $path;
         if(!empty($data['categories'])){
             $restaurant->categories()->detach($restaurant->categories);

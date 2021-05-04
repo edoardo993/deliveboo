@@ -72,7 +72,7 @@ const app = new Vue({
 
         },
         singleRestaurant(restaurant){
-            return window.location.href='http://127.0.0.1:8000/single-restaurant/' + restaurant.slug
+            return window.location.href='http://127.0.0.1:8000/single-restaurant/' + restaurant.id
         },
         returnAllListRestaurant(){
             this.results = [];
